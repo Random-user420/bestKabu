@@ -92,7 +92,7 @@ function getTimeObject(hours, minutes) {
 }
 
 function checkTime(item, index) {
-    currentTime = new Date();
+    let currentTime = new Date();
     const startTime = getTimeObject(item.start[0], item.start[1]);
     const endTime = getTimeObject(item.end[0], item.end[1]);
 
@@ -179,16 +179,16 @@ function hidePassedDays() {
 }
 
 function markCurrentDay() {
-    var today = new Date(),
+    let today = new Date(),
         day = String(today.getDate()).padStart(2, "0"),
         month = String(today.getMonth() + 1).padStart(2, "0"),
         date = day + "." + month + ".";
 
-    var tables = document.getElementsByTagName("table");
-    for (var i = 0; i < tables.length; i++) {
-        var strongs = tables[i].getElementsByTagName("strong");
-        for (var j = 0, len = strongs.length; j < len; j++) {
-            var strong = strongs[j];
+    let tables = document.getElementsByTagName("table");
+    for (let i = 0; i < tables.length; i++) {
+        let strongs = tables[i].getElementsByTagName("strong");
+        for (let j = 0, len = strongs.length; j < len; j++) {
+            let strong = strongs[j];
             if (strong.textContent.includes(date)) {
                 strong.closest("tr").style.backgroundColor = "#4281ff";
                 return;
