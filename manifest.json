@@ -1,7 +1,7 @@
 {
-    "name": "BetterKabu",
-    "description": "BetterKabu: Dark Mode, Tages-/Stunden-Hervorhebung & Stunden-Timer für Digikabu.de",
-    "version": "1.6.1",
+    "name": "BestKabu",
+    "description": "BestKabu: Improve your experience of digikabu.de",
+    "version": "1.4.1",
     "manifest_version": 3,
     "icons": {
         "16": "/icons/icon16.png",
