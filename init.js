@@ -1,9 +1,14 @@
-
-if ((document.referrer == "https://www.digikabu.de") || (document.referrer == "https://www.digikabu.de/Main/TestRedirect")) {
+if (
+    document.referrer === "https://www.digikabu.de" ||
+    document.referrer === "https://www.digikabu.de/Main/TestRedirect"
+) {
     window.location.href = "https://www.digikabu.de/Stundenplan/Klasse";
 }
 
-if ((document.referrer == "https://digikabu.de") || (document.referrer == "https://digikabu.de/Main/TestRedirect")) {
+if (
+    document.referrer === "https://digikabu.de" ||
+    document.referrer === "https://digikabu.de/Main/TestRedirect"
+) {
     window.location.href = "https://digikabu.de/Stundenplan/Klasse";
 }
 
@@ -52,15 +57,14 @@ timeTable = [
 
 const refreshTimeout = 10000;
 const hourOver = "grey";
-const hourNow = "#7CBB00";
 
 function startInfiniteLoop() {
-    setTimeout(function() {
+    setTimeout(function () {
         timeTable.forEach(checkTime);
         startInfiniteLoop();
-    }, refreshTimeout)
+    }, refreshTimeout);
 }
-  
+
 document.onreadystatechange = () => {
     if (document.readyState === "complete") {
         console.log("BetterKabu running");
@@ -77,14 +81,14 @@ document.onreadystatechange = () => {
             }, 600);
         }
     }
-}
+};
 
 function getTimeObject(hours, minutes) {
     let obj = new Date();
     obj.setHours(hours);
     obj.setMinutes(minutes);
     obj.setSeconds(0);
-    return obj
+    return obj;
 }
 
 function checkTime(item, index) {
@@ -95,77 +99,80 @@ function checkTime(item, index) {
     let box;
 
     if (window.location.pathname.includes("Stundenplan")) {
-        box = document.getElementById('umgebung').children[0];
+        box = document.getElementById("umgebung").children[0];
     } else {
-        box = document.getElementById('umgebung').children[0].children[1].children[0];
+        box =
+            document.getElementById("umgebung").children[0].children[1].children[0];
     }
 
     const currentBox = box.children[index];
 
     if (currentTime > endTime) {
-        currentBox.children[0].classList.remove('weekdayToday');
+        currentBox.children[0].classList.remove("weekdayToday");
         currentBox.children[1].style.fill = hourOver;
         currentBox.children[2].style.fill = hourOver;
         currentBox.children[3].style.fill = hourOver;
-    } else if ((currentTime > startTime) && (currentTime < endTime)) {
-        currentBox.children[0].classList.add('weekdayToday');
-
+    } else if (currentTime > startTime && currentTime < endTime) {
+        currentBox.children[0].classList.add("weekdayToday");
     }
 }
 
 function showTimer() {
-  if (window.location.pathname.includes("Stundenplan")) {
+    if (window.location.pathname.includes("Stundenplan")) {
+        const box = document.getElementById("stdplanheading");
 
-    const box = document.getElementById("stdplanheading");
+        const timerText = document.createElement("span");
+        timerText.id = "timerText";
 
-    const timerText = document.createElement("span");
-    timerText.id = "timerText";
+        box.append(timerText);
 
-
-    box.append(timerText);
-
-    function updateTimerDisplay(minutes, seconds) {
-      const timerText = `${minutes}m ${seconds}s`;
-      document.querySelector("#timerText").textContent = timerText;
-    }
-
-    function calculateTimeDiff() {
-      const currentTime = new Date();
-
-      let nextLessonStart;
-      for (let i = 0; i < timeTable.length; i++) {
-        const startTime = getTimeObject(timeTable[i].start[0], timeTable[i].start[1]);
-        if (currentTime < startTime) {
-          nextLessonStart = startTime;
-          break;
+        function updateTimerDisplay(minutes, seconds) {
+            let timerText = `${minutes}m ${seconds}s`;
+            if (isNaN(minutes)) {
+                timerText = "Schule zu Ende :)";
+            }
+            document.querySelector("#timerText").textContent = timerText;
         }
-      }
 
-      const timeDiff = Math.max(nextLessonStart - currentTime, 0);
-      const minutes = Math.floor(timeDiff / 60000);
-      const seconds = Math.floor((timeDiff % 60000) / 1000);
+        function calculateTimeDiff() {
+            const currentTime = new Date();
 
-      updateTimerDisplay(minutes, seconds);
+            let nextLessonStart;
+            for (let i = 0; i < timeTable.length; i++) {
+                const endTime = getTimeObject(timeTable[i].end[0], timeTable[i].end[1]);
+                if (currentTime < endTime) {
+                    nextLessonStart = endTime;
+                    break;
+                }
+            }
+
+            const timeDiff = Math.max(nextLessonStart - currentTime, 0);
+            const minutes = Math.floor(timeDiff / 60000);
+            const seconds = Math.floor((timeDiff % 60000) / 1000);
+
+            updateTimerDisplay(minutes, seconds);
+        }
+
+        calculateTimeDiff();
+
+        setInterval(calculateTimeDiff, 1000);
     }
-
-    calculateTimeDiff();
-
-    setInterval(calculateTimeDiff, 1000);
-  }
 }
-
-
 
 function hidePassedDays() {
     let box;
 
     if (window.location.pathname.includes("Stundenplan")) {
-        box = document.getElementById('umgebung');
+        box = document.getElementById("umgebung");
         for (let i = 1; i < 5; i++) {
-            if (box.children[i].children[0].children[0].classList.contains('weekdayToday')) {
-                break
+            if (
+                box.children[i].children[0].children[0].classList.contains(
+                    "weekdayToday",
+                )
+            ) {
+                break;
             } else {
-                box.children[i].children[0].children[1].classList.add('passedDay');
+                box.children[i].children[0].children[1].classList.add("passedDay");
             }
         }
     }
@@ -173,9 +180,9 @@ function hidePassedDays() {
 
 function markCurrentDay() {
     var today = new Date(),
-    day = String(today.getDate()).padStart(2, "0"),
-    month = String(today.getMonth() + 1).padStart(2, "0"),
-    date = day + "." + month + ".";
+        day = String(today.getDate()).padStart(2, "0"),
+        month = String(today.getMonth() + 1).padStart(2, "0"),
+        date = day + "." + month + ".";
 
     var tables = document.getElementsByTagName("table");
     for (var i = 0; i < tables.length; i++) {
