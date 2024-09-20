@@ -58,6 +58,14 @@
                 font-family: "Rubik", sans-serif;
                 font-weight: 500;
             }
+            #colorInputField {
+                display: flex;
+                gap: 5px;
+                margin-top: 5px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
         </style>
     </head>
     <body>
@@ -68,6 +76,11 @@
                 <i class=""></i>
                 <span>Source</span>
             </a>
+            <div id="colorInputField">
+                <input type="color" id="colorPicker" />
+                <button id="changeColorBtn">Farbe ändern</button>
+                <script src="popup.js"></script>
+            </div>
         </div>
     </body>
 </html>
