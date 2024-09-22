@@ -33,10 +33,7 @@ function delete_credentials() {
 }
 
 function login() {
-    let username_;
-    let password_;
-    [username_, password_] = get_stored_credentials();
-    console.log("username: ", username_, "password: ", password_);
+    let [username_, password_] = get_stored_credentials();
     if (username_ == null || password_ == null) {
         return;
     }

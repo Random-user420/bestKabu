@@ -2,15 +2,17 @@ function showTimer() {
     if (window.location.pathname.includes("Stundenplan")) {
         const box = document.getElementById("stdplanheading");
 
-        const timerText = document.createElement("span");
-        timerText.id = "timerText";
+        const timerElement = document.createElement("span");
+        timerElement.id = "timerText";
 
         box.append(timerText);
 
         function updateTimerDisplay(minutes, seconds) {
-            let timerText = `${minutes}m ${seconds}s`;
+            let timerText;
             if (isNaN(minutes)) {
                 timerText = "Schule zu Ende :)";
+            } else {
+                timerText = `${minutes}m ${seconds}s`;
             }
             document.querySelector("#timerText").textContent = timerText;
         }

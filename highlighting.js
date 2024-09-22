@@ -1,5 +1,5 @@
 function checkTime(item, index) {
-    let currentTime = new Date();
+    const currentTime = new Date();
     const startTime = getTimeObject(item.start[0], item.start[1]);
     const endTime = getTimeObject(item.end[0], item.end[1]);
 
@@ -24,12 +24,9 @@ function checkTime(item, index) {
     }
 }
 
-
 function hidePassedDays() {
-    let box;
-
     if (window.location.pathname.includes("Stundenplan")) {
-        box = document.getElementById("umgebung");
+        const box = document.getElementById("umgebung");
         for (let i = 1; i < 5; i++) {
             if (
                 box.children[i].children[0].children[0].classList.contains(
@@ -43,7 +40,6 @@ function hidePassedDays() {
         }
     }
 }
-
 function markCurrentDay() {
     let today = new Date(),
         day = String(today.getDate()).padStart(2, "0"),
