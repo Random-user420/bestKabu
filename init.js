@@ -58,6 +58,31 @@ timeTable = [
 const refreshTimeout = 10000;
 const hourOver = "grey";
 
+function get_stored_color() {
+    const color_ = localStorage.getItem("color");
+    if (color_ !== null) {
+        return color_;
+    }
+    else {
+        return "#4281ff";
+    }
+}
+
+function set_stored_color(color_) {
+    if (color_ !== null && color_ !== undefined && color_ !== "" && color_.includes("#")) {
+        color = color_;
+        localStorage.setItem("color", color);
+    }
+}
+
+function set_style_color() {
+    // Change the --weekdayToday variable to a new color
+    document.documentElement.style.setProperty('--weekdayToday', color);
+}
+
+let color = get_stored_color();
+set_style_color();
+
 function startInfiniteLoop() {
     setTimeout(function () {
         timeTable.forEach(checkTime);
@@ -67,7 +92,7 @@ function startInfiniteLoop() {
 
 document.onreadystatechange = () => {
     if (document.readyState === "complete") {
-        console.log("BetterKabu running");
+        console.log("BestKabu running");
         const urlpath = window.location.pathname;
         if (urlpath.includes("SchulaufgabenPlan")) {
             markCurrentDay();
@@ -190,7 +215,7 @@ function markCurrentDay() {
         for (let j = 0, len = strongs.length; j < len; j++) {
             let strong = strongs[j];
             if (strong.textContent.includes(date)) {
-                strong.closest("tr").style.backgroundColor = "#4281ff";
+                strong.closest("tr").style.backgroundColor = color;
                 return;
             }
         }

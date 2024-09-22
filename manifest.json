@@ -24,6 +24,9 @@
             "strict_min_version": "109.0"
         }
     },
+    "permissions": [
+        "storage"
+    ],
     "content_scripts": [{
         "matches": ["https://*.digikabu.de/*", "http://*.digikabu.de/*", "https://digikabu.de/*", "http://digikabu.de/*"],
         "js": ["init.js", "content.js"],
