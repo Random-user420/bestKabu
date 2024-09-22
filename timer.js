@@ -5,7 +5,7 @@ function showTimer() {
         const timerElement = document.createElement("span");
         timerElement.id = "timerText";
 
-        box.append(timerText);
+        box.append(timerElement);
 
         function updateTimerDisplay(minutes, seconds) {
             let timerText;
