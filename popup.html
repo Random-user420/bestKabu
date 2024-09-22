@@ -25,6 +25,14 @@
                 border-radius: clamp(0.4rem, 0.75vw, 1rem);
             }
 
+            h4 {
+                margin: unset;
+                font-family: 'Futura', monospace;
+                font-size: 20px;
+                color: white;
+                border-radius: clamp(0.4rem, 0.75vw, 1rem);
+            }
+
             body.menu-toggled > .meta-link > span {
                 color: rgb(30, 30, 30);
             }
@@ -47,6 +55,19 @@
                 justify-content: center;
                 align-items: center;
             }
+            .autologin{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            #autologin {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
         </style>
     </head>
     <body>
@@ -56,9 +77,23 @@
             <div id="colorInputField">
                 <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" width="10px" />
                 <button id="changeColorBtn">Farbe ändern</button>
-                <script src="popup.js"></script>
             </div>
             <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
         </div>
+        <br/>
+        <div class="autologin">
+            <h4>BetterKabu Autologin</h4>
+            <div>
+                <p>Be aware of any securety risks by using this feature.</p>
+                <input type="checkbox" id="autologinCheckbox">Enable</input>
+                <br>
+                <div id="autologin">
+                    <input type="text" id="autologinUsername" placeholder="Username"/>
+                    <input type="password" id="autologinPassword" placeholder="Password"/>
+                    <button id="autologinBtn">Save Login</button>
+                </div>
+            </div>
+        </div>
     </body>
+    <script src="popup.js"></script>
 </html>
