@@ -47,12 +47,6 @@
                 font-family: "Rubik", sans-serif;
                 font-weight: 500;
             }
-            .left {
-                text-align: left;
-                place-items: left;
-                justify-content: left;
-                align-items: left;
-            }
             #colorInputField {
                 display: flex;
                 gap: 5px;
@@ -60,6 +54,19 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
+            }
+            .autologin{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            #autologin {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
             }
         </style>
     </head>
@@ -74,10 +81,10 @@
             <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
         </div>
         <br/>
-        <div>
+        <div class="autologin">
             <h4>BetterKabu Autologin</h4>
-            <div class="left">
-                <div>Be aware of any securety risks by using this feature.</div>
+            <div>
+                <p>Be aware of any securety risks by using this feature.</p>
                 <input type="checkbox" id="autologinCheckbox">Enable</input>
                 <br>
                 <div id="autologin">
