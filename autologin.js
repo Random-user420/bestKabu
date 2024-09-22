@@ -27,12 +27,17 @@ function get_credentials_enabled() {
     return localStorage.getItem("enabled");
 }
 
+function delete_credentials() {
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+}
+
 function login() {
     let username_;
     let password_;
     [username_, password_] = get_stored_credentials();
     console.log("username: ", username_, "password: ", password_);
-    if (username_ === null || password_ === null) {
+    if (username_ == null || password_ == null) {
         return;
     }
     document.getElementById("UserName").value = username_;

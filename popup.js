@@ -13,3 +13,9 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
         chrome.tabs.sendMessage(tabs[0].id, { pawssword: password, username: username, enabled: enabled });
     });
 });
+
+document.getElementById('autologinresetBtn').addEventListener('click', () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { delLogin: true });
+    });
+});

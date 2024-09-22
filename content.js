@@ -6,6 +6,9 @@ chrome.runtime.onMessage.addListener((request) => {
             el.style.setProperty('fill', request.color, 'important');
         });
     }
+    else if (request.delLogin) {
+        delete_credentials();
+    }
     else if (request.username || "", request.pawssword || "", request.enabled || true) {
         processCredentials(request.username, request.pawssword, request.enabled);
     }
