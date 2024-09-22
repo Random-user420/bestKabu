@@ -29,25 +29,6 @@
                 color: rgb(30, 30, 30);
             }
 
-            .meta-link {
-                backdrop-filter: blur(3px);
-                background-color: rgba(255, 255, 255, 0.05);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: 6px;
-                bottom: 10px;
-                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-                cursor: pointer;
-                margin: 5px;
-                display: inline-block;
-                padding: 10px 20px;
-                transition: background-color 400ms, border-color 400ms;
-            }
-
-            .meta-link:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
             .meta-link > i, .meta-link > span {
                 height: 20px;
                 line-height: 20px;
@@ -58,16 +39,26 @@
                 font-family: "Rubik", sans-serif;
                 font-weight: 500;
             }
+            #colorInputField {
+                display: flex;
+                gap: 5px;
+                margin-top: 5px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
         </style>
     </head>
     <body>
         <h3 data-value="BetterKabu">BestKabu</h3>
         <p>Verwandelt Digikabu in BestKabu</p>
         <div>
-            <a id="github" class="meta-link" href="https://github.com/vLeov/bestKabu" target="_blank">
-                <i class=""></i>
-                <span>Source</span>
-            </a>
+            <div id="colorInputField">
+                <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" width="10px" />
+                <button id="changeColorBtn">Farbe ändern</button>
+                <script src="popup.js"></script>
+            </div>
+            <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
         </div>
     </body>
 </html>
