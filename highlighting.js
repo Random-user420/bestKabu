@@ -41,16 +41,16 @@ function hidePassedDays() {
     }
 }
 function markCurrentDay() {
-    let today = new Date(),
+    const today = new Date(),
         day = String(today.getDate()).padStart(2, "0"),
         month = String(today.getMonth() + 1).padStart(2, "0"),
         date = day + "." + month + ".";
 
-    let tables = document.getElementsByTagName("table");
+    const tables = document.getElementsByTagName("table");
     for (let i = 0; i < tables.length; i++) {
-        let strongs = tables[i].getElementsByTagName("strong");
+        const strongs = tables[i].getElementsByTagName("strong");
         for (let j = 0, len = strongs.length; j < len; j++) {
-            let strong = strongs[j];
+            const strong = strongs[j];
             if (strong.textContent.includes(date)) {
                 strong.closest("tr").style.backgroundColor = color;
                 return;
