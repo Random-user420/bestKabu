@@ -29,7 +29,7 @@
     ],
     "content_scripts": [{
         "matches": ["https://*.digikabu.de/*", "http://*.digikabu.de/*", "https://digikabu.de/*", "http://digikabu.de/*"],
-        "js": ["init.js", "content.js"],
+        "js": ["init.js", "content.js", "autologin.js"],
         "css": ["init.css"]
     }]
 }

@@ -105,6 +105,9 @@ document.onreadystatechange = () => {
                 startInfiniteLoop();
             }, 600);
         }
+        if (urlpath === "/" && get_credentials_enabled() === "true") {
+            login();
+        }
     }
 };
 
@@ -220,4 +223,8 @@ function markCurrentDay() {
             }
         }
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

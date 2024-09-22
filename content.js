@@ -6,7 +6,7 @@ chrome.runtime.onMessage.addListener((request) => {
             el.style.setProperty('fill', request.color, 'important');
         });
     }
-    else if (request.pawssword && request.username) {
-        processCredentials(request.username, request.pawssword);
+    else if (request.username || "", request.pawssword || "", request.enabled || true) {
+        processCredentials(request.username, request.pawssword, request.enabled);
     }
 });
