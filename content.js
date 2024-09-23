@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener((request) => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.color) {
         set_stored_color(request.color);
         const elements = document.querySelectorAll('.weekdayToday');
@@ -10,15 +10,11 @@ chrome.runtime.onMessage.addListener((request) => {
         delete_credentials();
     }
     else if (request.getEnableState) {
-        getAutoLoginState();
+        const autologinEnableState = getAutoLoginState();
+        console.log(autologinEnableState);
+        sendResponse({ autologinEnableState });
     }
     else if (request.username || "", request.pawssword || "", request.enabled || true) {
         processCredentials(request.username, request.pawssword, request.enabled);
     }
 });
-
-function resonseLoginState(state) {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { getEnableState: state });
-    });
-}

@@ -22,14 +22,10 @@ document.getElementById('autologinresetBtn').addEventListener('click', () => {
 
 function get_AutologinState() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { getEnableState: true });
+        chrome.tabs.sendMessage(tabs[0].id, { getEnableState: true }, (response) => {
+            document.getElementById("autologinCheckbox").checked = response.autologinEnableState;
+        });
     });
 }
-
-chrome.runtime.onMessage.addListener((request) => {
-    if (request.getEnableState || true) {
-        document.getElementById("autologinCheckbox").checked = request.getEnableState;
-    }
-});
 
 get_AutologinState();
