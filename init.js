@@ -19,23 +19,22 @@ function startInfiniteLoop() {
     }, refreshTimeout);
 }
 
-document.onreadystatechange = () => {
-    if (document.readyState === "complete") {
-        console.log("BestKabu running");
-        const urlpath = window.location.pathname;
-        if (urlpath.includes("SchulaufgabenPlan")) {
-            markCurrentDay();
-        }
-        if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
-            setTimeout(() => {
-                hidePassedDays();
-                showTimer();
-                timeTable.forEach(checkTime);
-                startInfiniteLoop();
-            }, 600);
-        }
-        if (urlpath === "/" && get_credentials_enabled() === "true") {
-            login();
-        }
+window.addEventListener("pageshow", () => {
+    console.log("BestKabu running");
+    const urlpath = window.location.pathname;
+    if (urlpath.includes("SchulaufgabenPlan")) {
+        markCurrentDay();
     }
-};
+    if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
+        setTimeout(() => {
+            hidePassedDays();
+            showTimer();
+            timeTable.forEach(checkTime);
+            startInfiniteLoop();
+        }, 600);
+    }
+    if (urlpath === "/" && get_credentials_enabled() === "true") {
+        login();
+    }
+    
+});
