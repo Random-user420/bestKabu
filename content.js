@@ -18,5 +18,7 @@ chrome.runtime.onMessage.addListener((request) => {
 });
 
 function resonseLoginState(state) {
-    chrome.tabs.sendMessage(tabs[0].id, { getEnableState: state });
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { getEnableState: state });
+    });
 }

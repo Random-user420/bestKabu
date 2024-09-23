@@ -44,13 +44,14 @@ function login() {
 }
 
 function getAutoLoginState() {
-    const autologinEnableState = localStorage.getItem("Enable");
-        if (autologinEnableState == null || autologinEnableState == undefined) {
-            if(autologinEnableState === "true") {
-                resonseLoginState(true);
-            }
+    console.log("getAutoLoginState")
+    const autologinEnableState = localStorage.getItem("enabled");
+    if (autologinEnableState == null || autologinEnableState == undefined) {
+        if(autologinEnableState === "true") {
+            resonseLoginState(true);
         }
-        else {
-            resonseLoginState(false);
-        }
+    }
+    else {
+        resonseLoginState(false);
+    }
 }
