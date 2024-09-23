@@ -42,3 +42,15 @@ function login() {
     sleep(300);
     document.querySelector(".btn.btn-primary").click();
 }
+
+function getAutoLoginState() {
+    const autologinEnableState = localStorage.getItem("Enable");
+        if (autologinEnableState == null || autologinEnableState == undefined) {
+            if(autologinEnableState === "true") {
+                resonseLoginState(true);
+            }
+        }
+        else {
+            resonseLoginState(false);
+        }
+}
