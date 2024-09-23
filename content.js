@@ -11,7 +11,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
     else if (request.getEnableState) {
         const autologinEnableState = getAutoLoginState();
-        console.log(autologinEnableState);
         sendResponse({ autologinEnableState });
     }
     else if (request.username || "", request.pawssword || "", request.enabled || true) {
