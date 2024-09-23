@@ -21,11 +21,16 @@ function showTimer() {
             const currentTime = new Date();
 
             let nextLessonStart;
-            for (let i = 0; i < timeTable.length; i++) {
-                const endTime = getTimeObject(timeTable[i].end[0], timeTable[i].end[1]);
-                if (currentTime < endTime) {
-                    nextLessonStart = endTime;
-                    break;
+            if (getTimeObject(timeTable[0].start[0], timeTable[0].start[1]) > currentTime) {
+                nextLessonStart = getTimeObject(timeTable[0].start[0], timeTable[0].start[1]);
+            }
+            else {
+                for (let i = 0; i < timeTable.length; i++) {
+                    const endTime = getTimeObject(timeTable[i].end[0], timeTable[i].end[1]);
+                    if (currentTime < endTime) {
+                        nextLessonStart = endTime;
+                        break;
+                    }
                 }
             }
 
