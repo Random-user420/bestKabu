@@ -6,10 +6,17 @@ function checkTime(item, index) {
     let box;
 
     if (window.location.pathname.includes("Stundenplan")) {
-        box = document.getElementById("umgebung").children[0];
+        box = document.getElementById("umgebung");
+        if (box === null) {
+            return;
+        }
+        box = box.children[0];
     } else {
-        box =
-            document.getElementById("umgebung").children[0].children[1].children[0];
+        box = document.getElementById("umgebung");
+        if (box === null) {
+            return;
+        }
+        box = box.children[0].children[1].children[0];
     }
 
     const currentBox = box.children[index];
@@ -27,6 +34,9 @@ function checkTime(item, index) {
 function hidePassedDays() {
     if (window.location.pathname.includes("Stundenplan")) {
         const box = document.getElementById("umgebung");
+        if (box === null) {
+            return;
+        }
         for (let i = 1; i < 5; i++) {
             if (
                 box.children[i].children[0].children[0].classList.contains(

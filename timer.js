@@ -1,6 +1,11 @@
 function showTimer() {
     if (window.location.pathname.includes("Stundenplan")) {
-        const box = document.getElementById("stdplanheading");
+        let box = document.getElementById("stdplanheading");
+        console.log(box);
+        if (box === null) {
+            box = document.querySelector('div[style="margin-left:10px;"]');
+            console.log(box);
+        }
 
         const timerElement = document.createElement("span");
         timerElement.id = "timerText";
