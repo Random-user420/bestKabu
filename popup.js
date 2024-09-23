@@ -19,3 +19,13 @@ document.getElementById('autologinresetBtn').addEventListener('click', () => {
         chrome.tabs.sendMessage(tabs[0].id, { delLogin: true });
     });
 });
+
+function get_AutologinState() {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { getEnableState: true }, (response) => {
+            document.getElementById("autologinCheckbox").checked = response.autologinEnableState;
+        });
+    });
+}
+
+get_AutologinState();

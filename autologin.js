@@ -42,3 +42,15 @@ function login() {
     sleep(300);
     document.querySelector(".btn.btn-primary").click();
 }
+
+function getAutoLoginState() {
+    const autologinEnableState = localStorage.getItem("enabled");
+    if (autologinEnableState != null || autologinEnableState != undefined) {
+        if(autologinEnableState === "true") {
+            return true;
+        }
+    }
+    else {
+        return false;
+    }
+}
