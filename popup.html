@@ -10,14 +10,16 @@
 <body>
     <h3 data-value="BetterKabu">BestKabu</h3>
     <p>Verwandelt Digikabu in BestKabu</p>
+    <hr class="sectionLine" width="50px">
     <div>
+        <h4>ColorPicker</h4>
         <div id="colorInputField">
-            <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" width="10px" />
+            <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6"/>
             <button id="changeColorBtn">Farbe ändern</button>
         </div>
         <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
     </div>
-    <br />
+    <hr class="sectionLine" width="50px">
     <div class="autologin">
         <h4>BetterKabu Autologin</h4>
         <div>
@@ -27,18 +29,25 @@
             <div id="autologin">
                 <input type="text" id="autologinUsername" placeholder="Username" />
                 <input type="password" id="autologinPassword" placeholder="Password" />
-                <button id="autologinBtn">Save Login</button>
-                <button id="autologinresetBtn">Delete stored Login</button>
+                <div>
+                    <button id="autologinBtn">Save Login</button>
+                    <button id="autologinresetBtn">Delete Login</button>
+                </div>
             </div>
         </div>
     </div>
-    <h4>Toggle Dark Mode</h4>
-    White Mode
-    <label class="switch">
-        <input type="checkbox" id="darkModeToggle">
-        <span class="slider round"></span>
-    </label>
-    Dark Mode
+    <hr class="sectionLine" width="50px">
+    <div class="toggleDarkMode">
+        <h4>Toggle Dark Mode</h4>
+        <div class="toggleButton">
+            <img src="icons/sun-regular.svg" alt="sun icon" width="20px" height="20px">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+            <img src="icons/moon-solid.svg" style="margin-left: 5px" width="20px" height="20px" alt="sun icon">
+        </div>
+    </div>
 </body>
 <script src="popup.js"></script>
 

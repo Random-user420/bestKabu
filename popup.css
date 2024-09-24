@@ -91,6 +91,8 @@ body.menu-toggled>.meta-link>span {
     left: 0;
     right: 0;
     bottom: 0;
+    height: 30px;
+    width: 48px;
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
@@ -129,4 +131,24 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.sectionLine {
+    margin: 15px 0px 15px 0px;
+}
+
+.toggleButton {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#autologinCheckbox {
+    margin-bottom: 10px;
+}
+
+#colorPicker {
+    width: 125px;
 }
