@@ -1,10 +1,8 @@
 function showTimer() {
     if (window.location.pathname.includes("Stundenplan")) {
         let box = document.getElementById("stdplanheading");
-        console.log(box);
         if (box === null) {
             box = document.querySelector('div[style="margin-left:10px;"]');
-            console.log(box);
         }
 
         const timerElement = document.createElement("span");
