@@ -9,6 +9,7 @@
     --hourChanged: #fab433;
     --weekdayToday: #4281ff;
     --white: rgb(221, 221, 221);
+    --timerBackgound: #434549;
 }
 
 body {
@@ -168,7 +169,7 @@ div.form-group label {
 #timerText {
     width: 200px;
     height: 37px;
-    background-color: #434549;
+    background-color: var(--timerBackgound);
     border-radius: 4px;
     display: inline-flex;
     justify-content: center;
