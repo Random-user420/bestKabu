@@ -27,12 +27,20 @@ document.getElementById('darkModeToggle').addEventListener('click', () => {
     });
 });
 
-function get_AutologinState() {
+function getAutologinState() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { get_AutologinState: true }, (response) => {
             document.getElementById("autologinCheckbox").checked = response.autologinEnableState;
         });
     });
 }
+function getDarkMode() {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { getDarkModeState: true }, (response) => {
+            document.getElementById("darkModeToggle").checked = response.darkModeState;
+        });
+    });
+}
 
-get_AutologinState();
+getAutologinState();
+getDarkMode();
