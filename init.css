@@ -3,13 +3,16 @@
     --navColor: #1f2124;
     --backgroundColor: #292b30;
     --planColor: #37393f;
-    --lessonColor: #434549 !important;
+    --lessonColor: #434549;
     --hourOverlay: #67696d;
     --hourCanceled: #FF4041;
     --hourChanged: #fab433;
     --weekdayToday: #4281ff;
     --white: rgb(221, 221, 221);
     --timerBackgound: #434549;
+    --activeTab: #ffffff;
+    --timerText: #ffffff;
+    --glyphicon: #ffffff;
 }
 
 body {
@@ -19,6 +22,15 @@ body {
 
 .center-block span {
     background-color: var(--planColor) !important;
+}
+
+#timerText {
+    color: var(--timerText) !important;
+}
+
+.inhalt {
+    color: var(--timerText) !important;
+    fill: var(--white) !important;
 }
 
 table tbody tr td span {
@@ -117,10 +129,6 @@ rect.entfStd  {
     fill: var(--hourCanceled) !important;
 }
 
-.inhalt {
-    fill: var(--white) !important;
-}
-
 .btn-primary {
     background-color: var(--lessonColor) !important;
     background-image: var(--lessonColor) !important;
@@ -137,7 +145,7 @@ rect.entfStd  {
 
 .glyphicon-forward:before,
 .glyphicon-backward:before {
-    color: var(--white) !important;
+    color: var(--glyphicon) !important;
 }
 
 div.form-group label {
@@ -149,11 +157,13 @@ div.form-group label {
 .navbar-inverse .navbar-nav > .active > a:focus {
     background-color: var(--backgroundColor) !important;
     border-color: var(--backgroundColor) !important;
+    color: var(--activeTab) !important;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
     background-color: var(--backgroundColor) !important;
     border-color: var(--backgroundColor) !important;
+    color: var(--activeTab) !important;
 }
 
 .navbar-inverse {
