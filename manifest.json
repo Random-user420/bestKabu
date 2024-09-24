@@ -30,7 +30,7 @@
     ],
     "content_scripts": [{
         "matches": ["https://*.digikabu.de/*", "http://*.digikabu.de/*", "https://digikabu.de/*", "http://digikabu.de/*"],
-        "js": ["init.js", "content.js", "autologin.js", "color.js", "constants.js", "highlighting.js", "timer.js", "utils.js"],
+        "js": ["init.js", "content.js", "autologin.js", "color.js", "constants.js", "highlighting.js", "timer.js", "utils.js", "toggleDarkMode.js"],
         "css": ["init.css"]
     }]
 }
