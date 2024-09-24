@@ -1,100 +1,178 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {
-                width: 400px;
-                border-radius: 20px;
-                color: white;
-                display: grid;
-                flex-direction: column;
-                text-align: center;
-                background-color: #292b30;
-                place-items: center;
-                overflow: hidden;
-                justify-content: center;
-                align-items: center;
-            }
-            h3 {
-                margin: unset;
-                font-family: 'Futura', monospace;
-                font-size: 24px;
-                color: white;
-                border-radius: clamp(0.4rem, 0.75vw, 1rem);
-            }
 
-            h4 {
-                margin: unset;
-                font-family: 'Futura', monospace;
-                font-size: 20px;
-                color: white;
-                border-radius: clamp(0.4rem, 0.75vw, 1rem);
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: 400px;
+            border-radius: 20px;
+            color: white;
+            display: grid;
+            flex-direction: column;
+            text-align: center;
+            background-color: #292b30;
+            place-items: center;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
 
-            body.menu-toggled > .meta-link > span {
-                color: rgb(30, 30, 30);
-            }
+        h3 {
+            margin: unset;
+            font-family: 'Futura', monospace;
+            font-size: 24px;
+            color: white;
+            border-radius: clamp(0.4rem, 0.75vw, 1rem);
+        }
 
-            .meta-link > i, .meta-link > span {
-                height: 20px;
-                line-height: 20px;
-            }
+        h4 {
+            margin: unset;
+            font-family: 'Futura', monospace;
+            font-size: 20px;
+            color: white;
+            border-radius: clamp(0.4rem, 0.75vw, 1rem);
+        }
 
-            .meta-link > span {
-                color: white;
-                font-family: "Rubik", sans-serif;
-                font-weight: 500;
-            }
-            #colorInputField {
-                display: flex;
-                gap: 5px;
-                margin-top: 5px;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-            }
-            .autologin{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                text-align: center;
-            }
-            #autologin {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-            }
-        </style>
-    </head>
-    <body>
-        <h3 data-value="BetterKabu">BestKabu</h3>
-        <p>Verwandelt Digikabu in BestKabu</p>
+        body.menu-toggled>.meta-link>span {
+            color: rgb(30, 30, 30);
+        }
+
+        .meta-link>i,
+        .meta-link>span {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .meta-link>span {
+            color: white;
+            font-family: "Rubik", sans-serif;
+            font-weight: 500;
+        }
+
+        #colorInputField {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .autologin {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #autologin {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 30px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(20px);
+            -ms-transform: translateX(20px);
+            transform: translateX(20px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 25px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 data-value="BetterKabu">BestKabu</h3>
+    <p>Verwandelt Digikabu in BestKabu</p>
+    <div>
+        <div id="colorInputField">
+            <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" width="10px" />
+            <button id="changeColorBtn">Farbe ändern</button>
+        </div>
+        <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
+    </div>
+    <br />
+    <div class="autologin">
+        <h4>BetterKabu Autologin</h4>
         <div>
-            <div id="colorInputField">
-                <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" width="10px" />
-                <button id="changeColorBtn">Farbe ändern</button>
-            </div>
-            <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
-        </div>
-        <br/>
-        <div class="autologin">
-            <h4>BetterKabu Autologin</h4>
-            <div>
-                <p>Be aware of any securety risks by using this feature.</p>
-                <input type="checkbox" id="autologinCheckbox">Enable</input>
-                <br>
-                <div id="autologin">
-                    <input type="text" id="autologinUsername" placeholder="Username"/>
-                    <input type="password" id="autologinPassword" placeholder="Password"/>
-                    <button id="autologinBtn">Save Login</button>
-                    <button id="autologinresetBtn">Delete stored Login</button>
-                </div>
+            <p>Be aware of any securety risks by using this feature.</p>
+            <input type="checkbox" id="autologinCheckbox">Enable</input>
+            <br>
+            <div id="autologin">
+                <input type="text" id="autologinUsername" placeholder="Username" />
+                <input type="password" id="autologinPassword" placeholder="Password" />
+                <button id="autologinBtn">Save Login</button>
+                <button id="autologinresetBtn">Delete stored Login</button>
             </div>
         </div>
-    </body>
-    <script src="popup.js"></script>
+    </div>
+    <h4>Toggle Dark Mode</h4>
+    Dark Mode
+    <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+    </label>
+    White Mode
+</body>
+<script src="popup.js"></script>
+
 </html>
