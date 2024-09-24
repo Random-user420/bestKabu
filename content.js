@@ -16,4 +16,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     else if (request.autologinBtn) {
         processCredentials(request.username, request.pawssword, request.enabled);
     }
+    else if (request.darkModeToggle) {
+        setDarkMode(request.darkMode);
+    }
 });

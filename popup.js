@@ -21,6 +21,12 @@ document.getElementById('autologinresetBtn').addEventListener('click', () => {
     });
 });
 
+document.getElementById('darkModeToggle').addEventListener('click', () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { darkModeToggle: true , darkMode: document.getElementById('darkModeToggle').checked });
+    });
+});
+
 function get_AutologinState() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { get_AutologinState: true }, (response) => {
