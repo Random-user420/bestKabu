@@ -1,14 +1,39 @@
-
-function processCredentials(username, password, enabled) {
-    set_stored_credentials(username, password, enabled);
+function encrypt(password, encryptionKey) {
+    if (!password || !encryptionKey) {
+        throw new Error('Password and encryption key cannot be null or undefined');
+    }
+    let encryptedPassword = '';
+    for (let i = 0; i < password.length; i++) {
+        const passwordCharCode = password.charCodeAt(i);
+        const keyCharCode = encryptionKey.charCodeAt(i % encryptionKey.length);
+        const encryptedCharCode = passwordCharCode ^ keyCharCode;
+        if (isNaN(encryptedCharCode)) {
+            throw new Error('Error during XOR operation');
+        }
+        encryptedPassword += String.fromCharCode(encryptedCharCode);
+    }
+    return encryptedPassword;
 }
 
-function set_stored_credentials(username, password, enabled) {
+
+function processCredentials(username, password, enabled, encryptEn, key) {
+    if (encryptEn) {
+        let password_ = encrypt(password, key);
+        let username_ = encrypt(username, key);
+        set_stored_credentials(username_, password_, enabled, encryptEn);
+    }
+    else {
+        set_stored_credentials(username, password, enabled, encryptEn);
+    }
+}
+
+function set_stored_credentials(username, password, enabled, encrypt) {
     if (username !== null && username !== undefined && username !== "" && password !== null && password !== undefined && password !== "") {
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
     }
     localStorage.setItem("enabled", enabled);
+    localStorage.setItem("encrypt", encrypt);
 }
 
 function get_stored_credentials() {
@@ -27,6 +52,23 @@ function get_credentials_enabled() {
     return localStorage.getItem("enabled");
 }
 
+function getEnrcyptEnabled() {
+    return localStorage.getItem("encrypt");
+}
+
+function loginEncrypted(key) {
+    [username_, password_] = get_stored_credentials();
+    if (username_ == null || password_ == null) {
+        return;
+    }
+    document.getElementById("UserName").value = encrypt(username_, key);
+    document.getElementById("Password").value = encrypt(password_, key);
+    sleep(300);
+    document.querySelector(".btn.btn-primary").click();
+    sleep(1000);
+}
+
+
 function delete_credentials() {
     localStorage.removeItem("username");
     localStorage.removeItem("password");
@@ -37,16 +79,20 @@ function login() {
     if (username_ == null || password_ == null) {
         return;
     }
+    if (getEnrcyptEnabled() === "true") {
+        return;
+    }
     document.getElementById("UserName").value = username_;
     document.getElementById("Password").value = password_;
     sleep(300);
     document.querySelector(".btn.btn-primary").click();
+    sleep(1000);
 }
 
 function getAutoLoginState() {
     const autologinEnableState = localStorage.getItem("enabled");
     if (autologinEnableState != null || autologinEnableState != undefined) {
-        if(autologinEnableState === "true") {
+        if (autologinEnableState === "true") {
             return true;
         }
     }

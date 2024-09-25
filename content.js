@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ autologinEnableState });
     }
     else if (request.autologinBtn) {
-        processCredentials(request.username, request.pawssword, request.enabled);
+        processCredentials(request.username, request.pawssword, request.enabled, request.encryptEnabled, request.key);
     }
     else if (request.darkModeToggle) {
         setDarkMode(request.darkMode);
@@ -22,5 +22,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     else if (request.getDarkModeState) {
         const darkModeState = getDarkMode();
         sendResponse({ darkModeState: darkModeState });
+    }
+    else if (request.autologinEncryptionBtn) {
+        loginEncrypted(request.key);
     }
 });

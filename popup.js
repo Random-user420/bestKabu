@@ -10,8 +10,10 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
     const username = document.getElementById('autologinUsername').value;
     const password = document.getElementById('autologinPassword').value;
     const enabled = document.getElementById('autologinCheckbox').checked;
+    const encryptEnabled = document.getElementById('autologinPasswordProtection').checked;
+    const key = document.getElementById('autologinEncryptionPassword').value;
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { autologinBtn: true, pawssword: password, username: username, enabled: enabled });
+        chrome.tabs.sendMessage(tabs[0].id, { autologinBtn: true, pawssword: password, username: username, enabled: enabled, encryptEnabled: encryptEnabled, key: key });
     });
 });
 
@@ -23,7 +25,14 @@ document.getElementById('autologinresetBtn').addEventListener('click', () => {
 
 document.getElementById('darkModeToggle').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { darkModeToggle: true , darkMode: document.getElementById('darkModeToggle').checked });
+        chrome.tabs.sendMessage(tabs[0].id, { darkModeToggle: true, darkMode: document.getElementById('darkModeToggle').checked });
+    });
+});
+
+document.getElementById('autologinEncryptionBtn').addEventListener('click', () => {
+    const key = document.getElementById('autologinEncryptionPassword').value;
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { autologinEncryptionBtn: true, key: key });
     });
 });
 
