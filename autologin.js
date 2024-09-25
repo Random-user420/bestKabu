@@ -79,7 +79,7 @@ function login() {
     if (username_ == null || password_ == null) {
         return;
     }
-    if (getEnrcyptEnabled() === "true") {
+    if (getEnrcyptEnabled() === "true" || getEnrcyptEnabled() === true) {
         return;
     }
     document.getElementById("UserName").value = username_;
