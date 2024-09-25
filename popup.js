@@ -39,8 +39,17 @@ document.getElementById('autologinEncryptionBtn').addEventListener('click', () =
 function getAutologinState() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { get_AutologinState: true }, (response) => {
-            document.getElementById("autologinCheckbox").checked = response.autologinEnableState;
-            document.getElementById("autologinPasswordProtection").checked = response.autologinPasswordProtection;
+            if (response.autologinEnableState == true || response.autologinEnableState == "true") {
+                document.getElementById("autologinCheckbox").checked = true;
+            } else {
+                document.getElementById("autologinCheckbox").checked = false;
+            }
+            if (response.autologinPasswordProtection == true || response.autologinPasswordProtection == "true") {
+                document.getElementById("autologinPasswordProtection").checked = true;
+                document.getElementById("autologinEncryptionBtn").hidden = false;
+            } else {
+                document.getElementById("autologinPasswordProtection").checked = false;
+            }
         });
     });
 }
