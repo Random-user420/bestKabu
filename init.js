@@ -35,7 +35,7 @@ window.addEventListener("pageshow", () => {
             startInfiniteLoop();
         }, 600);
     }
-    if (urlpath === "/" && get_credentials_enabled() === "true") {
+    if (urlpath === "/" && get_credentials_enabled() === "true" && (getEnrcyptEnabled() != "true" && getEnrcyptEnabled() != true)) {
         login();
     }
     

@@ -31,9 +31,9 @@ function set_stored_credentials(username, password, enabled, encrypt) {
     if (username !== null && username !== undefined && username !== "" && password !== null && password !== undefined && password !== "") {
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
+        localStorage.setItem("encrypt", encrypt);
     }
     localStorage.setItem("enabled", enabled);
-    localStorage.setItem("encrypt", encrypt);
 }
 
 function get_stored_credentials() {
@@ -77,9 +77,6 @@ function delete_credentials() {
 function login() {
     let [username_, password_] = get_stored_credentials();
     if (username_ == null || password_ == null) {
-        return;
-    }
-    if (getEnrcyptEnabled() === "true" || getEnrcyptEnabled() === true) {
         return;
     }
     document.getElementById("UserName").value = username_;
