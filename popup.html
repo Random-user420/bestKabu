@@ -11,48 +11,52 @@
     <h3 data-value="BetterKabu">BestKabu</h3>
     <p>Verwandelt Digikabu in BestKabu</p>
     <hr class="sectionLine" width="50px">
-    <div>
-        <h4>ColorPicker</h4>
-        <div id="colorInputField">
-            <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" />
-            <button id="changeColorBtn">Farbe ändern</button>
-        </div>
-        <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
-    </div>
-    <hr class="sectionLine" width="50px">
-    <div class="autologin">
-        <h4>BetterKabu Autologin</h4>
+    <div hidden="true" id="divMainSettings">
         <div>
-            <p>Be aware of any <a style="color: wheat;"
-                    href="https://github.com/Random-user420/bestKabu?tab=readme-ov-file#autologin"
-                    target="_blank">securety risks</a> by using this feature.</p>
-            <input type="checkbox" id="autologinCheckbox">Enable Login</input>
-            <input type="checkbox" id="autologinPasswordProtection">Enable Password Protection</input>
-            <br>
-            <div id="autologin">
-                <input type="text" id="autologinUsername" placeholder="Username" />
-                <input type="password" id="autologinPassword" placeholder="Password" />
-                <input type="password" id="autologinEncryptionPassword"
-                    placeholder="Encryption Password" />
-                <div>
-                    <button id="autologinBtn">Save Login</button>
-                    <button id="autologinresetBtn">Delete Login</button>
-                    <button hidden="true" id="autologinEncryptionBtn">Login</button>
+            <h4>ColorPicker</h4>
+            <div id="colorInputField">
+                <input type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" />
+                <button id="changeColorBtn">Farbe ändern</button>
+            </div>
+            <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
+        </div>
+        <hr class="sectionLine" width="50px">
+        <div class="autologin">
+            <h4>BetterKabu Autologin</h4>
+            <div>
+                <p>Be aware of any <a style="color: wheat;"
+                        href="https://github.com/Random-user420/bestKabu?tab=readme-ov-file#autologin"
+                        target="_blank">securety risks</a> by using this feature.</p>
+                <input type="checkbox" id="autologinCheckbox">Enable Login</input>
+                <input type="checkbox" id="autologinPasswordProtection">Enable Password Protection</input>
+                <br>
+                <div id="autologin">
+                    <input type="text" id="autologinUsername" placeholder="Username" />
+                    <input type="password" id="autologinPassword" placeholder="Password" />
+                    <input type="password" id="autologinEncryptionPassword" placeholder="Encryption Password" />
+                    <div>
+                        <button id="autologinBtn">Save Login</button>
+                        <button id="autologinresetBtn">Delete Login</button>
+                        <button hidden="true" id="autologinEncryptionBtn">Login</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr class="sectionLine" width="50px">
-    <div class="toggleDarkMode">
-        <h4>Toggle Dark Mode</h4>
-        <div class="toggleButton">
-            <img src="icons/sun-regular.svg" alt="sun icon" width="20px" height="20px">
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider round"></span>
-            </label>
-            <img src="icons/moon-solid.svg" style="margin-left: 5px" width="20px" height="20px" alt="sun icon">
+        <hr class="sectionLine" width="50px">
+        <div class="toggleDarkMode">
+            <h4>Toggle Dark Mode</h4>
+            <div class="toggleButton">
+                <img src="icons/sun-regular.svg" alt="sun icon" width="20px" height="20px">
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <img src="icons/moon-solid.svg" style="margin-left: 5px" width="20px" height="20px" alt="sun icon">
+            </div>
         </div>
+    </div>
+    <div id="divNotKabu">
+        <h4>Go to digikabu.de to use this extension</h4>
     </div>
 </body>
 <script src="popup.js"></script>

@@ -39,16 +39,18 @@ document.getElementById('autologinEncryptionBtn').addEventListener('click', () =
 function getAutologinState() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { get_AutologinState: true }, (response) => {
-            if (response.autologinEnableState == true || response.autologinEnableState == "true") {
-                document.getElementById("autologinCheckbox").checked = true;
-            } else {
-                document.getElementById("autologinCheckbox").checked = false;
-            }
-            if (response.autologinPasswordProtection == true || response.autologinPasswordProtection == "true") {
-                document.getElementById("autologinPasswordProtection").checked = true;
-                document.getElementById("autologinEncryptionBtn").hidden = false;
-            } else {
-                document.getElementById("autologinPasswordProtection").checked = false;
+            if (response !== undefined) {
+                if (response.autologinEnableState == true || response.autologinEnableState == "true") {
+                    document.getElementById("autologinCheckbox").checked = true;
+                } else {
+                    document.getElementById("autologinCheckbox").checked = false;
+                }
+                if (response.autologinPasswordProtection == true || response.autologinPasswordProtection == "true") {
+                    document.getElementById("autologinPasswordProtection").checked = true;
+                    document.getElementById("autologinEncryptionBtn").hidden = false;
+                } else {
+                    document.getElementById("autologinPasswordProtection").checked = false;
+                }
             }
         });
     });
@@ -56,7 +58,11 @@ function getAutologinState() {
 function getDarkMode() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { getDarkModeState: true }, (response) => {
-            document.getElementById("darkModeToggle").checked = response.darkModeState;
+            if (response !== undefined) {
+                document.getElementById("darkModeToggle").checked = response.darkModeState;
+                document.getElementById("divMainSettings").hidden = false;
+                document.getElementById("divNotKabu").hidden = true;
+            }
         });
     });
 }
