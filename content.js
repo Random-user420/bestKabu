@@ -11,7 +11,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
     else if (request.get_AutologinState) {
         const autologinEnableState = getAutoLoginState();
-        sendResponse({ autologinEnableState });
+        const autologinPasswordProtection = getEnrcyptEnabled();
+        sendResponse({ autologinEnableState, autologinPasswordProtection });
     }
     else if (request.autologinBtn) {
         processCredentials(request.username, request.pawssword, request.enabled, request.encryptEnabled, request.key);

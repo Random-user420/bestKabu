@@ -40,6 +40,7 @@ function getAutologinState() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { get_AutologinState: true }, (response) => {
             document.getElementById("autologinCheckbox").checked = response.autologinEnableState;
+            document.getElementById("autologinPasswordProtection").checked = response.autologinPasswordProtection;
         });
     });
 }
