@@ -27,10 +27,10 @@ function processCredentials(username, password, enabled, encryptEn, key) {
     }
 }
 
-function set_stored_credentials(username, password, enabled, encrypt) {
-    if (username !== null && username !== undefined && username !== "" && password !== null && password !== undefined && password !== "") {
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
+function set_stored_credentials(en_usr, en_pw, enabled, encrypt) {
+    if (en_usr !== null && en_usr !== undefined && en_usr !== "" && en_pw !== null && en_pw !== undefined && en_pw !== "") {
+        localStorage.setItem("username", en_usr);
+        localStorage.setItem("password", en_pw);
         localStorage.setItem("encrypt", encrypt);
     }
     localStorage.setItem("enabled", enabled);
