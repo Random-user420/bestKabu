@@ -26,7 +26,8 @@
             <p>Be aware of any <a style="color: wheat;"
                     href="https://github.com/Random-user420/bestKabu?tab=readme-ov-file#autologin"
                     target="_blank">securety risks</a> by using this feature.</p>
-            <input type="checkbox" id="autologinCheckbox">Enable</input>
+            <input type="checkbox" id="autologinCheckbox">Enable Login</input>
+            <input type="checkbox" id="autologinPasswordProtection">Enable Password Protection</input>
             <br>
             <div id="autologin">
                 <input type="text" id="autologinUsername" placeholder="Username" />
@@ -35,6 +36,8 @@
                     <button id="autologinBtn">Save Login</button>
                     <button id="autologinresetBtn">Delete Login</button>
                 </div>
+                <input hidden="true" type="password" id="autologinEncryptionPassword" placeholder="Encryption Password" />
+                <button hidden="true" id="autologinEncryptionBtn">Login</button>
             </div>
         </div>
     </div>
