@@ -1,7 +1,7 @@
 # BestKabu Browser Extension
 A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ouihq](https://github.com/ouihq/betterKabu)
 
-# (Vertsion < 2.0.0) is unstable, use on your own risk
+# (Version < 2.0.0) is unstable, use on your own risk
 
 ## Autologin
 **with encryption**:
