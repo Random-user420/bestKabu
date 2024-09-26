@@ -53,7 +53,11 @@ function get_credentials_enabled() {
 }
 
 function getEnrcyptEnabled() {
-    return localStorage.getItem("encrypt");
+    let enc = localStorage.getItem("encrypt");
+    if (enc == undefined) {
+        enc = false;
+    }
+    return enc;
 }
 
 function loginEncrypted(key) {
