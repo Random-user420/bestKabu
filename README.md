@@ -1,6 +1,8 @@
 # BestKabu Browser Extension
 A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ouihq](https://github.com/ouihq/betterKabu)
 
+# (Vertsion < 2.0.0) is unstable, use on your own risk
+
 ## Autologin
 **with encryption**:
 To set your credentials, open the extension on the digikabu.de website and type your username, password and a encryption key (a key longer than the credentials is useless) and check the "Enable Password Protection" Button, then press on the Save Login Button. To enable it, click the checkbox and press on the Save Login Button and refresh the page. If there is no username or password, the credentials won't be overwritten! If you wnat to login, click on the Extension, and type your encryption key and then on login.
