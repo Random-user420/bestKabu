@@ -17,6 +17,9 @@ function encrypt(password, encryptionKey) {
 
 
 function processCredentials(username, password, enabled, encryptEn, key) {
+    if (((username === "" || password === "" || (key === "" && encryptEn)) && (username !== "" != password !== "")) || (key === "" && encryptEn) || (key !== "" && !encryptEn)) {
+        return "failedInputValidation";
+    }
     if (encryptEn) {
         let password_ = encrypt(password, key);
         let username_ = encrypt(username, key);

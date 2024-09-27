@@ -17,7 +17,11 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
     const encryptEnabled = document.getElementById('autologinPasswordProtection').checked;
     const key = document.getElementById('autologinEncryptionPassword').value;
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { autologinBtn: true, pawssword: password, username: username, enabled: enabled, encryptEnabled: encryptEnabled, key: key });
+        chrome.tabs.sendMessage(tabs[0].id, { autologinBtn: true, pawssword: password, username: username, enabled: enabled, encryptEnabled: encryptEnabled, key: key }, (response) => {
+            if (response.failedInputValidation) {
+                alert("Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
+            }
+        });
     });
 });
 

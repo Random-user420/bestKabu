@@ -14,7 +14,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ autologinEnableState, autologinPasswordProtection });
     }
     else if (request.autologinBtn) {
-        processCredentials(request.username, request.pawssword, request.enabled, request.encryptEnabled, request.key);
+        const return_ = processCredentials(request.username, request.pawssword, request.enabled, request.encryptEnabled, request.key);
+        if (return_ === "failedInputValidation") {
+            sendResponse({ failedInputValidation: true });
+        }
     }
     else if (request.darkModeToggle) {
         setDarkMode(request.darkMode);
