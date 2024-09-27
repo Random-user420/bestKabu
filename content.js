@@ -1,10 +1,9 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.changeColorBtn) {
-        set_stored_color(request.color);
-        const elements = document.querySelectorAll('.weekdayToday');
-        elements.forEach((el) => {
-            el.style.setProperty('fill', request.color, 'important');
-        });
+        const return_ = processColorResponse(request.color);
+        if (return_ === "faieldColorValidation") {
+            sendResponse({ faieldColorValidation: true });
+        }
     }
     else if (request.autologinresetBtn) {
         delete_credentials();
@@ -15,7 +14,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ autologinEnableState, autologinPasswordProtection });
     }
     else if (request.autologinBtn) {
-        processCredentials(request.username, request.pawssword, request.enabled, request.encryptEnabled, request.key);
+        const return_ = processCredentials(request.username, request.pawssword, request.enabled, request.encryptEnabled, request.key);
+        if (return_ === "failedInputValidation") {
+            sendResponse({ failedInputValidation: true });
+        }
     }
     else if (request.darkModeToggle) {
         setDarkMode(request.darkMode);
@@ -25,6 +27,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ darkModeState: darkModeState });
     }
     else if (request.autologinEncryptionBtn) {
-        loginEncrypted(request.key);
+        const return_ = loginEncrypted(request.key);
+        if (return_ === "failedInputValidation") {
+            sendResponse({ failedInputValidation: true });
+        }
     }
 });

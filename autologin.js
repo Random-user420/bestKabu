@@ -17,6 +17,10 @@ function encrypt(password, encryptionKey) {
 
 
 function processCredentials(username, password, enabled, encryptEn, key) {
+    //Check if input is valid → if only pw or us or (XOR(key, encEn)) with different cominations
+    if (!(!(((username === "" || password === "" || (key === "" && encryptEn)) && (username !== "" != password !== "")) || (key === "" && encryptEn) || (key !== "" && !encryptEn)) || (password === "" && username === "" && key === ""))) {
+        return "failedInputValidation";
+    }
     if (encryptEn) {
         let password_ = encrypt(password, key);
         let username_ = encrypt(username, key);
@@ -64,6 +68,8 @@ function loginEncrypted(key) {
     [username_, password_] = get_stored_credentials();
     if (username_ == null || password_ == null) {
         return;
+    } else if(key == null || key == undefined || key == "") {
+        return "failedInputValidation";
     }
     document.getElementById("UserName").value = encrypt(username_, key);
     document.getElementById("Password").value = encrypt(password_, key);
