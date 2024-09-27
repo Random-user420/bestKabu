@@ -1,10 +1,9 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.changeColorBtn) {
-        set_stored_color(request.color);
-        const elements = document.querySelectorAll('.weekdayToday');
-        elements.forEach((el) => {
-            el.style.setProperty('fill', request.color, 'important');
-        });
+        const return_ = processColorResponse(request.color);
+        if (return_ === "faieldColorValidation") {
+            sendResponse({ faieldColorValidation: true });
+        }
     }
     else if (request.autologinresetBtn) {
         delete_credentials();
