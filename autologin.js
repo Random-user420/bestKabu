@@ -17,6 +17,7 @@ function encrypt(password, encryptionKey) {
 
 
 function processCredentials(username, password, enabled, encryptEn, key) {
+    //Check if input is valid → if only pw or us or (XOR(key, encEn)) with different cominations
     if (!(!(((username === "" || password === "" || (key === "" && encryptEn)) && (username !== "" != password !== "")) || (key === "" && encryptEn) || (key !== "" && !encryptEn)) || (password === "" && username === "" && key === ""))) {
         return "failedInputValidation";
     }

@@ -25,8 +25,7 @@
         }
     },
     "permissions": [
-        "storage",
-        "scripting"
+        "storage"
     ],
     "content_scripts": [{
         "matches": ["https://*.digikabu.de/*", "http://*.digikabu.de/*", "https://digikabu.de/*", "http://digikabu.de/*"],
