@@ -3,7 +3,7 @@ document.getElementById('changeColorBtn').addEventListener('click', () => {
     const color = document.getElementById('colorPicker').value;
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { changeColorBtn: true, color: color }, (response) => {
-            if (response.faieldColorValidation) {
+            if (response !== undefined && response.faieldColorValidation) {
                 alert("Color must be written as #RRGGBB");
             }
         });
@@ -18,7 +18,7 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
     const key = document.getElementById('autologinEncryptionPassword').value;
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { autologinBtn: true, pawssword: password, username: username, enabled: enabled, encryptEnabled: encryptEnabled, key: key }, (response) => {
-            if (response.failedInputValidation) {
+            if (response !== undefined && response.failedInputValidation) {
                 alert("Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
             }
         });
@@ -41,7 +41,7 @@ document.getElementById('autologinEncryptionBtn').addEventListener('click', () =
     const key = document.getElementById('autologinEncryptionPassword').value;
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { autologinEncryptionBtn: true, key: key }, (response) => {
-            if (response.failedInputValidation) {
+            if (response !== undefined && response.failedInputValidation) {
                 alert("Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
             }
         });
