@@ -27,6 +27,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ darkModeState: darkModeState });
     }
     else if (request.autologinEncryptionBtn) {
-        loginEncrypted(request.key);
+        const return_ = loginEncrypted(request.key);
+        if (return_ === "failedInputValidation") {
+            sendResponse({ failedInputValidation: true });
+        }
     }
 });

@@ -40,7 +40,11 @@ document.getElementById('darkModeToggle').addEventListener('click', () => {
 document.getElementById('autologinEncryptionBtn').addEventListener('click', () => {
     const key = document.getElementById('autologinEncryptionPassword').value;
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { autologinEncryptionBtn: true, key: key });
+        chrome.tabs.sendMessage(tabs[0].id, { autologinEncryptionBtn: true, key: key }, (response) => {
+            if (response.failedInputValidation) {
+                alert("Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
+            }
+        });
     });
 });
 
