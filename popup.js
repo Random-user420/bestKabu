@@ -4,7 +4,7 @@ document.getElementById('changeColorBtn').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { changeColorBtn: true, color: color }, (response) => {
             if (response.faieldColorValidation) {
-                alert("Color must include '#'");
+                alert("Color must be written as #RRGGBB");
             }
         });
     });
