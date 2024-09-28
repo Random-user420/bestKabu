@@ -23,12 +23,14 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
             }
         });
     });
+    getAutologinState();
 });
 
 document.getElementById('autologinresetBtn').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { autologinresetBtn: true });
     });
+    getAutologinState();
 });
 
 document.getElementById('darkModeToggle').addEventListener('click', () => {
