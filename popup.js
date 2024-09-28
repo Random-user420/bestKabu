@@ -37,7 +37,6 @@ document.getElementById('autologinresetBtn').addEventListener('click', () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {autologinresetBtn: true});
     });
-    document.getElementById("autologinEncryptionBtn").hidden = true;
     getAutologinState();
 });
 
@@ -75,6 +74,7 @@ function getAutologinState() {
                     document.getElementById("autologinEncryptionBtn").hidden = false;
                 } else {
                     document.getElementById("autologinPasswordProtection").checked = false;
+                    document.getElementById("autologinEncryptionBtn").hidden = true;
                 }
             }
         });
