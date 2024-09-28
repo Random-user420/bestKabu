@@ -28,17 +28,17 @@ h4 {
     border-radius: clamp(0.4rem, 0.75vw, 1rem);
 }
 
-body.menu-toggled>.meta-link>span {
+body.menu-toggled > .meta-link > span {
     color: rgb(30, 30, 30);
 }
 
-.meta-link>i,
-.meta-link>span {
+.meta-link > i,
+.meta-link > span {
     height: 20px;
     line-height: 20px;
 }
 
-.meta-link>span {
+.meta-link > span {
     color: white;
     font-family: "Rubik", sans-serif;
     font-weight: 500;
@@ -110,15 +110,15 @@ body.menu-toggled>.meta-link>span {
     transition: .4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
     background-color: #2196F3;
 }
 
-input:focus+.slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
@@ -145,10 +145,53 @@ input:checked+.slider:before {
     gap: 10px;
 }
 
-#autologinCheckbox {
-    margin-bottom: 10px;
-}
 
 #colorPicker {
-    width: 125px;
+    width: 140px;
+}
+
+#divMainSettings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.styled-button {
+    background-color: #4281ff; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.styled-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.styled-input {
+    width: 250px;
+    padding: 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.styled-input:focus {
+    border-color: #4281ff;
+    outline: none;
 }
