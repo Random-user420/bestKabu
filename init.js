@@ -20,7 +20,7 @@ function startInfiniteLoop() {
 }
 
 window.addEventListener("pageshow", () => {
-    console.log("BestKabu running");
+    
     initDarkMode();
     setDarkMode(getDarkMode());
     const urlpath = window.location.pathname;

@@ -47,7 +47,7 @@ function get_stored_credentials() {
         return [username, password];
     }
     else {
-        console.log("No credentials found");
+        
         return [null, null];
     }
 }
