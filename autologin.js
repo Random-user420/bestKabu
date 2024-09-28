@@ -82,6 +82,8 @@ function loginEncrypted(key) {
 function delete_credentials() {
     localStorage.removeItem("username");
     localStorage.removeItem("password");
+    localStorage.setItem("enabled", false);
+    localStorage.setItem("encrypt", false);
 }
 
 function login() {
