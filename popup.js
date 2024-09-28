@@ -60,6 +60,14 @@ document.getElementById('autologinEncryptionBtn').addEventListener('click', () =
     });
 });
 
+document.getElementById('autologinEncryptionPassword').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        if(document.getElementById('autologinUsername').value === "" && document.getElementById('autologinPassword').value === "") {
+            document.getElementById('autologinEncryptionBtn').click();
+        }
+    }
+});
+
 function getAutologinState() {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {get_AutologinState: true}, (response) => {
