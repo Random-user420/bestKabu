@@ -1,4 +1,4 @@
-timeTable = [
+const timeTable = [
     {
         start: [8, 30],
         end: [9, 15],
