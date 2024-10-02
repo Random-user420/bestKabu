@@ -17,7 +17,7 @@ h3 {
     font-family: 'Futura', monospace;
     font-size: 24px;
     color: white;
-    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    border-radius: clamp(0.4rem, 0.15vw, 0.5rem);
 }
 
 h4 {
@@ -42,6 +42,11 @@ body.menu-toggled > .meta-link > span {
     color: white;
     font-family: "Rubik", sans-serif;
     font-weight: 500;
+}
+
+#pBestKabu {
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
 }
 
 #colorInputField {
@@ -134,7 +139,7 @@ input:checked + .slider:before {
 }
 
 .sectionLine {
-    margin: 15px 0px 15px 0px;
+    margin: 10px 0px 10px 0px;
 }
 
 .toggleButton {
@@ -193,4 +198,9 @@ input:checked + .slider:before {
 .styled-input:focus {
     border-color: #4281ff;
     outline: none;
+}
+
+/* Preserve the behavior of the hidden attribute */
+[hidden] {
+    display: none !important;
 }
