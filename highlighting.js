@@ -30,7 +30,6 @@ function checkTime(item, index) {
         currentBox.children[0].classList.add("weekdayToday");
     }
 }
-
 function hidePassedDays() {
     if (window.location.pathname.includes("Stundenplan")) {
         const box = document.getElementById("umgebung");
@@ -49,20 +48,16 @@ function hidePassedDays() {
             }
         }
     }
-}
-function markCurrentDay() {
-    const today = new Date(),
-        day = String(today.getDate()).padStart(2, "0"),
-        month = String(today.getMonth() + 1).padStart(2, "0"),
-        date = day + "." + month + ".";
+}function markCurrentDay() {
+    const date = new Date().toLocaleDateString("de-DE");
 
     const tables = document.getElementsByTagName("table");
-    for (let i = 0; i < tables.length; i++) {
-        const strongs = tables[i].getElementsByTagName("strong");
-        for (let j = 0, len = strongs.length; j < len; j++) {
-            const strong = strongs[j];
-            if (strong.textContent.includes(date)) {
-                strong.closest("tr").style.backgroundColor = color;
+    for (const table of tables) {
+        const rows = table.getElementsByTagName("tr");
+        for (const row of rows) {
+            const strong = row.querySelector("strong");
+            if (strong && strong.textContent.includes(date)) {
+                row.style.backgroundColor = color;
                 return;
             }
         }
