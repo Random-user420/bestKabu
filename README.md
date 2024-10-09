@@ -35,3 +35,10 @@ For anything, create a new branch with the following naming scheme (featue/…  
 
 
 **contact: bestkabu@vleov.de**
+
+## Contributors ✨
+
+<p>Thanks to all the contributors who helped improve this project:</p>
+<a href="https://github.com/Random-user420/bestKabu/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Random-user420/bestKabu" />
+</a>
