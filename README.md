@@ -19,6 +19,9 @@ To change the color of the highlighting: Open the Extension on the digikabu.de w
 - Custom highlighting
 - Timer to the next lesson
 
+## Chromium based special
+If you use the Extension from Github for chromium based brwosers, use the "chromium-changes" branch instead of main. Because there are custom modifications for those browsers.
+
 # Contribution Guide
 
 ## Intro
