@@ -19,23 +19,15 @@ To change the color of the highlighting: Open the Extension on the digikabu.de w
 - Custom highlighting
 - Time remaining until the next lesson
 
-## Chromium based special
-If you use the Extension from Github for chromium based browsers, use the "chromium-changes" branch instead of main. Because there are custom modifications for those browsers.
-
 # Contribution Guide
 
 ## Intro
 
 If you want to contribute, you are free to do so. If you have any questions, you are free to do so. If you have found issues oder want to suggest features, you can submit that in GitHub.
 
-## Versions (>2.0.0) 
-
-If there is a bug fix, the version increments in the last digit by one. If there is a new feature, the version increments in the second digit by one.
-
 ## General
 
-For anything, create a new branch with the following naming scheme (featue/…  |  fix/…   | refactor/…). After you're done, create a pull request, and we test it, or change some things and then merge it into main. For git commit messages please follow this guide: https://www.conventionalcommits.org/en/v1.0.0/. And the commit git e-mail should be the same as your GitHub e-mail. For further questions, please contact us.
-
+For anything, create a pull request with the naming scheme (featue/…  |  fix/…   | refactor/…) and if avalible the reference to the issue, and we test it, or change some things and then merge it into main. For git commit messages please follow this guide: https://www.conventionalcommits.org/en/v1.0.0/. And the commit git e-mail should be the same as your GitHub e-mail. For further questions, please contact us.
 
 **contact: bestkabu@vleov.de**
 
