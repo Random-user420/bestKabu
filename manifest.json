@@ -10,7 +10,7 @@
         "128": "/icons/icon128.png"
     },
     "action": {
-        "default_popup": "popup.html",
+        "default_popup": "popup/popup.html",
         "default_icon": {
             "16": "/icons/icon16.png",
             "32": "/icons/icon32.png",
@@ -29,7 +29,7 @@
     ],
     "content_scripts": [{
         "matches": ["https://*.digikabu.de/*", "http://*.digikabu.de/*", "https://digikabu.de/*", "http://digikabu.de/*"],
-        "js": ["init.js", "content.js", "autologin.js", "color.js", "constants.js", "highlighting.js", "timer.js", "utils.js", "toggleDarkMode.js"],
+        "js": ["siteJS/init.js", "siteJS/content.js", "siteJS/autologin.js", "siteJS/color.js", "siteJS/constants.js", "siteJS/highlighting.js", "siteJS/timer.js", "siteJS/utils.js", "siteJS/toggleDarkMode.js"],
         "css": ["init.css"]
     }]
 }
