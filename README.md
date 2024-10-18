@@ -48,7 +48,7 @@ If you want to contribute, you are free to do so. If you have any questions, you
 For anything, create a pull request with the naming scheme (featue/…  |  fix/…   | refactor/…) and if avalible the reference to the issue, and we test it, or change some things and then merge it into main. For git commit messages please follow this guide: https://www.conventionalcommits.org/en/v1.0.0/. And the commit git e-mail should be the same as your GitHub e-mail. For further questions, please contact us.
 
 ### Note
-The Makefile is for packaging and only works on Linux. Just ignore it if you're not experienced. For packaging for Firefox: `pack-fire`. Chromium: `pack-chr`. That removes the -SNAPSHOT from version and for Chromium removes it the gecko options from the manifest.
+The Makefile is for packaging and only works on Linux. Just ignore it if you're not experienced. For packaging `make clean` to remove all not needed files to run the Extension.
 
 **contact: bestkabu@vleov.de**
 
