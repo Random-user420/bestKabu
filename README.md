@@ -52,11 +52,11 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 
 #### Firefox
 
-$ make pack-fire
+    $ make pack-fire
 
 #### Chromium
 
-$ make pack-chr
+    $ make pack-chr
 
 **contact: bestkabu@vleov.de**
 
