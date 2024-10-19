@@ -3,7 +3,10 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 
 # Usage
 
-## Use the release branches for private use. Since the main branch is unstable
+### Chromium store: https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg
+### Firefox store: still under bewertet
+
+### Use the release branches for private use. Since the main branch is unstable
 
 ## Autologin Setup
 
