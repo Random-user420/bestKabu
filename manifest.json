@@ -20,7 +20,7 @@
     },
     "browser_specific_settings": {
         "gecko": {
-            "id": "bestKabu@digikabu.de",
+            "id": "bestKabu@lilith.de",
             "strict_min_version": "111.0",
             "update_url": "https://lilith.v6.rocks/update/"
         }
