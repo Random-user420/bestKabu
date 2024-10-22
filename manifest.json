@@ -22,7 +22,7 @@
         "gecko": {
             "id": "bestKabu@digikabu.de",
             "strict_min_version": "111.0",
-            "update-url": "https://lilith.v6.rocks/update/"
+            "update_url": "https://lilith.v6.rocks/update/"
         }
     },
     "permissions": [
