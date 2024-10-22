@@ -6,8 +6,6 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 ### Chromium store: https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg
 ### Firefox: Use the .xpi file in the latest -fire release
 
-### Use the release branches for private use. Since the main branch is unstable
-
 ## Autologin Setup
 
 ### With Encryption:
