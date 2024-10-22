@@ -4,7 +4,7 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 # Usage
 
 ### Chromium store: https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg
-### Firefox store: Not accepted due to poliecy: "Content, specifically Closed user group". I'm now building a custom solution.
+### Firefox: Use the .xpi file in the latest -fire release
 
 ### Use the release branches for private use. Since the main branch is unstable
 
