@@ -19,6 +19,7 @@
                 <input class="styled-input" type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" />
                 <button class="styled-button" id="changeColorBtn">Farbe ändern</button>
             </div>
+            <div id="error-message-color" style="color: red; display: none;"></div>
             <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
         </div>
         <hr class="sectionLine" width="50px">
@@ -35,6 +36,7 @@
                     <input class="styled-input" type="text" id="autologinUsername" placeholder="Username" />
                     <input class="styled-input" type="password" id="autologinPassword" placeholder="Password" />
                     <input class="styled-input" type="password" id="autologinEncryptionPassword" placeholder="Encryption Password" />
+                    <div id="error-message-login" style="color: red; display: none;"></div>
                     <div>
                         <button id="autologinBtn" class="styled-button">Save Login</button>
                         <button id="autologinresetBtn" class="styled-button">Delete Login</button>
@@ -57,7 +59,7 @@
         </div>
     </div>
     <div id="divNotKabu">
-        <h4>Go to <a href="https://www.digikabu.de/">digikabu.de</a> to use this extension</h4>
+        <h4>Go to <a href="https://www.digikabu.de/" target="_blank">digikabu.de</a> to use this extension</h4>
     </div>
 </body>
 <script src="popup.js"></script>
