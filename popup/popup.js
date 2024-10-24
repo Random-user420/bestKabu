@@ -4,7 +4,9 @@ document.getElementById('changeColorBtn').addEventListener('click', () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {changeColorBtn: true, color: color}, (response) => {
             if (response !== undefined && response.faieldColorValidation) {
-                alert("Color must be written as #RRGGBB");
+                const errorMessage = document.getElementById('error-message-color');
+                errorMessage.innerHTML = "Color must be written as #RRGGBB";
+                errorMessage.style.display = 'block';
             }
         });
     });
@@ -26,7 +28,9 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
             key: key
         }, (response) => {
             if (response !== undefined && response.failedInputValidation) {
-                alert("Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
+                const errorMessage = document.getElementById('error-message-login');
+                errorMessage.innerHTML = 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.';
+                errorMessage.style.display = 'block';
             }
         });
     });
@@ -54,8 +58,9 @@ document.getElementById('autologinEncryptionBtn').addEventListener('click', () =
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {autologinEncryptionBtn: true, key: key}, (response) => {
             if (response !== undefined && response.failedInputValidation) {
-                alert("Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
-            }
+                const errorMessage = document.getElementById('error-message-login');
+                errorMessage.textContent = "Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.";
+                errorMessage.style.display = 'block';            }
         });
     });
 });
