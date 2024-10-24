@@ -1,36 +1,29 @@
 // chrome.tabs..... { <identifier>: true, parameter… });
 document.getElementById('changeColorBtn').addEventListener('click', () => {
-    const color = document.getElementById('colorPicker').value;
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, {changeColorBtn: true, color: color}, (response) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            changeColorBtn: true,
+            color: document.getElementById('colorPicker').value
+        }, (response) => {
             if (response !== undefined && response.faieldColorValidation) {
-                const errorMessage = document.getElementById('error-message-color');
-                errorMessage.innerHTML = "Color must be written as #RRGGBB";
-                errorMessage.style.display = 'block';
+                showError('error-message-color', "Color must be written as #RRGGBB");
             }
         });
     });
 });
 
 document.getElementById('autologinBtn').addEventListener('click', () => {
-    const username = document.getElementById('autologinUsername').value;
-    const password = document.getElementById('autologinPassword').value;
-    const enabled = document.getElementById('autologinCheckbox').checked;
-    const encryptEnabled = document.getElementById('autologinPasswordProtection').checked;
-    const key = document.getElementById('autologinEncryptionPassword').value;
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
             autologinBtn: true,
-            pawssword: password,
-            username: username,
-            enabled: enabled,
-            encryptEnabled: encryptEnabled,
-            key: key
+            pawssword: document.getElementById('autologinPassword').value,
+            username: document.getElementById('autologinUsername').value,
+            enabled: document.getElementById('autologinCheckbox').checked,
+            encryptEnabled: document.getElementById('autologinPasswordProtection').checked,
+            key: document.getElementById('autologinEncryptionPassword').value
         }, (response) => {
             if (response !== undefined && response.failedInputValidation) {
-                const errorMessage = document.getElementById('error-message-login');
-                errorMessage.innerHTML = 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.';
-                errorMessage.style.display = 'block';
+                showError('error-message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
             }
         });
     });
@@ -56,11 +49,12 @@ document.getElementById('darkModeToggle').addEventListener('click', () => {
 document.getElementById('autologinEncryptionBtn').addEventListener('click', () => {
     const key = document.getElementById('autologinEncryptionPassword').value;
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, {autologinEncryptionBtn: true, key: key}, (response) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            autologinEncryptionBtn: true, key: key
+        }, (response) => {
             if (response !== undefined && response.failedInputValidation) {
-                const errorMessage = document.getElementById('error-message-login');
-                errorMessage.textContent = "Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.";
-                errorMessage.style.display = 'block';            }
+                showError('error-message-login', "Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
+            }
         });
     });
 });
@@ -104,6 +98,12 @@ function getDarkMode() {
             }
         });
     });
+}
+
+function showError(id, message) { 
+    const errorMessage = document.getElementById(id);
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
 }
 
 getAutologinState();
