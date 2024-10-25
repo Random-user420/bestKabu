@@ -31,6 +31,7 @@ window.addEventListener("pageshow", () => {
         setTimeout(() => {
             hidePassedDays();
             showTimer();
+            showMebisButton();
             timeTable.forEach(checkTime);
             startInfiniteLoop();
         }, 600);
