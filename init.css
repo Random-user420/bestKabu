@@ -176,7 +176,7 @@ div.form-group label {
         margin: 10px 10px 15px 0px !important;
 }
 
-#timerText {
+#timerText, #mebisButton {
     width: 200px;
     height: 37px;
     background-color: var(--timerBackgound);
