@@ -7,6 +7,10 @@ document.getElementById('changeColorBtn').addEventListener('click', () => {
         }, (response) => {
             if (response !== undefined && response.faieldColorValidation) {
                 showError('error-message-color', "Color must be written as #RRGGBB");
+                document.getElementById('colorPicker').value = "";
+            } else {
+                showSuccess('error-message-color', "Color set successfully!");
+                document.getElementById('colorPicker').value = "";
             }
         });
     });
@@ -24,6 +28,8 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
         }, (response) => {
             if (response !== undefined && response.failedInputValidation) {
                 showError('error-message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
+            } else {
+                showSuccess('error-message-login', "Autologin setup was successful!");
             }
         });
     });
@@ -32,9 +38,11 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
 
 document.getElementById('autologinresetBtn').addEventListener('click', () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, {autologinresetBtn: true});
+        chrome.tabs.sendMessage(tabs[0].id, {autologinresetBtn: true}, () => {
+            getAutologinState();
+            showSuccess('error-message-login', "Login successfully deleted!");
+        });
     });
-    getAutologinState();
 });
 
 document.getElementById('darkModeToggle').addEventListener('click', () => {
@@ -53,7 +61,9 @@ document.getElementById('autologinEncryptionBtn').addEventListener('click', () =
             autologinEncryptionBtn: true, key: key
         }, (response) => {
             if (response !== undefined && response.failedInputValidation) {
-                showError('error-message-login', "Input Validation Failed! Please Check Your Input and Try Again. View the GitHub Repo for more info.");
+                showError('error-message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
+            } else {
+                showSuccess('error-message-login', "Password protection login was successful!");
             }
         });
     });
@@ -102,8 +112,24 @@ function getDarkMode() {
 
 function showError(id, message) { 
     const errorMessage = document.getElementById(id);
-    errorMessage.textContent = message;
+    errorMessage.innerHTML = message;
     errorMessage.style.display = 'block';
+    errorMessage.style.color = "#FF0000FF";
+    resetInputs();
+}
+
+function showSuccess(id, message) {
+    const errorMessage = document.getElementById(id);
+    errorMessage.innerHTML = message;
+    errorMessage.style.display = 'block';
+    errorMessage.style.color = "#85ff85";
+    resetInputs();
+}
+
+function resetInputs() {
+    document.getElementById('autologinEncryptionPassword').value = "";
+    document.getElementById('autologinUsername').value = "";
+    document.getElementById('autologinPassword').value = "";
 }
 
 getAutologinState();
