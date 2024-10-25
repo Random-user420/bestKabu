@@ -16,6 +16,18 @@ document.getElementById('changeColorBtn').addEventListener('click', () => {
     });
 });
 
+document.getElementById('autologinCheckbox').addEventListener('change', (event) => {
+    if (event.target.checked) {
+        document.getElementById('autologinPasswordProtection').checked = false;
+    }
+});
+
+document.getElementById('autologinPasswordProtection').addEventListener('change', (event) => {
+    if (event.target.checked) {
+        document.getElementById('autologinCheckbox').checked = false;
+    }
+});
+
 document.getElementById('autologinBtn').addEventListener('click', () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
