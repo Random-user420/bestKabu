@@ -98,7 +98,6 @@ function delete_credentials() {
 }
 
 function login() {
-    console.log("login");
     let [username_, password_] = get_stored_credentials();
     if (username_ == null || password_ == null) {
         return;
