@@ -16,20 +16,6 @@ document.getElementById('changeColorBtn').addEventListener('click', () => {
     });
 });
 
-document.getElementById('autologinCheckbox').addEventListener('change', (event) => {
-    if (event.target.checked) {
-        document.getElementById('autologinPasswordProtection').checked = false;
-        document.getElementById('autologinEncryptionPassword').hidden = !this.checked;
-    }
-});
-
-document.getElementById('autologinPasswordProtection').addEventListener('change', (event) => {
-    if (event.target.checked) {
-        document.getElementById('autologinCheckbox').checked = false;
-        document.getElementById('autologinEncryptionPassword').hidden = this.checked;
-    }
-});
-
 document.getElementById('autologinBtn').addEventListener('click', () => {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
@@ -99,6 +85,7 @@ function getAutologinState() {
                     document.getElementById("autologinCheckbox").checked = true;
                 } else {
                     document.getElementById("autologinCheckbox").checked = false;
+                    document.getElementById("autologinBody").hidden = true;
                 }
                 if (response.autologinPasswordProtection == true || response.autologinPasswordProtection == "true") {
                     document.getElementById("autologinPasswordProtection").checked = true;
@@ -123,6 +110,18 @@ function getDarkMode() {
         });
     });
 }
+
+
+document.getElementById('autologinCheckbox').addEventListener('click', () => {
+    document.getElementById("autologinBody").hidden = !document.getElementById('autologinCheckbox').checked;
+})
+
+document.getElementById('autologinPasswordProtection').addEventListener('click', () => {
+    document.getElementById("autologinEncryptionBtn").hidden = !document.getElementById('autologinPasswordProtection').checked;
+    document.getElementById("autologinEncryptionPassword").hidden = !document.getElementById('autologinPasswordProtection').checked;
+})
+
+
 
 function showError(id, message) { 
     const errorMessage = document.getElementById(id);

@@ -3,18 +3,19 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 
 # Usage
 
-### Chromium store: https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg
+### Chromium: https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg
 ### Firefox: Use the .xpi file in the latest -fire release
-**Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It should work fine in debugger mode.
+**Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It already should work fine in debugger mode.
 
-## Autologin Setup
+## Login by Extension
 
 ### With Encryption:
 1. Open the extension on the digikabu.de website.
-2. Enter your username, password, and an encryption key (Note: using a key longer than your credentials is unnecessary).
-3. Check the "Enable Password Protection" and "Enable Login" option.
-4. Click the "Save Login" button.
-5. Refresh the page to activate the changes.
+2. Enable Login by Extension
+3. Enter your username, password, and an encryption key (Note: using a key longer than your credentials is unnecessary).
+4. Check the "Enable Password Protection" option.
+5. Click the "Save Login" button.
+6. Refresh the page to activate the changes.
    
 **Note:** If no username or password is entered, the existing credentials won't be overwritten.
 
@@ -23,8 +24,8 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 
 ### Without Encryption:
 1. Open the extension on the digikabu.de website.
-2. Enter your username and password.
-3. Check the "Enable Login" option.
+2. Enable Login by Extension
+3. Enter your username and password.
 4. Click the "Save Login" button.
 5. Refresh the page to activate the changes.
    
@@ -35,7 +36,7 @@ To change the color of the highlighting: Open the Extension on the digikabu.de w
 
 ## Current features:
 - Dark mode toggle
-- Autologin
+- Login by Extension to make login faster
 - Custom highlighting
 - Time remaining until the next lesson
 

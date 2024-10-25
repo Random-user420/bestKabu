@@ -21,6 +21,16 @@ h3 {
 }
 
 h4 {
+    break-before: avoid;
+    margin: unset;
+    font-family: 'Futura', monospace;
+    font-size: 20px;
+    color: white;
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+}
+
+.loginHeading {
+    break-inside: avoid;
     margin: unset;
     font-family: 'Futura', monospace;
     font-size: 20px;
