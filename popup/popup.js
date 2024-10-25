@@ -22,7 +22,6 @@ document.getElementById('autologinBtn').addEventListener('click', () => {
             autologinBtn: true,
             pawssword: document.getElementById('autologinPassword').value,
             username: document.getElementById('autologinUsername').value,
-            enabled: document.getElementById('autologinCheckbox').checked,
             encryptEnabled: document.getElementById('autologinPasswordProtection').checked,
             key: document.getElementById('autologinEncryptionPassword').value
         }, (response) => {
@@ -114,6 +113,12 @@ function getDarkMode() {
 
 document.getElementById('autologinCheckbox').addEventListener('click', () => {
     document.getElementById("autologinBody").hidden = !document.getElementById('autologinCheckbox').checked;
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            changeAutologinState: true,
+            autologinState: document.getElementById('autologinCheckbox').checked
+        });
+    });
 })
 
 document.getElementById('autologinPasswordProtection').addEventListener('click', () => {

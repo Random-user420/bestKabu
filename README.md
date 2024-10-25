@@ -15,7 +15,6 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 3. Enter your username, password, and an encryption key (Note: using a key longer than your credentials is unnecessary).
 4. Check the "Enable Password Protection" option.
 5. Click the "Save Login" button.
-6. Refresh the page to activate the changes.
    
 **Note:** If no username or password is entered, the existing credentials won't be overwritten.
 
@@ -27,7 +26,6 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 2. Enable Login by Extension
 3. Enter your username and password.
 4. Click the "Save Login" button.
-5. Refresh the page to activate the changes.
    
 **Note:** If no username or password is entered, the existing credentials won't be overwritten.
 

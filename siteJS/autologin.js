@@ -16,7 +16,7 @@ function encrypt(password, encryptionKey) {
 }
 
 
-function processCredentials(username, password, enabled, encryptEn, key) {
+function processCredentials(username, password, encryptEn, key) {
     //Check if input is valid → if only pw or us or (XOR(key, encEn)) with different cominations
     if (!(!(((username === "" || password === "" || (key === "" && encryptEn)) && (username !== "" != password !== "")) || (key === "" && encryptEn) || (key !== "" && !encryptEn)) || (password === "" && username === "" && key === ""))) {
         return "failedInputValidation";
@@ -24,20 +24,29 @@ function processCredentials(username, password, enabled, encryptEn, key) {
     if (encryptEn) {
         let password_ = encrypt(password, key);
         let username_ = encrypt(username, key);
-        set_stored_credentials(username_, password_, enabled, encryptEn);
+        set_stored_credentials(username_, password_, encryptEn);
     }
     else {
-        set_stored_credentials(username, password, enabled, encryptEn);
+        set_stored_credentials(username, password, encryptEn);
+    }
+    if ((window.location.pathname === "/Login" || window.location.pathname === "/" || window.location.pathname === "") && get_credentials_enabled() === "true" && (getEnrcyptEnabled() != "true" && getEnrcyptEnabled() != true)) {
+        login();
     }
 }
 
-function set_stored_credentials(en_usr, en_pw, enabled, encrypt) {
+function processState(state) {
+    localStorage.setItem("enabled", state);
+    if ((window.location.pathname === "/Login" || window.location.pathname === "/") && get_credentials_enabled() === "true" && (getEnrcyptEnabled() != "true" && getEnrcyptEnabled() != true)) {
+        login();
+    }
+}
+
+function set_stored_credentials(en_usr, en_pw, encrypt) {
     if (en_usr !== null && en_usr !== undefined && en_usr !== "" && en_pw !== null && en_pw !== undefined && en_pw !== "") {
         localStorage.setItem("username", en_usr);
         localStorage.setItem("password", en_pw);
         localStorage.setItem("encrypt", encrypt);
     }
-    localStorage.setItem("enabled", enabled);
 }
 
 function get_stored_credentials() {
@@ -65,17 +74,19 @@ function getEnrcyptEnabled() {
 }
 
 function loginEncrypted(key) {
-    [username_, password_] = get_stored_credentials();
-    if (username_ == null || password_ == null) {
-        return;
-    } else if(key == null || key == undefined || key == "") {
-        return "failedInputValidation";
+    if (get_credentials_enabled() === true || get_credentials_enabled() === "true") {
+        [username_, password_] = get_stored_credentials();
+        if (username_ == null || password_ == null) {
+            return;
+        } else if (key == null || key == undefined || key == "") {
+            return "failedInputValidation";
+        }
+        document.getElementById("UserName").value = encrypt(username_, key);
+        document.getElementById("Password").value = encrypt(password_, key);
+        sleep(300);
+        document.querySelector(".btn.btn-primary").click();
+        sleep(1000);
     }
-    document.getElementById("UserName").value = encrypt(username_, key);
-    document.getElementById("Password").value = encrypt(password_, key);
-    sleep(300);
-    document.querySelector(".btn.btn-primary").click();
-    sleep(1000);
 }
 
 
@@ -87,6 +98,7 @@ function delete_credentials() {
 }
 
 function login() {
+    console.log("login");
     let [username_, password_] = get_stored_credentials();
     if (username_ == null || password_ == null) {
         return;
