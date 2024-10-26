@@ -21,7 +21,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             deleteLogin();
             break;
         case "loginEncButtonEvent":
-            onEncLogin();
+            response = onEncLogin();
+            sendResponse({ failedInputValidation: response });
             break;
     }
 });

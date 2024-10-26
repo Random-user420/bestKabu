@@ -13,7 +13,7 @@
 
 function getPopupInitState() {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, {getPopupInitState: true}, (response) => {
+        chrome.tabs.sendMessage(tabs[0].id, { key: "getPopupInitState" }, (response) => {
             if (response !== undefined) {
                 return {
                     validResponse: true,
@@ -78,10 +78,10 @@ function colorButtonEvent() {
         color: getColorInput()
     });
     if (response !== false) {
-        if (response.success === true) {
-            showSuccess('message-color', "Color set successfully!");
-        } else {
+        if (response.failedInputValidation === true) {
             showError('message-color', "Color must be written as #RRGGBB");
+        } else {
+            showSuccess('message-color', "Color set successfully!");
         }
     }
 }
@@ -114,7 +114,7 @@ function loginSaveButtonEvent() {
         setLoginPassword: getLoginPassword(),
         setLoginEncKey: getLoginEncKey()
     });
-    if (response !== false && !response.failedInputValidation) {
+    if (response.failedInputValidation === false) {
         showSuccess('error-message-login', "Autologin setup was successful!");
     } else {
         showError('error-message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
@@ -133,9 +133,7 @@ function loginEncButtonEvent() {
     const response = setValues('loginEncButtonEvent', {
         setLoginEncKey: getLoginEncKey()
     });
-    if (response !== false && !response.failedInputValidation) {
-        showSuccess('message-login', "Password protection login was successful!");
-    } else {
+    if (response.failedInputValidation === true) {
         showError('message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
         resetInputs();
     }
