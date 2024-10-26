@@ -110,9 +110,9 @@ function loginEncKeyEvent(event) {
 
 function loginSaveButtonEvent() {
     const response = setValues('loginSaveButtonEvent', {
-        setLoginUsername: getLoginUsername(),
-        setLoginPassword: getLoginPassword(),
-        setLoginEncKey: getLoginEncKey()
+        username: getLoginUsername(),
+        password: getLoginPassword(),
+        encKey: getLoginEncKey()
     });
     if (response.failedInputValidation === false) {
         showSuccess('error-message-login', "Autologin setup was successful!");
@@ -131,7 +131,7 @@ function loginDeleteButtonEvent() {
 
 function loginEncButtonEvent() {
     const response = setValues('loginEncButtonEvent', {
-        setLoginEncKey: getLoginEncKey()
+        encKey: getLoginEncKey()
     });
     if (response.failedInputValidation === true) {
         showError('message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
@@ -141,6 +141,6 @@ function loginEncButtonEvent() {
 
 function darkmodeToggleEvent() {
     setValues('darkmodeToggleEvent', {
-        darkMode: getDarkMode()
+        darkModeState: getDarkMode()
     });
 }
