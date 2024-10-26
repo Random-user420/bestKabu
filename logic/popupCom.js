@@ -21,8 +21,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             deleteLogin();
             break;
         case "loginEncButtonEvent":
-            response = onEncLogin();
+            response = onEncLogin(values);
             sendResponse({ failedInputValidation: response });
+            break;
+        case "darkmodeToggleEvent":
+            setDarkModeState(request.values);
             break;
     }
 });
@@ -32,6 +35,6 @@ function getPopupInitState() {
         popupState: isPopupState(),
         darkmodeState: isDarkModeState(),
         loginState: isLoginState(),
-        encState: isEncState()
+        encState: isEncLoginState()
     }
 }
