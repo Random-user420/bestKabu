@@ -161,11 +161,11 @@ input:checked + .slider:before {
 }
 
 
-#colorPicker {
+#colorInput {
     width: 140px;
 }
 
-#divMainSettings {
+#mainPopup {
     display: flex;
     flex-direction: column;
     justify-content: center;

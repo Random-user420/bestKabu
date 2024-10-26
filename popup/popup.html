@@ -12,11 +12,11 @@
     <h3 data-value="BetterKabu">BestKabu</h3>
     <p id="pBestKabu">Verwandelt Digikabu in BestKabu</p>
     <hr class="sectionLine" width="50px">
-    <div hidden="true" id="divMainSettings">
+    <div hidden="true" id="mainPopup">
         <div>
             <h4>ColorPicker</h4>
             <div id="colorInputField">
-                <input class="styled-input" type="text" maxlength="7" id="colorPicker" placeholder="Example: #add8e6" />
+                <input class="styled-input" type="text" maxlength="7" id="colorInput" placeholder="Example: #add8e6" />
                 <button class="styled-button" id="changeColorBtn">Farbe ändern</button>
             </div>
             <div id="error-message-color" style="display: none;"></div>
@@ -25,24 +25,24 @@
         <hr class="sectionLine" width="50px">
         <div class="autologin">
             <div style="break-inside: avoid;">
-                <input type="checkbox" id="autologinCheckbox"/>
+                <input type="checkbox" id="loginCheckbox"/>
                 <b class="loginHeading">Login by Extension</b>
             </div>
-            <div id="autologinBody">
+            <div id="loginBody">
                 <p>Be aware of any <a style="color: wheat;"
                         href="https://github.com/Random-user420/bestKabu?tab=readme-ov-file#autologin-setup"
                         target="_blank">securety risks</a> by using this feature.</p>
-                <input type="checkbox" id="autologinPasswordProtection">Enable Password Protection</input>
+                <input type="checkbox" id="loginEncCheckbox">Enable Password Protection</input>
                 <br>
                 <div id="autologin">
-                    <input class="styled-input" type="text" id="autologinUsername" placeholder="Username" />
-                    <input class="styled-input" type="password" id="autologinPassword" placeholder="Password" />
-                    <input class="styled-input" type="password" id="autologinEncryptionPassword" placeholder="Encryption Password" hidden/>
+                    <input class="styled-input" type="text" id="loginUsername" placeholder="Username" />
+                    <input class="styled-input" type="password" id="loginPassword" placeholder="Password" />
+                    <input class="styled-input" type="password" id="loginEncKey" placeholder="Encryption Password" hidden/>
                     <div id="error-message-login" style="display: none;"></div>
                     <div>
                         <button id="autologinBtn" class="styled-button">Save Login</button>
                         <button id="autologinresetBtn" class="styled-button">Delete Login</button>
-                        <button hidden="true" id="autologinEncryptionBtn" class="styled-button">Login</button>
+                        <button hidden="true" id="loginEncButton" class="styled-button">Login</button>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div id="divNotKabu">
+    <div id="gotoPopup">
         <h4>Go to <a href="https://www.digikabu.de/" target="_blank">digikabu.de</a> to use this extension</h4>
     </div>
 </body>
