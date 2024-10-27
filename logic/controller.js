@@ -85,18 +85,20 @@ function checkTime(period, index) { //TODO: Clean up, because it's a mess
     const endTime = getTimeObject(period.end[0], period.end[1]);
 
     let box = document.getElementById("umgebung");
-    if (box === null) return;
+    if (box === null || box === undefined) return;
 
     box = window.location.pathname.includes("Stundenplan") ? 
         box.children[0] :
         box.document.getElementById("umgebung").children[0].children[1].children[0];
+    
+    if (box === null || box === undefined) return;
 
     const currentBox = box.children[index];
 
     if (currentTime > endTime) {
         currentBox.children[0].classList.remove("weekdayToday");
         for (const i of [1, 2, 3]) {
-            currentBox.children[i].style.fill = hourOver;
+            currentBox.children[i].style.fill = hourOverColor;
         }
     } else if (currentTime > startTime && currentTime < endTime) {
         currentBox.children[0].classList.add("weekdayToday");
@@ -104,36 +106,55 @@ function checkTime(period, index) { //TODO: Clean up, because it's a mess
 }
 
 function createTimer() { //TODO: Clean up, because it's a mess
-    if (!window.location.pathname.includes("Stundenplan")) return;
+    if (window.location.pathname.includes("Stundenplan")) {
+        let box = document.getElementById("stdplanheading");
+        if (box === null) {
+            box = document.querySelector('div[style="margin-left:10px;"]');
+        }
 
-    const headerBox = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
-    if (!headerBox) return;
+        const timerElement = document.createElement("span");
+        timerElement.id = "timerText";
 
-    const timerElement = document.createElement("span");
-    timerElement.id = "timerText";
-    headerBox.appendChild(timerElement);
+        box.append(timerElement);
 
-    const updateTimerDisplay = (minutes, seconds) => {
-        const timerText = isNaN(minutes) ? "Schule zu Ende :)" : `${minutes}m ${seconds}s`;
-        timerElement.textContent = timerText;
-    };
+        function updateTimerDisplay(minutes, seconds) {
+            let timerText;
+            if (isNaN(minutes)) {
+                timerText = "Schule zu Ende :)";
+            } else {
+                timerText = `${minutes}m ${seconds}s`;
+            }
+            document.querySelector("#timerText").textContent = timerText;
+        }
 
-    const calculateTimeDiff = () => {
-        const currentTime = new Date();
-        const nextLessonStart = timeTable.reduce((nextStart, period) => {
-            const endTime = getTimeObject(period.end[0], period.end[1]);
-            return currentTime < endTime && (!nextStart || endTime < nextStart) ? endTime : nextStart;
-        }, getTimeObject(timeTable[0].start[0], timeTable[0].start[1]));
+        function calculateTimeDiff() {
+            const currentTime = new Date();
 
-        const timeDiff = Math.max(nextLessonStart - currentTime, 0);
-        const minutes = Math.floor(timeDiff / 60000);
-        const seconds = Math.floor((timeDiff % 60000) / 1000);
+            let nextLessonStart;
+            if (getTimeObject(timeTable[0].start[0], timeTable[0].start[1]) > currentTime) {
+                nextLessonStart = getTimeObject(timeTable[0].start[0], timeTable[0].start[1]);
+            }
+            else {
+                for (let i = 0; i < timeTable.length; i++) {
+                    const endTime = getTimeObject(timeTable[i].end[0], timeTable[i].end[1]);
+                    if (currentTime < endTime) {
+                        nextLessonStart = endTime;
+                        break;
+                    }
+                }
+            }
 
-        updateTimerDisplay(minutes, seconds);
-    };
+            const timeDiff = Math.max(nextLessonStart - currentTime, 0);
+            const minutes = Math.floor(timeDiff / 60000);
+            const seconds = Math.floor((timeDiff % 60000) / 1000);
 
-    calculateTimeDiff();
-    setInterval(calculateTimeDiff, 1000);
+            updateTimerDisplay(minutes, seconds);
+        }
+
+        calculateTimeDiff();
+
+        setInterval(calculateTimeDiff, 1000);
+    }
 }
 
 

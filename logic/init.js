@@ -36,7 +36,6 @@ function init() {
 function mainLoop() {
     setInterval(() => {
         timeTable.forEach(checkTime);
-        startInfiniteLoop();
     }, 1000);
 }
 
