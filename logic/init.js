@@ -14,7 +14,6 @@ if (
 
 
 function init() {
-    const urlpath = window.location.pathname;
     if (urlpath.includes("SchulaufgabenPlan")) {
         markCurrentDay();
     }
@@ -29,7 +28,7 @@ function init() {
         mainLoop();
     }
     if ((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState()) {
-        login();
+        loginUnenc();
     }
 
 }
@@ -41,4 +40,10 @@ function mainLoop() {
     }, 1000);
 }
 
-window.addEventListener("pageshow", () => { init(); });
+
+let urlpath = window.location.pathname;
+
+window.addEventListener("pageshow", () => {
+    urlpath = window.location.pathname;
+    init();
+});
