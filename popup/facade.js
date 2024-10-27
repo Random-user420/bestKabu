@@ -43,7 +43,7 @@ function setPopupState(state) {
 }
 
 function setDarkMode(state) {
-    getElementById("darkModeToggle").checked = state;
+    document.getElementById("darkModeToggle").checked = state;
 }
 
 function getDarkMode() {

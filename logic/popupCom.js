@@ -21,20 +21,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             deleteLogin();
             break;
         case "loginEncButtonEvent":
-            response = onEncLogin(values);
+            response = onEncLogin(request.values);
             sendResponse({ failedInputValidation: response });
             break;
         case "darkmodeToggleEvent":
             setDarkModeState(request.values);
             break;
+        default:
+            console.warn("Popup received unknown key: " + request.key);
     }
 });
 
 function getPopupInitState() {
     return {
-        popupState: isPopupState(),
         darkmodeState: isDarkModeState(),
         loginState: isLoginState(),
         encState: isEncLoginState()
-    }
+    };
 }

@@ -19,7 +19,7 @@
                 <input class="styled-input" type="text" maxlength="7" id="colorInput" placeholder="Example: #add8e6" />
                 <button class="styled-button" id="changeColorBtn">Farbe ändern</button>
             </div>
-            <div id="error-message-color" style="display: none;"></div>
+            <div id="message-color" style="display: none;"></div>
             <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
         </div>
         <hr class="sectionLine" width="50px">
@@ -38,10 +38,10 @@
                     <input class="styled-input" type="text" id="loginUsername" placeholder="Username" />
                     <input class="styled-input" type="password" id="loginPassword" placeholder="Password" />
                     <input class="styled-input" type="password" id="loginEncKey" placeholder="Encryption Password" hidden/>
-                    <div id="error-message-login" style="display: none;"></div>
+                    <div id="message-login" style="display: none;"></div>
                     <div>
-                        <button id="autologinBtn" class="styled-button">Save Login</button>
-                        <button id="autologinresetBtn" class="styled-button">Delete Login</button>
+                        <button id="loginSaveButton" class="styled-button">Save Login</button>
+                        <button id="loginDeleteButton" class="styled-button">Delete Login</button>
                         <button hidden="true" id="loginEncButton" class="styled-button">Login</button>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
         <h4>Go to <a href="https://www.digikabu.de/" target="_blank">digikabu.de</a> to use this extension</h4>
     </div>
 </body>
+<script src="facade.js"></script>
 <script src="controller.js"></script>
-<script src="facade.js" ></script>
 
 </html>

@@ -18,18 +18,19 @@ function activeColor(color) {
 }
 
 function setLoginState(state) {
-    store('loginState', state);
+    store('loginState', state.setLoginState);
     if (state) {
         loginUnenc();
     }
 }
 
 function isLoginState() {
+    console.log(retrieveBool('loginState'))
     return retrieveBool('loginState');
 }
 
 function setEncLoginState(state) {
-    store('encLoginState', state);
+    store('encLoginState', state.setEncLoginState);
 }
 
 function isEncLoginState() {
@@ -56,10 +57,12 @@ function deleteLogin() {
 }
 
 function loginUnenc() {
+    if (!((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState())) return;
     login(retrieve('username'), retrieve('password'));
 }
 
 function onEncLogin(values) {
+    if (!((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState())) return;
     login(encrypt(retrieve('username'), values.encKey), encrypt(retrieve('password'), values.encKey));
     return false;
 }

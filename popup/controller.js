@@ -15,24 +15,23 @@ function getPopupInitState() {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { key: "getPopupInitState" }, (response) => {
             if (response !== undefined) {
-                return {
+                initalizePopup ({
                     validResponse: true,
                     popupState: true,
                     darkmodeState: response.darkmodeState,
                     loginState: response.loginState,
                     encState: response.encState
-                };
+                });
             }
             else {
-                return {
+                initalizePopup({
                     validResponse: false,
                     popupState: false
-                }
+                });
             }
         });
     });
 }
-
 
 function setValues(key, values) {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
@@ -56,20 +55,19 @@ function resetInputs() {
 }
 
 
-function initalizePopup() {
-    values = getPopupInitState();
-    if (values.validResponse === true) {
+function initalizePopup(values) {
+    if (values !== undefined && values.validResponse === true) {
         setPopupState(values.popupState);
         setDarkMode(values.darkmodeState);
         setLoginState(values.loginState);
         setEncLoginState(values.encState);
     }
     else {
-        setPopupState(values.popupState);
+        setPopupState(false);
     }
 }
 
-initalizePopup();
+getPopupInitState();
 
 // Events
 
