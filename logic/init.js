@@ -24,7 +24,7 @@ function init() {
     }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
         createMebisButton();
-        //showTimer();
+        createTimer();
         hidePassedDays();
         mainLoop();
     }

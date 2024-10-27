@@ -79,7 +79,7 @@ function hidePassedDays() {
     }
 }
 
-function checkTime(period, index) {
+function checkTime(period, index) { //TODO: Clean up, because it's a mess
     const currentTime = new Date();
     const startTime = getTimeObject(period.start[0], period.start[1]);
     const endTime = getTimeObject(period.end[0], period.end[1]);
@@ -101,4 +101,37 @@ function checkTime(period, index) {
     } else if (currentTime > startTime && currentTime < endTime) {
         currentBox.children[0].classList.add("weekdayToday");
     }
+}
+
+function createTimer() { //TODO: Clean up, because it's a mess
+    if (!window.location.pathname.includes("Stundenplan")) return;
+
+    const headerBox = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
+    if (!headerBox) return;
+
+    const timerElement = document.createElement("span");
+    timerElement.id = "timerText";
+    headerBox.appendChild(timerElement);
+
+    const updateTimerDisplay = (minutes, seconds) => {
+        const timerText = isNaN(minutes) ? "Schule zu Ende :)" : `${minutes}m ${seconds}s`;
+        timerElement.textContent = timerText;
+    };
+
+    const calculateTimeDiff = () => {
+        const currentTime = new Date();
+        const nextLessonStart = timeTable.reduce((nextStart, period) => {
+            const endTime = getTimeObject(period.end[0], period.end[1]);
+            return currentTime < endTime && (!nextStart || endTime < nextStart) ? endTime : nextStart;
+        }, getTimeObject(timeTable[0].start[0], timeTable[0].start[1]));
+
+        const timeDiff = Math.max(nextLessonStart - currentTime, 0);
+        const minutes = Math.floor(timeDiff / 60000);
+        const seconds = Math.floor((timeDiff % 60000) / 1000);
+
+        updateTimerDisplay(minutes, seconds);
+    };
+
+    calculateTimeDiff();
+    setInterval(calculateTimeDiff, 1000);
 }
