@@ -25,7 +25,6 @@ function setLoginState(state) {
 }
 
 function isLoginState() {
-    console.log(retrieveBool('loginState'))
     return retrieveBool('loginState');
 }
 
@@ -38,7 +37,12 @@ function isEncLoginState() {
 }
 
 function saveLogin(values) {
-    if (validateLogin(values)) {
+    if (isEncLoginState() && validateLogin(values)) {
+        store('username', encrypt(values.username, values.encKey));
+        store('password', encrypt(values.password, values.encKey));
+        return false;
+    }
+    else if (validateLogin(values)) {
         store('username', values.username);
         store('password', values.password);
         return false;

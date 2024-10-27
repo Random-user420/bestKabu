@@ -36,9 +36,7 @@ function getPopupInitState() {
 function setValues(key, values, callback) {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { key: key, values: values }, (response) => {
-            console.log(callback);
             if (callback !== null) {
-                console.log(response);
                 callback(response);
             }
         });
