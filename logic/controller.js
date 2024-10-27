@@ -3,9 +3,10 @@ function validateColor(value) {
 }
 
 function validateLogin(values) {
-    return isEncLoginState() && values.encKey ?
-        values.encKey.length > 0 && values.username.length > 0 && values.password.length > 0 :
-        values.username.length > 0 && values.password.length > 0;
+    console.log(isEncLoginState(), values)
+    return ((isEncLoginState() && values.encKey !== "") ?
+        (values.encKey.length > 0 && values.username.length > 0 && values.password.length > 0) :
+        (values.username.length > 0 && values.password.length > 0));
 }
 
 function encrypt(password, encryptionKey) {
@@ -134,4 +135,22 @@ function createTimer() { //TODO: Clean up, because it's a mess
 
     calculateTimeDiff();
     setInterval(calculateTimeDiff, 1000);
+}
+
+
+function createMebisButton() {
+    const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
+    if (box) {
+        const mebisButton = Object.assign(document.createElement('button'), {
+            textContent: 'Mebis',
+            id: 'mebisButton',
+            style: {
+                padding: '10px 20px',
+                fontSize: '16px',
+                cursor: 'pointer'
+            },
+            onclick: () => window.open('https://portal.bycs.de/', '_blank')
+        });
+        box.appendChild(mebisButton);
+    }
 }

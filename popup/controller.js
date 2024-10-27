@@ -33,14 +33,13 @@ function getPopupInitState() {
     });
 }
 
-function setValues(key, values) {
+function setValues(key, values, callback) {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { key: key, values: values }, (response) => {
-            if(response !== undefined) {
-                return response;
-            }
-            else {
-                return false;
+            console.log(callback);
+            if (callback !== null) {
+                console.log(response);
+                callback(response);
             }
         });
     });
@@ -72,10 +71,13 @@ getPopupInitState();
 // Events
 
 function colorButtonEvent() {
-    const response = setValues('colorButtonEvent', {
+    setValues('colorButtonEvent', {
         color: getColorInput()
-    });
-    if (response !== false) {
+    }, colorButtonCallback);
+}
+
+function colorButtonCallback(response) {
+    if (response !== undefined) {
         if (response.failedInputValidation === true) {
             showError('message-color', "Color must be written as #RRGGBB");
         } else {
@@ -87,14 +89,14 @@ function colorButtonEvent() {
 function loginCheckboxEvent() {
     setValues('loginCheckboxEvent', {
         setLoginState: getLoginState()
-    });
+    }, null);
     onLoginStateChange(getLoginState());
 }
 
 function loginEncCheckboxEvent() {
     setValues('loginEncCheckboxEvent', {
         setEncLoginState: getEncLoginState()
-    });
+    }, null);
     onEncLoginStateChange(getEncLoginState());
 }
 
@@ -107,58 +109,52 @@ function loginEncKeyEvent(event) {
 }
 
 function loginSaveButtonEvent() {
-    const response = setValues('loginSaveButtonEvent', {
+    setValues('loginSaveButtonEvent', {
         username: getLoginUsername(),
         password: getLoginPassword(),
         encKey: getLoginEncKey()
-    });
-    if (response.failedInputValidation === false) {
-        showSuccess('error-message-login', "Autologin setup was successful!");
-    } else {
-        showError('error-message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
-        resetInputs();
+    }, loginSaveButtonCallback);
+}
+
+function loginSaveButtonCallback(response) {
+    if (response !== undefined) {
+        if (response.failedInputValidation === false) {
+            showSuccess('message-login', "Autologin setup was successful!");
+        } else {
+            showError('message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
+            resetInputs();
+        }
     }
 }
 
 function loginDeleteButtonEvent() {
-    setValues({
+    setValues( "loginDeleteButtonEvent", {
         deleteLogin: true
-    });
+    }, null);
     showSuccess('message-login', "Login successfully deleted!");
 }
 
 function loginEncButtonEvent() {
-    const response = setValues('loginEncButtonEvent', {
+    setValues('loginEncButtonEvent', {
         encKey: getLoginEncKey()
-    });
-    if (response.failedInputValidation === true) {
-        showError('message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
-        resetInputs();
+    }, loginEncButtonCallback);
+}
+
+function loginEncButtonCallback(response) {
+    if (response !== undefined) {
+        if (currentResponse.failedInputValidation === true) {
+            showError('message-login', 'Input Validation Failed! Please Check Your Input and Try Again. View the <a style="color: white; font-weight: bold;" href="https://github.com/Random-user420/bestKabu" target="_blank">GitHub Repo</a> for more info.');
+            resetInputs();
+        }
     }
 }
 
 function darkmodeToggleEvent() {
     setValues('darkmodeToggleEvent', {
         darkModeState: getDarkMode()
-    });
+    }, null);
 }
 
-function createMebisButton() {
-    let box = document.getElementById("stdplanheading");
-
-    if (box === null) {
-        box = document.querySelector('div[style="margin-left:10px;"]');
-    }
-    if (box) {
-        const mebisButton = document.createElement('button');
-        mebisButton.textContent = 'Mebis';
-        mebisButton.id = 'mebisButton';
-        mebisButton.style.padding = '10px 20px';
-        mebisButton.style.fontSize = '16px';
-        mebisButton.style.cursor = 'pointer';
-        mebisButton.addEventListener('click', () => {
-            window.open('https://portal.bycs.de/', '_blank');
-        });
-        box.appendChild(mebisButton);
-    }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
