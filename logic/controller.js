@@ -1,5 +1,5 @@
-function validateColor(value) {
-    return /^#([0-9A-Fa-f]{6})$/.test(value.color);
+function validateColor(color) {
+    return /^#([0-9A-Fa-f]{6})$/.test(color);
 }
 
 function validateLogin(values) {

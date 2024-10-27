@@ -45,6 +45,7 @@ function saveLogin(values) {
     else if (validateLogin(values)) {
         store('username', values.username);
         store('password', values.password);
+        loginUnenc();
         return false;
     }
     else {
