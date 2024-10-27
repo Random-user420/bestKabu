@@ -52,7 +52,7 @@ function markCurrentDay() {
         const rows = table.getElementsByTagName("tr");
         for (const row of rows) {
             const strong = row.querySelector("strong");
-            if (strong && strong.textContent.includes(date)) {
+            if (strong?.textContent.includes(date)) {
                 row.style.backgroundColor = color;
                 return;
             }

@@ -18,9 +18,6 @@ function init() {
         markCurrentDay();
     }
     toggleVisualMode(isDarkModeState());
-    if (urlpath.includes("Stundenplan")) {
-        
-    }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
         setTimeout(createTimer, 200);
         setTimeout(createMebisButton, 200);
