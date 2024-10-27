@@ -40,3 +40,5 @@ function mainLoop() {
         startInfiniteLoop();
     }, 1000);
 }
+
+window.addEventListener("pageshow", () => { init(); });

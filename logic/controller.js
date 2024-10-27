@@ -3,7 +3,6 @@ function validateColor(value) {
 }
 
 function validateLogin(values) {
-    console.log(isEncLoginState(), values)
     return ((isEncLoginState() && values.encKey !== "") ?
         (values.encKey.length > 0 && values.username.length > 0 && values.password.length > 0) :
         (values.username.length > 0 && values.password.length > 0));

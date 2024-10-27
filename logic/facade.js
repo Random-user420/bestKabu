@@ -41,7 +41,6 @@ function saveLogin(values) {
     if (validateLogin(values)) {
         store('username', values.username);
         store('password', values.password);
-        loginUnenc();
         return false;
     }
     else {
@@ -57,13 +56,15 @@ function deleteLogin() {
 }
 
 function loginUnenc() {
-    if (!((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState())) return;
-    login(retrieve('username'), retrieve('password'));
+    if ((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState()) {
+        login(retrieve('username'), retrieve('password'));
+    }
 }
 
 function onEncLogin(values) {
-    if (!((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState())) return;
-    login(encrypt(retrieve('username'), values.encKey), encrypt(retrieve('password'), values.encKey));
+    if ((urlpath === "/" || urlpath === "/Login") && isLoginState() && isEncLoginState()){
+        login(encrypt(retrieve('username'), values.encKey), encrypt(retrieve('password'), values.encKey));
+    }
     return false;
 }
 

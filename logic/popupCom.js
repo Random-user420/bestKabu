@@ -15,6 +15,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             break;
         case "loginSaveButtonEvent":
             response = saveLogin(request.values);
+            console.log("1");
+            console.log(response);
             sendResponse({ failedInputValidation: response });
             break;
         case "loginDeleteButtonEvent":
