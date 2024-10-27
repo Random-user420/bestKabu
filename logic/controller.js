@@ -43,3 +43,62 @@ function toggleVisualMode(darkMode) {
     document.documentElement.style.setProperty('--activeTab',  colors.activeTab);
     document.documentElement.style.setProperty('--timerBackgound',  colors.timerBackgound);
 }
+
+function markCurrentDay() {
+    const date = new Date().toLocaleDateString("de-DE");
+
+    const tables = document.getElementsByTagName("table");
+    for (const table of tables) {
+        const rows = table.getElementsByTagName("tr");
+        for (const row of rows) {
+            const strong = row.querySelector("strong");
+            if (strong && strong.textContent.includes(date)) {
+                row.style.backgroundColor = color;
+                return;
+            }
+        }
+    }
+}
+
+function hidePassedDays() {
+    const box = document.getElementById("umgebung");
+    if (box === null) return;
+
+    let firstVisible = -1;
+    for (let i = 0; i < 5; i++) {
+        if (box.children[i].children[0].children[0].classList.contains("weekdayToday")) {
+            firstVisible = i;
+            break;
+        }
+    }
+
+    if (firstVisible === -1) return;
+
+    for (let i = 0; i < firstVisible; i++) {
+        box.children[i].children[0].children[1].classList.add("passedDay");
+    }
+}
+
+function checkTime(period, index) {
+    const currentTime = new Date();
+    const startTime = getTimeObject(period.start[0], period.start[1]);
+    const endTime = getTimeObject(period.end[0], period.end[1]);
+
+    let box = document.getElementById("umgebung");
+    if (box === null) return;
+
+    box = window.location.pathname.includes("Stundenplan") ? 
+        box.children[0] :
+        box.document.getElementById("umgebung").children[0].children[1].children[0];
+
+    const currentBox = box.children[index];
+
+    if (currentTime > endTime) {
+        currentBox.children[0].classList.remove("weekdayToday");
+        for (const i of [1, 2, 3]) {
+            currentBox.children[i].style.fill = hourOver;
+        }
+    } else if (currentTime > startTime && currentTime < endTime) {
+        currentBox.children[0].classList.add("weekdayToday");
+    }
+}

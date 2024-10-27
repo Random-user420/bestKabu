@@ -1,5 +1,3 @@
-const refreshTimeout = 10000;
-const mainLoopInterval = 600;
 const hourOverColor = "grey";
 const defaultHighlightColor = "#4281ff";
 const darkModeColor = {

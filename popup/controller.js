@@ -144,3 +144,23 @@ function darkmodeToggleEvent() {
         darkModeState: getDarkMode()
     });
 }
+
+function createMebisButton() {
+    let box = document.getElementById("stdplanheading");
+
+    if (box === null) {
+        box = document.querySelector('div[style="margin-left:10px;"]');
+    }
+    if (box) {
+        const mebisButton = document.createElement('button');
+        mebisButton.textContent = 'Mebis';
+        mebisButton.id = 'mebisButton';
+        mebisButton.style.padding = '10px 20px';
+        mebisButton.style.fontSize = '16px';
+        mebisButton.style.cursor = 'pointer';
+        mebisButton.addEventListener('click', () => {
+            window.open('https://portal.bycs.de/', '_blank');
+        });
+        box.appendChild(mebisButton);
+    }
+}
