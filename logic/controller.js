@@ -105,11 +105,21 @@ function checkTime(period, index) { //TODO: Clean up, because it's a mess
     }
 }
 
+let trys = 2;
+
 function createTimer() { //TODO: Clean up, because it's a mess
     if (window.location.pathname.includes("Stundenplan")) {
         let box = document.getElementById("stdplanheading");
         if (box === null) {
             box = document.querySelector('div[style="margin-left:10px;"]');
+            if (box === null) {
+                trys--;
+                if (trys > 0) {
+                    setTimeout(createTimer, 200);
+                    return;
+                }
+                return;
+            }
         }
 
         const timerElement = document.createElement("span");
