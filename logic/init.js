@@ -21,8 +21,9 @@ function init() {
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
         setTimeout(createTimer, 200);
         setTimeout(createMebisButton, 200);
-        setTimeout(hidePassedDays(), 200);
-        setTimeout(mainLoop(), 200);
+        setTimeout(hidePassedDays, 200);
+        setTimeout(activeColor, 200, getColor())
+        setTimeout(mainLoop, 200);
     }
     if ((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState()) {
         loginUnenc();
