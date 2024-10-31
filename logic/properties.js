@@ -70,3 +70,16 @@ const timeTable = [
         end: [16, 15],
     },
 ];
+
+const lessonColor = {
+    "PuG": "#612f00",
+    "IT-Tec": "#101050",
+    "BGWP": "#b9b372",
+    "E": "#c02020",
+    "D": "#700000",
+    "AEuP": "#37ae1c",
+    "FU-IT": "#4576cd",
+    "smw": "#79bb24",
+    "K": "#582a8f",
+    "DGWP": "#24bb7e"
+}

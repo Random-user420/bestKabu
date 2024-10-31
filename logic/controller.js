@@ -30,18 +30,18 @@ function login(username, password) {
 
 function toggleVisualMode(darkMode) {
     const colors = darkMode ? darkModeColor : whiteModeColor;
-    document.documentElement.style.setProperty('--navColor',  colors.navColor);
-    document.documentElement.style.setProperty('--backgroundColor',  colors.backgroundColor);
-    document.documentElement.style.setProperty('--planColor',  colors.planColor);
-    document.documentElement.style.setProperty('--glyphicon',  colors.glyphicon);
-    document.documentElement.style.setProperty('--lessonColor',  colors.lessonColor);
-    document.documentElement.style.setProperty('--hourOverlay',  colors.hourOverlay);
-    document.documentElement.style.setProperty('--hourCanceled',  colors.hourCanceled);
-    document.documentElement.style.setProperty('--hourCanceled',  colors.hourCanceled);
-    document.documentElement.style.setProperty('--hourChanged',  colors.hourChanged);
-    document.documentElement.style.setProperty('--white',  colors.white);
-    document.documentElement.style.setProperty('--activeTab',  colors.activeTab);
-    document.documentElement.style.setProperty('--timerBackgound',  colors.timerBackgound);
+    document.documentElement.style.setProperty('--navColor', colors.navColor);
+    document.documentElement.style.setProperty('--backgroundColor', colors.backgroundColor);
+    document.documentElement.style.setProperty('--planColor', colors.planColor);
+    document.documentElement.style.setProperty('--glyphicon', colors.glyphicon);
+    document.documentElement.style.setProperty('--lessonColor', colors.lessonColor);
+    document.documentElement.style.setProperty('--hourOverlay', colors.hourOverlay);
+    document.documentElement.style.setProperty('--hourCanceled', colors.hourCanceled);
+    document.documentElement.style.setProperty('--hourCanceled', colors.hourCanceled);
+    document.documentElement.style.setProperty('--hourChanged', colors.hourChanged);
+    document.documentElement.style.setProperty('--white', colors.white);
+    document.documentElement.style.setProperty('--activeTab', colors.activeTab);
+    document.documentElement.style.setProperty('--timerBackgound', colors.timerBackgound);
 }
 
 function markCurrentDay() {
@@ -87,10 +87,10 @@ function checkTime(period, index) { //TODO: Clean up, because it's a mess
     let box = document.getElementById("umgebung");
     if (box === null || box === undefined) return;
 
-    box = window.location.pathname.includes("Stundenplan") ? 
+    box = window.location.pathname.includes("Stundenplan") ?
         box.children[0] :
         box.document.getElementById("umgebung").children[0].children[1].children[0];
-    
+
     if (box === null || box === undefined) return;
 
     const currentBox = box.children[index];
@@ -170,5 +170,23 @@ function createMebisButton() {
             onclick: () => window.open('https://portal.bycs.de/', '_blank')
         });
         box.appendChild(mebisButton);
+    }
+}
+
+function paintLessons() {
+    box = document.getElementById("umgebung");
+    if (box === null || box === undefined) return;
+
+    for (let i = 1; i < 6; i++) {
+        let j = 1;
+        while (box.children[i].children[j] !== null && box.children[i].children[j] !== undefined) {
+            if (box.children[i].children[j].children[1].classList.contains("regStd")) {
+                color = lessonColor[box.children[i].children[j].children[4].innerHTML];
+                if (color !== undefined) {
+                    box.children[i].children[j].children[1].setAttribute("style", `fill: ${color} !important;`);
+                }
+            }
+            j++;
+        }
     }
 }
