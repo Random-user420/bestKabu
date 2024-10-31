@@ -7,6 +7,9 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 ### Firefox: Use the .xpi file in the latest -fire release
 **Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It already should work fine in debugger mode.
 
+## Lesson highlighting
+**Note:** Please submit (create an github issue) your school lesson abbreviations to mark them in color 
+
 ## Login by Extension
 
 ### With Encryption:
