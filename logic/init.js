@@ -22,7 +22,8 @@ function init() {
         setTimeout(createTimer, 200);
         setTimeout(createMebisButton, 200);
         setTimeout(hidePassedDays, 200);
-        setTimeout(activeColor, 200, getColor())
+        setTimeout(activeColor, 200, getColor());
+        setTimeout(highlightLessons, 200);
         setTimeout(mainLoop, 200);
     }
     if ((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState()) {
