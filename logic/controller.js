@@ -76,17 +76,12 @@ function checkTime(period, index) {
     const currentTime = new Date();
     const startTime = getTimeObject(period.start[0], period.start[1]);
     const endTime = getTimeObject(period.end[0], period.end[1]);
-
-    let box = document.getElementById("umgebung");
-    if (box === null || box === undefined) return;
-
-    box = window.location.pathname.includes("Stundenplan") ?
-        box.children[0] :
-        box.children[0].children[1].children[0];
-
-    if (box === null || box === undefined) return;
-
-    const currentBox = box.children[index];
+    
+    const currentBox = window.location.pathname.includes("Stundenplan") ?
+        document.getElementById("umgebung")?.children[0]?.children[index] :
+        document.getElementById("umgebung")?.children[0].children[1].children[0]?.children[index];
+    
+    if (currentBox === null || currentBox === undefined) return;
 
     if (currentTime > endTime) {
         currentBox.children[0].classList.remove("weekdayToday");
