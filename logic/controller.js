@@ -76,11 +76,11 @@ function checkTime(period, index) {
     const currentTime = new Date();
     const startTime = getTimeObject(period.start[0], period.start[1]);
     const endTime = getTimeObject(period.end[0], period.end[1]);
-    
+
     const currentBox = window.location.pathname.includes("Stundenplan") ?
         document.getElementById("umgebung")?.children[0]?.children[index] :
         document.getElementById("umgebung")?.children[0].children[1].children[0]?.children[index];
-    
+
     if (currentBox === null || currentBox === undefined) return;
 
     if (currentTime > endTime) {
@@ -96,44 +96,39 @@ function checkTime(period, index) {
 
 function createTimer() {
     const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
-    if (!box) return; 
+    if (!box) return;
 
     const timerElement = document.createElement("span");
     timerElement.id = "timerText";
     box.append(timerElement);
 
-
-    function calculateTimeDiff() {
-        const currentTime = new Date();
-
-        let nextLessonStart;
-        if (getTimeObject(timeTable[0].start[0], timeTable[0].start[1]) > currentTime) {
-            nextLessonStart = getTimeObject(timeTable[0].start[0], timeTable[0].start[1]);
-        }
-        else {
-            for (let i = 0; i < timeTable.length; i++) {
-                const endTime = getTimeObject(timeTable[i].end[0], timeTable[i].end[1]);
-                if (currentTime < endTime) {
-                    nextLessonStart = endTime;
-                    break;
-                }
-            }
-        }
-
-        const timeDiff = Math.max(nextLessonStart - currentTime, 0);
-        const minutes = Math.floor(timeDiff / 60000);
-        const seconds = Math.floor((timeDiff % 60000) / 1000);
-
-        document.querySelector("#timerText").textContent =
-            isNaN(minutes) ?
-                "Schule zu Ende :)" :
-                `${minutes}m ${seconds}s`;
-        
-    }
-
     calculateTimeDiff();
     setInterval(calculateTimeDiff, 1000);
+}
 
+function calculateTimeDiff() {
+    const currentTime = new Date();
+
+    let nextLessonStart;
+    if (getTimeObject(timeTable[0].start[0], timeTable[0].start[1]) > currentTime) {
+        nextLessonStart = getTimeObject(timeTable[0].start[0], timeTable[0].start[1]);
+    }
+    else {
+        for (let i = 0; i < timeTable.length; i++) {
+            const endTime = getTimeObject(timeTable[i].end[0], timeTable[i].end[1]);
+            if (currentTime < endTime) {
+                nextLessonStart = endTime;
+                break;
+            }
+        }
+    }
+
+    const timeDiff = Math.max(nextLessonStart - currentTime, 0);
+
+    document.querySelector("#timerText").textContent =
+        isNaN(timeDiff) ?
+            "Schule zu Ende :)" :
+            `${Math.floor(timeDiff / 60000)}m ${Math.floor((timeDiff % 60000) / 1000)}s`;
 }
 
 
