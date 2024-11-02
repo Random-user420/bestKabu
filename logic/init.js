@@ -26,7 +26,7 @@ function init() {
         setTimeout(highlightLessons, 200);
         setTimeout(mainLoop, 200);
     }
-    if ((urlpath === "/" || urlpath === "/Login") && isLoginState() && !isEncLoginState()) {
+    if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {
         loginUnenc();
     }
 
