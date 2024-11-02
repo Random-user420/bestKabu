@@ -79,7 +79,7 @@ function hidePassedDays() {
     }
 }
 
-function checkTime(period, index) { //TODO: Clean up, because it's a mess
+function checkTime(period, index) {
     const currentTime = new Date();
     const startTime = getTimeObject(period.start[0], period.start[1]);
     const endTime = getTimeObject(period.end[0], period.end[1]);
@@ -89,7 +89,7 @@ function checkTime(period, index) { //TODO: Clean up, because it's a mess
 
     box = window.location.pathname.includes("Stundenplan") ?
         box.children[0] :
-        box.document.getElementById("umgebung").children[0].children[1].children[0];
+        box.children[0].children[1].children[0];
 
     if (box === null || box === undefined) return;
 
