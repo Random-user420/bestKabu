@@ -66,7 +66,7 @@ function hidePassedDays() {
 
     let firstVisible = -1;
     for (let i = 0; i < 5; i++) {
-        if (box.children[i].children[0].children[0].classList.contains("weekdayToday")) {
+        if (box.children[i]?.children[0]?.children[0]?.classList.contains("weekdayToday")) {
             firstVisible = i;
             break;
         }
