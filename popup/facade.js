@@ -105,7 +105,7 @@ function setLoginEncKey(key) {
 
 function showError(id, message) {
     const errorMessage = document.getElementById(id);
-    errorMessage.innerHTML = message;
+    errorMessage.textContent = message;
     errorMessage.style.display = 'block';
     errorMessage.style.color = "#FF0000FF";
     resetInputs();
@@ -113,7 +113,7 @@ function showError(id, message) {
 
 function showSuccess(id, message) {
     const errorMessage = document.getElementById(id);
-    errorMessage.innerHTML = message;
+    errorMessage.textContent = message;
     errorMessage.style.display = 'block';
     errorMessage.style.color = "#85ff85";
     resetInputs();

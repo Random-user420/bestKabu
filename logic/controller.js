@@ -181,7 +181,7 @@ function paintLessons() {
         let j = 1;
         while (box.children[i].children[j] !== null && box.children[i].children[j] !== undefined) {
             if (box.children[i].children[j].children[1].classList.contains("regStd")) {
-                color = lessonColor[box.children[i].children[j].children[4].innerHTML];
+                color = lessonColor[box.children[i].children[j].children[4].textContent];
                 if (color !== undefined) {
                     box.children[i].children[j].children[1].setAttribute("style", `fill: ${color} !important;`);
                 }
