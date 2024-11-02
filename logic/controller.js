@@ -64,18 +64,11 @@ function hidePassedDays() {
     const box = document.getElementById("umgebung");
     if (box === null) return;
 
-    let firstVisible = -1;
     for (let i = 0; i < 5; i++) {
         if (box.children[i]?.children[0]?.children[0]?.classList.contains("weekdayToday")) {
-            firstVisible = i;
             break;
         }
-    }
-
-    if (firstVisible === -1) return;
-
-    for (let i = 0; i < firstVisible; i++) {
-        box.children[i].children[0].children[1].classList.add("passedDay");
+        box.children[i]?.children[0]?.children[1]?.classList.add("passedDay");
     }
 }
 
