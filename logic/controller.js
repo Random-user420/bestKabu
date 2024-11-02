@@ -94,24 +94,14 @@ function checkTime(period, index) {
 }
 
 
-function createTimer() { //TODO: Clean up, because it's a mess
+function createTimer() {
     const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
-    if (!box) { return; }
+    if (!box) return; 
 
     const timerElement = document.createElement("span");
     timerElement.id = "timerText";
-
     box.append(timerElement);
 
-    function updateTimerDisplay(minutes, seconds) {
-        let timerText;
-        if (isNaN(minutes)) {
-            timerText = "Schule zu Ende :)";
-        } else {
-            timerText = `${minutes}m ${seconds}s`;
-        }
-        document.querySelector("#timerText").textContent = timerText;
-    }
 
     function calculateTimeDiff() {
         const currentTime = new Date();
@@ -134,11 +124,14 @@ function createTimer() { //TODO: Clean up, because it's a mess
         const minutes = Math.floor(timeDiff / 60000);
         const seconds = Math.floor((timeDiff % 60000) / 1000);
 
-        updateTimerDisplay(minutes, seconds);
+        document.querySelector("#timerText").textContent =
+            isNaN(minutes) ?
+                "Schule zu Ende :)" :
+                `${minutes}m ${seconds}s`;
+        
     }
 
     calculateTimeDiff();
-
     setInterval(calculateTimeDiff, 1000);
 
 }
