@@ -18,10 +18,12 @@ function init() {
         markCurrentDay();
     }
     toggleVisualMode(isDarkModeState());
+    if (urlpath.includes("Stundenplan")) {
+        setTimeout(hidePassedDays, 200);
+    }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
         setTimeout(createTimer, 200);
         setTimeout(createMebisButton, 200);
-        setTimeout(hidePassedDays, 200);
         setTimeout(activeColor, 200, getColor());
         setTimeout(highlightLessons, 200);
         setTimeout(mainLoop, 200);
