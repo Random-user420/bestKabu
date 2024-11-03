@@ -3,7 +3,7 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 
 # Usage
 
-### Chromium: https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg
+### Chromium: [here](https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg)
 ### Firefox: Use the .xpi file in the latest -fire release
 **Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It already should work fine in debugger mode.
 
