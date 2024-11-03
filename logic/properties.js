@@ -73,13 +73,13 @@ const timeTable = [
 
 const lessonColor = {
     "PuG": "#612f00",
-    "IT-Tec": "#101050",
+    "IT-Tec": "#582a8f", 
     "BGWP": "#b9b372",
     "E": "#c02020",
     "D": "#700000",
     "AEuP": "#37ae1c",
     "FU-IT": "#4576cd",
     "smw": "#79bb24",
-    "K": "#582a8f",
+    "K": "#101050",
     "DGWP": "#24bb7e"
 }
