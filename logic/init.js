@@ -19,14 +19,14 @@ function init() {
     }
     toggleVisualMode(isDarkModeState());
     if (urlpath.includes("Stundenplan")) {
-        setTimeout(hidePassedDays, 200);
-        setTimeout(highlightLessons, 200);
+        hidePassedDays();
+        highlightLessons();
     }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
-        setTimeout(createTimer, 200);
-        setTimeout(createMebisButton, 200);
-        setTimeout(activeColor, 200, getColor());
-        setTimeout(mainLoop, 200);
+        createTimer();
+        createMebisButton();
+        activeColor(getColor());
+        mainLoop;
     }
     if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {
         loginUnenc();
@@ -43,7 +43,12 @@ function mainLoop() {
 
 let urlpath = window.location.pathname;
 
-window.addEventListener("pageshow", () => {
-    urlpath = window.location.pathname;
-    init();
+const observer = new MutationObserver((mutations, obs) => {
+    if (document.readyState === 'complete') {
+        urlpath = window.location.pathname;
+        init();
+        obs.disconnect();
+    }
 });
+
+observer.observe(document, { childList: true, subtree: true });
