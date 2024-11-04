@@ -64,7 +64,7 @@ function hidePassedDays() {
     const box = document.getElementById("umgebung");
     if (box === null) return;
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 1; i < 6; i++) {
         if (box.children[i].children[0].children[0].classList.contains("weekdayToday")) {
             break;
         }
