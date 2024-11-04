@@ -46,7 +46,7 @@ let urlpath = window.location.pathname;
 const observer = new MutationObserver((mutations, obs) => {
     if (document.readyState === 'complete') {
         urlpath = window.location.pathname;
-        setTimeout(init, 200);
+        setTimeout(init, 800);
         obs.disconnect();
     }
 });
