@@ -28,10 +28,6 @@ function init() {
         activeColor(getColor());
         mainLoop();
     }
-    if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {
-        loginUnenc();
-    }
-
 }
 
 function mainLoop() {
@@ -46,6 +42,9 @@ let urlpath = window.location.pathname;
 const observer = new MutationObserver((mutations, obs) => {
     if (document.readyState === 'complete') {
         urlpath = window.location.pathname;
+        if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {
+            loginUnenc();
+        }
         setTimeout(init, 800);
         obs.disconnect();
     }
