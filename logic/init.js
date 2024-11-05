@@ -45,8 +45,7 @@ function mainLoop() {
 let urlpath = window.location.pathname;
 
 
-(function () {
-    window.addEventListener('load', function () {
-        this.setTimeout(init, 800);
-    });
-})();
+window.addEventListener("pageshow", () => {
+    urlpath = window.location.pathname;
+    setTimeout(init, 800);
+});
