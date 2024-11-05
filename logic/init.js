@@ -19,7 +19,7 @@ function init() {
     }
     toggleVisualMode(isDarkModeState());
     if (urlpath.includes("Stundenplan")) {
-        hidePassedDays();
+        callHidePassedDays();
         highlightLessons();
     }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {

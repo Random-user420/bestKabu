@@ -87,3 +87,9 @@ function highlightLessons() {
         paintLessons();
     }
 }
+
+function callHidePassedDays() {
+    if (!isFutureWeek()) {
+        hidePassedDays();
+    }
+}

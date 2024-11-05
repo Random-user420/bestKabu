@@ -65,11 +65,32 @@ function markCurrentDay() {
     }
 }
 
+function isFutureWeek() {
+    const box = document.getElementById("umgebung");
+    if (box === null) return true;
+
+    const currentDate = new Date();
+
+    const match = box.children[1].children[0].children[1].innerHTML.match(/(\d{2})\.(\d{2})\./)
+    const mondaySelected = { day: parseInt(match[1]), month: parseInt(match[2]) }
+
+    const selectedYear = (mondaySelected.month < 9 && currentDate.getMonth() < 9) || (mondaySelected.month >= 9 && currentDate.getMonth() >= 9) ?
+        currentDate.getFullYear() :
+        (mondaySelected.month < 9 && currentDate.getMonth() >= 9 ?
+            currentDate.getFullYear() + 1 :
+            currentDate.getFullYear() - 1);
+
+    const mondaySelectedDate = new Date(selectedYear, mondaySelected.month - 1, mondaySelected.day);
+
+    return currentDate < mondaySelectedDate;
+}
+
 // Hides the passed days in the table
 function hidePassedDays() {
     const box = document.getElementById("umgebung");
     if (box === null) return;
 
+    // Hide passed days
     for (let i = 1; i < 6; i++) {
         if (box.children[i].children[0].children[0].classList.contains("weekdayToday")) {
             break;
