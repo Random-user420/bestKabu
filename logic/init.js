@@ -46,6 +46,5 @@ let urlpath = window.location.pathname;
 
 
 window.addEventListener("pageshow", () => {
-    urlpath = window.location.pathname;
     setTimeout(init, 800);
 });
