@@ -26,7 +26,7 @@ function init() {
         createTimer();
         createMebisButton();
         activeColor(getColor());
-        mainLoop;
+        mainLoop();
     }
     if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {
         loginUnenc();
