@@ -14,6 +14,7 @@ if (
 
 
 function init() {
+    urlpath = window.location.pathname;
     if (urlpath.includes("SchulaufgabenPlan")) {
         markCurrentDay();
     }
