@@ -1,13 +1,16 @@
+// Validates if the color is in hexadecimal format
 function validateColor(color) {
     return /^#([0-9A-Fa-f]{6})$/.test(color);
 }
 
+// Validates login values based on the encryption state
 function validateLogin(values) {
     return ((isEncLoginState() && values.encKey !== "") ?
         (values.encKey.length > 0 && values.username.length > 0 && values.password.length > 0) :
         (values.username.length > 0 && values.password.length > 0));
 }
 
+// Encrypts the password using an encryption key
 function encrypt(password, encryptionKey) {
     const keyLength = encryptionKey.length;
     const result = new Uint8Array(password.length);
@@ -19,7 +22,7 @@ function encrypt(password, encryptionKey) {
     return String.fromCharCode(...result);
 }
 
-
+// Performs login by filling in the fields and clicking the login button
 function login(username, password) {
     document.getElementById("UserName").value = username;
     document.getElementById("Password").value = password;
@@ -28,6 +31,7 @@ function login(username, password) {
     sleep(500);
 }
 
+// Toggles the visual mode between light and dark
 function toggleVisualMode(darkMode) {
     const colors = darkMode ? darkModeColor : whiteModeColor;
     document.documentElement.style.setProperty('--navColor', colors.navColor);
@@ -44,6 +48,7 @@ function toggleVisualMode(darkMode) {
     document.documentElement.style.setProperty('--timerBackgound', colors.timerBackgound);
 }
 
+// Marks the current day in the table
 function markCurrentDay() {
     const date = new Date().toLocaleDateString("de-DE");
 
@@ -60,6 +65,7 @@ function markCurrentDay() {
     }
 }
 
+// Hides the passed days in the table
 function hidePassedDays() {
     const box = document.getElementById("umgebung");
     if (box === null) return;
@@ -72,6 +78,7 @@ function hidePassedDays() {
     }
 }
 
+// Checks the current time and updates the interface based on the period
 function checkTime(period, index) {
     const currentTime = new Date();
     const startTime = getTimeObject(period.start[0], period.start[1]);
@@ -93,7 +100,7 @@ function checkTime(period, index) {
     }
 }
 
-
+// Creates a timer in the interface
 function createTimer() {
     const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
     if (!box) return;
@@ -106,6 +113,7 @@ function createTimer() {
     setInterval(calculateTimeDiff, 1000);
 }
 
+// Calculates the time difference until the next lesson and updates the timer
 function calculateTimeDiff() {
     const currentTime = new Date();
 
@@ -131,7 +139,7 @@ function calculateTimeDiff() {
             `${Math.floor(timeDiff / 60000)}m ${Math.floor((timeDiff % 60000) / 1000)}s`;
 }
 
-
+// Creates a "Mebis" button in the interface
 function createMebisButton() {
     const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
     if (box) {
@@ -149,6 +157,7 @@ function createMebisButton() {
     }
 }
 
+// Paints the lessons in the table based on the defined color
 function paintLessons() {
     box = document.getElementById("umgebung");
     if (box === null || box === undefined) return;

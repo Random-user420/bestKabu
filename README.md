@@ -3,7 +3,7 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 
 # Usage
 
-### Chromium: https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg
+### Chromium: [here](https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg)
 ### Firefox: Use the .xpi file in the latest -fire release
 **Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It already should work fine in debugger mode.
 
@@ -31,6 +31,9 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 4. Click the "Save Login" button.
    
 **Note:** If no username or password is entered, the existing credentials won't be overwritten.
+
+## Preview
+![](./screenshots/schedule.png)
 
 ## Colorpicker
 To change the color of the highlighting: Open the Extension on the digikabu.de website and enter a HEX code in the input field. If you don't know them from memory, click on the link and copy the HEX code from there. A HEX code is always a "#" and 6 digits, that can be "0,1,2,...9, A, B, C, D, E, F".
