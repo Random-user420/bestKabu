@@ -1,36 +1,37 @@
+window.addEventListener('pageshow', () => {
 
-document.getElementById('changeColorBtn').addEventListener('click', () => {
-    colorButtonEvent();
-});
+    document.getElementById('changeColorBtn').addEventListener('click', () => {
+        colorButtonEvent();
+    });
 
-document.getElementById('loginCheckbox').addEventListener('click', () => {
-    loginCheckboxEvent();
-});
+    document.getElementById('loginCheckbox').addEventListener('click', () => {
+        loginCheckboxEvent();
+    });
 
-document.getElementById('loginEncCheckbox').addEventListener('click', () => {
-    loginEncCheckboxEvent();
+    document.getElementById('loginEncCheckbox').addEventListener('click', () => {
+        loginEncCheckboxEvent();
 
-});
+    });
 
-document.getElementById('loginEncKey').addEventListener('keypress', (e) => {
-    loginEncKeyEvent(e);
-});
+    document.getElementById('loginEncKey').addEventListener('keypress', (e) => {
+        loginEncKeyEvent(e);
+    });
 
-document.getElementById('loginSaveButton').addEventListener('click', () => {
-    loginSaveButtonEvent();
+    document.getElementById('loginSaveButton').addEventListener('click', () => {
+        loginSaveButtonEvent();
+    })
+
+    document.getElementById('loginDeleteButton').addEventListener('click', () => {
+        loginDeleteButtonEvent();
+    })
+    document.getElementById('loginEncButton').addEventListener('click', () => {
+        loginEncButtonEvent();
+    })
+
+    document.getElementById('darkModeToggle').addEventListener('click', () => {
+        darkmodeToggleEvent();
+    });
 })
-
-document.getElementById('loginDeleteButton').addEventListener('click', () => {
-    loginDeleteButtonEvent();
-})
-document.getElementById('loginEncButton').addEventListener('click', () => {
-    loginEncButtonEvent();
-})
-
-document.getElementById('darkModeToggle').addEventListener('click', () => {
-    darkmodeToggleEvent();
-});
-
 
 
 function getColorInput() {
