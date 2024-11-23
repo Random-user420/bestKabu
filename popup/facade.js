@@ -31,7 +31,7 @@ window.addEventListener('pageshow', () => {
     document.getElementById('darkModeToggle').addEventListener('click', () => {
         darkmodeToggleEvent();
     });
-})
+});
 
 
 function getColorInput() {

@@ -1,16 +1,3 @@
-/**
- * Get popup init state
- * 
- * set……
- * colorPickerState
- * darkmodeState
- *  looginState
- *  storeCre
- *  deleteCre
- *  encState
- *  encLogin
- */
-
 function getPopupInitState() {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { key: "getPopupInitState" }, (response) => {

@@ -81,5 +81,12 @@ const lessonColor = {
     "FU-IT": "#4576cd",
     "smw": "#79bb24",
     "K": "#101050",
-    "DGWP": "#24bb7e"
+    "DGWP": "#24bb7e",
+    "TRF": "#101050",
+    "MSWE": "#b9b372",
+    "AEmP": "#37ae1c",
+    "IuKS": "#4576cd",
+    "WU-PE": "#79bb24",
+    "Ev": "#582a8f",
+    "DBS": "#24bb7e"
 }
