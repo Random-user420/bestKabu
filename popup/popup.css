@@ -150,6 +150,19 @@ input:checked + .slider:before {
 
 .sectionLine {
     margin: 10px 0px 10px 0px;
+    width: 50px;
+}
+
+.icon {
+    margin-left: 5px;
+}
+
+.link {
+    color: wheat;
+}
+
+.loginHeading {
+    break-inside: avoid;
 }
 
 .toggleButton {

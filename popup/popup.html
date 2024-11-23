@@ -1,53 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="popup.css"><script src="facade.js"></script>
+    <script src="controller.js"></script>
+    <title>BestKabu</title>
 </head>
 
 <body>
     <h3 data-value="BetterKabu">BestKabu</h3>
     <p id="pBestKabu">Verwandelt Digikabu in BestKabu</p>
-    <hr class="sectionLine" width="50px">
-    <div hidden="true" id="mainPopup">
+    <hr class="sectionLine">
+    <div hidden id="mainPopup">
         <div>
             <h4>ColorPicker</h4>
             <div id="colorInputField">
-                <input class="styled-input" type="text" maxlength="7" id="colorInput" placeholder="Example: #add8e6" />
-                <button class="styled-button" id="changeColorBtn">Farbe ändern</button>
+                <input class="styled-input" type="text" maxlength="7" id="colorInput" placeholder="Example: #add8e6">
+                <button type="button" class="styled-button" id="changeColorBtn">Farbe ändern</button>
             </div>
             <div id="message-color" style="display: none;"></div>
-            <a style="color: wheat;" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
+            <a class="link" href="https://htmlcolorcodes.com/color-picker/" target="_blank">colorpicker</a>
         </div>
-        <hr class="sectionLine" width="50px">
+        <hr class="sectionLine">
         <div class="autologin">
-            <div style="break-inside: avoid;">
-                <input type="checkbox" id="loginCheckbox"/>
+            <div class="loginHeader">
+                <input type="checkbox" id="loginCheckbox">
                 <b class="loginHeading">Login by Extension</b>
             </div>
             <div id="loginBody">
-                <p>Be aware of any <a style="color: wheat;"
+                <p>Be aware of any <a class="link"
                         href="https://github.com/Random-user420/bestKabu?tab=readme-ov-file#autologin-setup"
                         target="_blank">securety risks</a> by using this feature.</p>
-                <input type="checkbox" id="loginEncCheckbox">Enable Password Protection</input>
+                <input type="checkbox" id="loginEncCheckbox">Enable Password Protection
                 <br>
                 <div id="autologin">
-                    <input class="styled-input" type="text" id="loginUsername" placeholder="Username" />
-                    <input class="styled-input" type="password" id="loginPassword" placeholder="Password" />
-                    <input class="styled-input" type="password" id="loginEncKey" placeholder="Encryption Password" hidden/>
+                    <input class="styled-input" type="text" id="loginUsername" placeholder="Username">
+                    <input class="styled-input" type="password" id="loginPassword" placeholder="Password">
+                    <input class="styled-input" type="password" id="loginEncKey" placeholder="Encryption Password" hidden>
                     <div id="message-login" style="display: none;"></div>
                     <div>
-                        <button id="loginSaveButton" class="styled-button">Save Login</button>
-                        <button id="loginDeleteButton" class="styled-button">Delete Login</button>
-                        <button hidden="true" id="loginEncButton" class="styled-button">Login</button>
+                        <button type="button" id="loginSaveButton" class="styled-button">Save Login</button>
+                        <button type="button" id="loginDeleteButton" class="styled-button">Delete Login</button>
+                        <button type="button" hidden id="loginEncButton" class="styled-button">Login</button>
                     </div>
                 </div>
             </div>
         </div>
-        <hr class="sectionLine" width="50px">
+        <hr class="sectionLine">
         <div class="toggleDarkMode">
             <h4>Toggle Dark Mode</h4>
             <div class="toggleButton">
@@ -56,19 +58,17 @@
                     <input type="checkbox" id="darkModeToggle">
                     <span class="slider round"></span>
                 </label>
-                <img src="icons/moon-solid.svg" style="margin-left: 5px" width="20px" height="20px" alt="sun icon">
+                <img src="icons/moon-solid.svg" width="20px" height="20px" alt="sun icon" class="Icon">
             </div>
         </div>
     </div>
     <div id="gotoPopup">
-        <h4>Go to <a href="https://www.digikabu.de/" target="_blank">digikabu.de</a> to use this extension</h4>
+        <h4>Go to <a class="link" href="https://www.digikabu.de/" target="_blank">digikabu.de</a> to use this extension</h4>
     </div>
     <div id="warranty">
         <h4>Warranty</h4>
         <p>BestKabu is provided "as is", without any warranty. Use at your own risk.</p>
     </div>
 </body>
-<script src="facade.js"></script>
-<script src="controller.js"></script>
 
 </html>
