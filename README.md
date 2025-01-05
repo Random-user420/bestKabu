@@ -69,7 +69,7 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 
 
 # Warranty
-** We don't provide any sort of warranty on this programm**
+** We don't provide any sort of warranty on this programm **
 
 **contact: bestkabu@vleov.de**
 
