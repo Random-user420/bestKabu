@@ -31,6 +31,10 @@ window.addEventListener('pageshow', () => {
     document.getElementById('darkModeToggle').addEventListener('click', () => {
         darkmodeToggleEvent();
     });
+
+    document.getElementById("colorPicker").addEventListener("input", () => {
+        document.getElementById("colorInput").value = document.getElementById("colorPicker").value.toLowerCase();
+    });
 });
 
 
