@@ -4,7 +4,7 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 # Usage
 
 ### Chromium: [here](https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg)
-### Firefox: Use the .xpi file in the latest -fire release
+### Firefox*: Use the .xpi file in the latest -fire release
 **Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It already should work fine in debugger mode.
 
 **Hint:** On some browsers the Extension shows the link to digikabu.de even if you're on the website. Please check your Privacy settings and Extension permissions.
@@ -74,6 +74,8 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 **contact: bestkabu@vleov.de**
 
 ## Contributors ✨
+
+* the update server scipt is in this repo: https://github.com/Random-user420/bestKabuGoFirefoxUpdateApi
 
 <p>Thanks to all the contributors who helped improve this project:</p>
 <a href="https://github.com/Random-user420/bestKabu/graphs/contributors">
