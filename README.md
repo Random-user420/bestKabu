@@ -73,9 +73,10 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 
 **contact: bestkabu@vleov.de**
 
-## Contributors ✨
 
-* the update server scipt is in this repo: https://github.com/Random-user420/bestKabuGoFirefoxUpdateApi
+\* the update server script is in this repo: https://github.com/Random-user420/bestKabuGoFirefoxUpdateApi
+
+## Contributors ✨
 
 <p>Thanks to all the contributors who helped improve this project:</p>
 <a href="https://github.com/Random-user420/bestKabu/graphs/contributors">
