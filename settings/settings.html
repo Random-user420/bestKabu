@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="settings.css">
+    <script src="settings.js"></script>
+    <title>BestKabu Settings</title>
+</head>
+
+<body>
+    <main>
+        <section class="grid" aria-labelledby="theme-settings">
+            <h1 id="theme-settings" class="sr-only">Themen Einstellungen</h1>
+
+            <div class="inputBox max-width border" aria-labelledby="darkmode-header">
+                <h2 id="darkmode-header">Dunkelmodus</h2>
+                <label for="darkmodeBackground">Hintergrundfarbe</label>
+                <input type="color" class="form-control" id="darkmodeBackground" name="darkmodeBackground">
+                <label for="darkmodeNav">Navigationsfarbe</label>
+                <input type="color" class="form-control" id="darkmodeNav" name="darkmodeNav">
+                <label for="darkmodePlan">Planfarbe</label>
+                <input type="color" class="form-control" id="darkmodePlan" name="darkmodePlan">
+                <label for="darkmodeLesson">Stundenfarbe</label>
+                <input type="color" class="form-control" id="darkmodeLesson" name="darkmodeLesson">
+                <label for="darkmodeHourOverlay">Stundenüberlagerung</label>
+                <input type="color" class="form-control" id="darkmodeHourOverlay" name="darkmodeHourOverlay">
+                <label for="darkmodeHourCanceled">Stunde abgesagt</label>
+                <input type="color" class="form-control" id="darkmodeHourCanceled" name="darkmodeHourCanceled">
+                <label for="darkmodeHourChanged">Stunde geändert</label>
+                <input type="color" class="form-control" id="darkmodeHourChanged" name="darkmodeHourChanged">
+                <label for="darkmodeWhite">Text</label>
+                <input type="color" class="form-control" id="darkmodeWhite" name="darkmodeWhite">
+                <label for="darkmodeActiveTab">Aktiver Tab</label>
+                <input type="color" class="form-control" id="darkmodeActiveTab" name="darkmodeActiveTab">
+                <label for="darkmodeGlyphicon">Glyphicon</label>
+                <input type="color" class="form-control" id="darkmodeGlyphicon" name="darkmodeGlyphicon">
+                <label for="darkmodeTimerBackground">Timer Hintergrund</label>
+                <input type="color" class="form-control" id="darkmodeTimerBackground" name="darkmodeTimerBackground">
+                <label for="darkmodeHighlightColor">Markierungsfarbe</label>
+                <input type="color" class="form-control" id="darkmodeHighlightColor" name="darkmodeHighlightColor">
+            </div>
+
+            <div class="inputBox max-width border" aria-labelledby="lightmode-header">
+                <h2 id="lightmode-header">Hellmodus</h2>
+                <label for="lightmodeBackground">Hintergrundfarbe</label>
+                <input type="color" class="form-control" id="lightmodeBackground" name="lightmodeBackground">
+                <label for="lightmodeNav">Navigationsfarbe</label>
+                <input type="color" class="form-control" id="lightmodeNav" name="lightmodeNav">
+                <label for="lightmodePlan">Planfarbe</label>
+                <input type="color" class="form-control" id="lightmodePlan" name="lightmodePlan">
+                <label for="lightmodeLesson">Stundenfarbe</label>
+                <input type="color" class="form-control" id="lightmodeLesson" name="lightmodeLesson">
+                <label for="lightmodeHourOverlay">Stundenüberlagerung</label>
+                <input type="color" class="form-control" id="lightmodeHourOverlay" name="lightmodeHourOverlay">
+                <label for="lightmodeHourCanceled">Stunde abgesagt</label>
+                <input type="color" class="form-control" id="lightmodeHourCanceled" name="lightmodeHourCanceled">
+                <label for="lightmodeHourChanged">Stunde geändert</label>
+                <input type="color" class="form-control" id="lightmodeHourChanged" name="lightmodeHourChanged">
+                <label for="lightmodeWhite">Text</label>
+                <input type="color" class="form-control" id="lightmodeWhite" name="lightmodeWhite">
+                <label for="lightmodeActiveTab">Aktiver Tab</label>
+                <input type="color" class="form-control" id="lightmodeActiveTab" name="lightmodeActiveTab">
+                <label for="lightmodeGlyphicon">Glyphicon</label>
+                <input type="color" class="form-control" id="lightmodeGlyphicon" name="lightmodeGlyphicon">
+                <label for="lightmodeTimerBackground">Timer Hintergrund</label>
+                <input type="color" class="form-control" id="lightmodeTimerBackground" name="lightmodeTimerBackground">
+                <label for="lightmodeHighlightColor">Markierungsfarbe</label>
+                <input type="color" class="form-control" id="lightmodeHighlightColor" name="lightmodeHighlightColor">
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="border lessons-form inputBox" aria-labelledby="lessons-header">
+                <h2 id="lessons-header">Stunden</h2>
+                <div id="lessons" aria-live="polite">
+                </div>
+                <button type="button" id="addLesson">Hinzufügen</button>
+            </div>
+
+            <div class="border inputBox" aria-labelledby="links-header">
+                <h2 id="links-header">Links</h2>
+                <div id="links" aria-live="polite">
+                </div>
+                <button type="button" id="addLink">Hinzufügen</button>
+            </div>
+        </section>
+
+        <section class="options border">
+            <button id="save" type="button">Speichern</button>
+            <button id="reset" type="button">Zurücksetzen</button>
+            <button id="export" type="button">Exportieren</button>
+            <input type="file" id="importFile" accept=".json" aria-label="Datei importieren">
+            <button id="import" type="button">Importieren</button>
+        </section>
+    </main>
+</body>
+</html>

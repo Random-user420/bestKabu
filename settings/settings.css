@@ -1,0 +1,124 @@
+.lessons-form {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.border {
+    border: gray solid 1px;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.max-width {
+    max-width: 20rem;
+    margin-inline: auto;
+}
+
+body {
+    background-color: #242424;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-bottom: 5rem;
+}
+
+input[type="color"] {
+    background-color: #242424;
+    border: 1px solid white;
+    color: white;
+}
+
+.div>*:first-child {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin: 0 auto;
+    display: block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.options {
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: grid;
+    width: fit-content;
+    /* 3 collumns, 2 rows */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+}
+
+.options>input {
+    grid-column: 1 / 3;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-inline: auto;
+    max-width: 60rem;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lessons {
+    margin: 5rem auto;
+}
+
+#addLesson {
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+.lesson,
+.link {
+    display: grid;
+    margin-inline: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+}
+
+.lesson input[type="text"],
+.link input[type="text"] {
+    background-color: #242424;
+    border: 1px solid white;
+    color: white;
+    padding: .5rem;
+}
+
+input[type="file"] {
+    color: white;
+    background-color: #242424;
+    border: 1px solid white;
+    padding: .5rem;
+}
+
+#inputBox {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}

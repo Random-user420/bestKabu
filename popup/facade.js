@@ -1,16 +1,10 @@
 window.addEventListener('pageshow', () => {
-
-    document.getElementById('changeColorBtn').addEventListener('click', () => {
-        colorButtonEvent();
-    });
-
     document.getElementById('loginCheckbox').addEventListener('click', () => {
         loginCheckboxEvent();
     });
 
     document.getElementById('loginEncCheckbox').addEventListener('click', () => {
         loginEncCheckboxEvent();
-
     });
 
     document.getElementById('loginEncKey').addEventListener('keypress', (e) => {
@@ -30,6 +24,10 @@ window.addEventListener('pageshow', () => {
 
     document.getElementById('darkModeToggle').addEventListener('click', () => {
         darkmodeToggleEvent();
+    })
+
+    document.getElementById('settingsButton').addEventListener('click', () => {
+        chrome.runtime.openOptionsPage();
     });
 });
 
