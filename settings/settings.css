@@ -27,7 +27,7 @@ input[type="color"] {
     color: white;
 }
 
-.div>*:first-child {
+.inputBox>*:first-child {
     grid-column: 1 / 3;
     text-align: center;
 }
@@ -83,7 +83,7 @@ button:hover {
     margin: 5rem auto;
 }
 
-#addLesson {
+.addLesson {
     margin: 0 auto;
     margin-top: 1rem;
 }
@@ -114,7 +114,7 @@ input[type="file"] {
     padding: .5rem;
 }
 
-#inputBox {
+.inputBox {
     width: 100%;
     display: grid;
     align-items: center;
