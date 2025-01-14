@@ -1,0 +1,21 @@
+# Datamodel
+- bool modules
+    - credentiols encryped: true/false
+    - autologin: true/false
+    - darkmode: true/false
+- credentiols
+    - username: ""
+    - password: ""
+- configureble config
+    - Color config
+        - lesson colors
+            - (example) "E":  #a01010 
+            - …
+        - mode colors
+            - (example)  background
+                - whitemode: #f0f0f0
+                - darkmode: #303030
+            - …
+    - Link buttons
+        - (example) mebis: "https://portal.bycs.de/"
+        - …
