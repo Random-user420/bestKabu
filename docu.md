@@ -1,9 +1,9 @@
 # Datamodel
 - bool modules
-    - credentiols encryped: true/false
+    - credentials encryped: true/false
     - autologin: true/false
     - darkmode: true/false
-- credentiols
+- credentials
     - username: ""
     - password: ""
 - configureble config
