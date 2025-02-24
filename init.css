@@ -13,6 +13,7 @@
     --activeTab: #ffffff;
     --timerText: #ffffff;
     --glyphicon: #ffffff;
+    --highlight: #002e08;
 }
 
 body {
@@ -215,4 +216,8 @@ div.container.body-content table tbody tr td {
 
 svg g text{
     transition-duration: 0.6s !important;
+}
+
+table tr.heute {
+    background: var(--highlight) !important;
 }
