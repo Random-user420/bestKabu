@@ -18,6 +18,13 @@
             "128": "/icons/icon128.png"
         }
     },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "bestKabu@lilith.de",
+            "strict_min_version": "111.0",
+            "update_url": "https://lilith.v6.rocks/update/"
+        }
+    },
     "permissions": [
         "storage"
     ],
