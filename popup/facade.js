@@ -19,27 +19,32 @@ window.addEventListener('pageshow', () => {
 
     document.getElementById('loginSaveButton').addEventListener('click', () => {
         loginSaveButtonEvent();
-    })
+    });
 
     document.getElementById('loginDeleteButton').addEventListener('click', () => {
         loginDeleteButtonEvent();
-    })
+    });
+
     document.getElementById('loginEncButton').addEventListener('click', () => {
         loginEncButtonEvent();
-    })
+    });
 
     document.getElementById('darkModeToggle').addEventListener('click', () => {
         darkmodeToggleEvent();
     });
 
     document.getElementById("colorPicker").addEventListener("input", () => {
-        document.getElementById("colorInput").value = document.getElementById("colorPicker").value.toLowerCase();
+        setColorInput(document.getElementById("colorPicker").value.toLowerCase());
     });
 });
 
 
 function getColorInput() {
     return document.getElementById('colorInput').value;
+}
+
+function setColorInput(value) {
+    document.getElementById('colorInput').value = value;
 }
 
 function setPopupState(state) {
