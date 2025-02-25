@@ -30,7 +30,7 @@
     ],
     "content_scripts": [{
         "matches": ["https://*.digikabu.de/*", "http://*.digikabu.de/*", "https://digikabu.de/*", "http://digikabu.de/*"],
-        "js": ["logic/controller.js", "logic/init.js", "logic/facade.js", "logic/popupCom.js", "logic/properties.js", "logic/storage.js", "logic/utils.js"],
+        "js": ["logic/controller.js", "logic/init.js", "logic/facade.js", "logic/popupCom.js", "logic/properties.js", "logic/storage.js", "logic/utils.js", "logic/models.js"],
         "css": ["init.css"]
     }]
 }

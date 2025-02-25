@@ -71,7 +71,7 @@ const timeTable = [
     },
 ];
 
-const lessonColor = {
+let lessonColor = {
     "PuG": "#612f00",
     "IT-Tec": "#582a8f", 
     "BGWP": "#b9b372",

@@ -93,3 +93,20 @@ function callHidePassedDays() {
         hidePassedDays();
     }
 }
+
+function updateColorFields(values) {
+    values.forEach(element => {
+        element.updateColor();
+    });
+    store('colorFields', values.colorFields);
+}
+
+function getColorFields() {
+    objectColorFields = retrieve('colorFields');
+    
+
+    const lessonNames = getLessonNames(objectColorFields);
+    lessonNames.forEach(element => {
+        objectColorFields.push(createFieldObject(element))
+    });
+}

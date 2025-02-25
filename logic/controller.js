@@ -196,3 +196,29 @@ function paintLessons() {
         }
     }
 }
+
+function getLessonNames(objectColorFields) {
+    let lessonNames = [];
+    objectColorFields.forEach(field => {
+        lessonNames.push(field.name);
+    });
+
+    if (box === null || box === undefined) return;
+
+    for (let i = 1; i < 6; i++) {
+        let j = 1;
+        while (box.children[i].children[j] !== null && box.children[i].children[j] !== undefined) {
+            const name = box.children[i].children[j].children[4].textContent;
+            if (name !== "" && !lessonNames.includes(name)) {
+                lessonNames.push(name);
+            }
+        }
+    }
+    return lessonNames;
+}
+
+function createFieldObject(name) {
+    let field = new objectColorField(name, "");
+    field.color = retrieve("SubjectColor " + field.id);
+    return field;
+}

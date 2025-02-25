@@ -45,6 +45,7 @@ function initalizePopup(values) {
         setDarkMode(values.darkmodeState);
         setLoginState(values.loginState);
         setEncLoginState(values.encState);
+        createSubjectColorFields(values.colorFields);
     }
     else {
         setPopupState(false);
@@ -53,7 +54,24 @@ function initalizePopup(values) {
 
 getPopupInitState();
 
+let colorFields = [];
+
 // Events
+
+
+function createSubjectColorFields(values) {
+    values.forEach(val => {
+        document.getElementById('sColors').innerHTML += `
+            <label for="${val.id}Picker">${val.name}</label>
+            <input type="color" id="${val.id}Picker" >
+            <input class="styled-input" type="text" maxlength="7" id="${val.id}Field" placeholder="Example: #add8e6">`;
+        document.getElementById(val.id + "Picker").value = val.color;
+        document.getElementById(val.id + "Field").value = val.color;
+        val.updateField();
+        colorFields.push(val);
+    });
+}
+
 
 function colorButtonEvent() {
     setValues('colorButtonEvent', {
