@@ -88,5 +88,7 @@ const lessonColor = {
     "IuKS": "#4546cd",
     "WU-PE": "#79bb84",
     "Ev": "#103050",
-    "DBS": "#24bb7e"
+    "DBS": "#24bb7e",
+    "Mathe": "#4576cd",
+    "BWP-C": "#b9b372"
 }
