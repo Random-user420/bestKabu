@@ -7,7 +7,8 @@ function getPopupInitState() {
                     popupState: true,
                     darkmodeState: response.darkmodeState,
                     loginState: response.loginState,
-                    encState: response.encState
+                    encState: response.encState,
+                    colorFields: response.colorFields
                 });
             }
             else {
@@ -70,6 +71,15 @@ function createSubjectColorFields(values) {
         val.updateField();
         colorFields.push(val);
     });
+}
+
+function getColorInput() {
+    colorFields.forEach(val => {
+        if (!val.validateColor()) {
+            val.setColorInput("");
+        }
+    })
+    setValues("updateColorFields", colorFields, null);
 }
 
 

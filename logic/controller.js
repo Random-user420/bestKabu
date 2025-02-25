@@ -199,9 +199,11 @@ function paintLessons() {
 
 function getLessonNames(objectColorFields) {
     let lessonNames = [];
-    objectColorFields.forEach(field => {
-        lessonNames.push(field.name);
-    });
+    if (objectColorFields ==! null || objectColorFields ==! undefined) {
+        objectColorFields.forEach(field => {
+            lessonNames.push(field.name);
+        });
+    }
 
     if (box === null || box === undefined) return;
 

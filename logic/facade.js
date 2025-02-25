@@ -103,10 +103,10 @@ function updateColorFields(values) {
 
 function getColorFields() {
     objectColorFields = retrieve('colorFields');
-    
 
     const lessonNames = getLessonNames(objectColorFields);
     lessonNames.forEach(element => {
         objectColorFields.push(createFieldObject(element))
     });
+    return objectColorFields;
 }
