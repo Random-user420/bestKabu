@@ -214,6 +214,7 @@ function getLessonNames(objectColorFields) {
             if (name !== "" && !lessonNames.includes(name)) {
                 lessonNames.push(name);
             }
+            j++;
         }
     }
     return lessonNames;
