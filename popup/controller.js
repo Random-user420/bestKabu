@@ -61,6 +61,7 @@ let colorFields = [];
 
 
 function createSubjectColorFields(values) {
+    values = values.map(val => new objectColorField(val.id, val.name, val.color));
     values.forEach(val => {
         document.getElementById('sColors').innerHTML += `
             <label for="${val.id}Picker">${val.name}</label>
