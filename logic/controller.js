@@ -220,14 +220,9 @@ function getLessonNames(objectColorFields) {
     return lessonNames;
 }
 
-function getObjectColorFields() {
+function retrieveLessonColors() {
     storedColors = retrieve('colorFields');
-    objectColorFields = [];
-    if (storedColors !== null && storedColors !== undefined && storedColors.length > 0 && storedColors != "") {
-        console.log(storedColors);
-        storedColors.forEach(element => {
-            objectColorFields.push(new objectColorField(element.name, element.color, element.id));
-        });
+    if (storedColors != null && storedColors != undefined && storedColors != "") {
+        lessonColor = JSON.parse(storedColors);
     }
-    return objectColorFields;
 }

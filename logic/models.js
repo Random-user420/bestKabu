@@ -3,15 +3,11 @@ class objectColorField {
     name = "";
     id;
     
-    constructor(name, color, id) {
+    constructor(name, color) {
         this.color = color;
         this.name = name;
 
-        if (id == null) {
-            this.id = name.replace("#", "").replace(" ", "").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss");
-        }
-        else {
-            this.id = id;
-        }
+        this.id = name.replace("#", "").replace(" ", "").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss");
+        
     }
 }

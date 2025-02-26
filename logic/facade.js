@@ -95,18 +95,18 @@ function callHidePassedDays() {
 }
 
 function updateColorFields(values) {
-    let colors = [];
     values.forEach(element => {
         if(validateColor(element.color)) {
             lessonColor[element.name] = element.color;
         }
-        colors.push({name: element.name, color: lessonColor[element.name], id: element.id});
     });
-    store("SubCOlors", colors);
+
+    store("SubCOlors", JSON.stringify(lessonColor));
 }
 
 function getColorFields() {
-    let objectColorFields = getObjectColorFields();
+    retrieveLessonColors()
+    let objectColorFields = [];
 
     const lessonNames = getLessonNames(objectColorFields);
     lessonNames.forEach(name => {
