@@ -21,6 +21,7 @@ function init() {
     toggleVisualMode(isDarkModeState());
     if (urlpath.includes("Stundenplan")) {
         callHidePassedDays();
+        retrieveLessonColors();
         highlightLessons();
     }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {

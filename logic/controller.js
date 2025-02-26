@@ -221,8 +221,11 @@ function getLessonNames(objectColorFields) {
 }
 
 function retrieveLessonColors() {
-    storedColors = retrieve('colorFields');
+    storedColors = retrieve('SubCOlors');
+    console.log(storedColors);
     if (storedColors != null && storedColors != undefined && storedColors != "") {
+        console.log(lessonColor);
         lessonColor = JSON.parse(storedColors);
+        console.log(lessonColor);
     }
 }

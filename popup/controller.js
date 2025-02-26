@@ -83,6 +83,9 @@ function createSubjectColorFields(input) {
 }
 
 function saveSubColorEvent() {
+    colorFields.forEach(field => {
+        field.color = document.getElementById(`${field.id}Field`).value;
+    });
     setValues("updateColorFields", colorFields, null);
 }
 

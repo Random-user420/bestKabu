@@ -100,6 +100,7 @@ function updateColorFields(values) {
             lessonColor[element.name] = element.color;
         }
     });
+    paintLessons();
 
     store("SubCOlors", JSON.stringify(lessonColor));
 }
