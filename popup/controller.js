@@ -72,7 +72,9 @@ function createSubjectColorFields(values) {
             <input class="styled-input" type="text" maxlength="7" id="${id}Field" placeholder="Example: #add8e6"><br/>`;
         document.getElementById(`${id}Picker`).value = color;
         document.getElementById(`${id}Field`).value = color;
-        val.updateField();
+        document.getElementById(`${id}Picker`).addEventListener("input", function () {
+            document.getElementById(`${id}Field`).value = document.getElementById(`${id}Picker`).value.toLowerCase();
+        });
         colorFields.push(val);
     });
 }
