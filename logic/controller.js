@@ -220,12 +220,14 @@ function getLessonNames(objectColorFields) {
     return lessonNames;
 }
 
-function createFieldObject(name) {
-    let field = new objectColorField(name, "");
-    let color = retrieve("SubjectColor " + field.id);
-    if (color == "" || color == null) {
-        color = lessonColor[field.name];
+function getObjectColorFields() {
+    storedColors = retrieve('colorFields');
+    objectColorFields = [];
+    if (storedColors !== null && storedColors !== undefined && storedColors.length > 0 && storedColors != "") {
+        console.log(storedColors);
+        storedColors.forEach(element => {
+            objectColorFields.push(new objectColorField(element.name, element.color, element.id));
+        });
     }
-    field.color = color;
-    return field;
+    return objectColorFields;
 }

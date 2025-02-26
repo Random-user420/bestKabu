@@ -95,21 +95,22 @@ function callHidePassedDays() {
 }
 
 function updateColorFields(values) {
+    let colors = [];
     values.forEach(element => {
-        element.updateColor();
+        if(validateColor(element.color)) {
+            lessonColor[element.name] = element.color;
+        }
+        colors.push({name: element.name, color: lessonColor[element.name], id: element.id});
     });
-    store('colorFields', values.colorFields);
+    store("SubCOlors", colors);
 }
 
 function getColorFields() {
-    objectColorFields = retrieve('colorFields');
-    if (objectColorFields === null) {
-      objectColorFields = [];
-    }
+    let objectColorFields = getObjectColorFields();
 
     const lessonNames = getLessonNames(objectColorFields);
-    lessonNames.forEach(element => {
-        objectColorFields.push(createFieldObject(element))
+    lessonNames.forEach(name => {
+        objectColorFields.push(new objectColorField(name, lessonColor[name], null))
     });
     return objectColorFields;
 }

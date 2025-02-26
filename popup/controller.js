@@ -60,16 +60,19 @@ let colorFields = [];
 // Events
 
 
-function createSubjectColorFields(values) {
-    values = values.map(val => new objectColorField(val.name, val.color, val.id));
+function createSubjectColorFields(input) {
+    values = input.map(val => new objectColorField(val.name, val.color, val.id));
     values.forEach(val => {
         const id = val.id;
-        const color = val.color;
         const name = val.name;
         document.getElementById('sColors').innerHTML += `
             <label for="${id}Picker">${name}</label><br/>
             <input type="color" id="${id}Picker" >
             <input class="styled-input" type="text" maxlength="7" id="${id}Field" placeholder="Example: #add8e6"><br/>`;
+    });
+    values.forEach(val => {
+        const id = val.id;
+        const color = val.color;
         document.getElementById(`${id}Picker`).value = color;
         document.getElementById(`${id}Field`).value = color;
         document.getElementById(`${id}Picker`).addEventListener("input", function () {
@@ -80,9 +83,6 @@ function createSubjectColorFields(values) {
 }
 
 function saveSubColorEvent() {
-    colorFields.forEach(val => {
-        val.getColorInput();
-    })
     setValues("updateColorFields", colorFields, null);
 }
 
