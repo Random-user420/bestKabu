@@ -38,7 +38,7 @@ window.addEventListener('pageshow', () => {
     });
 
     document.getElementById("setColors").addEventListener("click", () => {
-        setColors();
+        saveSubColorEvent();
     });
 });
 

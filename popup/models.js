@@ -3,17 +3,14 @@ class objectColorField {
     name = "";
     id = "";
 
-    constructor(name, color) {
+    constructor(name, color, id) {
         this.color = color;
         this.name = name;
-        this.id = name.replace("#", "").replace(" ", "").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss");
+        this.id = id;
     }
 
-    validateColor() {
-        return /^#([0-9A-Fa-f]{6})$/.test(this.color);
-    }
-    updateColor() {
-        lessonColor[this.name] = this.color;
+    validateColor(color) {
+        return /^#([0-9A-Fa-f]{6})$/.test(color);
     }
     setColorInput(value) {
         document.getElementById(`${this.id}Field`).value = value;
@@ -24,6 +21,14 @@ class objectColorField {
         });
     }
     getColor() {
-        return document.getElementById(`${this.id}Field`).value;
+        const color = document.getElementById(`${this.id}Field`).value;
+        if (this.validateColor(color)) {
+            this.color = color;
+        }
+        else {
+            this.color = "";
+            document.getElementById(`${this.id}Field`).value = document.getElementById(`${this.id}Picker`).value;
+        }
+        return this.color;
     }
 }

@@ -61,24 +61,25 @@ let colorFields = [];
 
 
 function createSubjectColorFields(values) {
-    values = values.map(val => new objectColorField(val.id, val.name, val.color));
+    values = values.map(val => new objectColorField(val.name, val.color, val.id));
     values.forEach(val => {
+        const id = val.id;
+        const color = val.color;
+        const name = val.name;
         document.getElementById('sColors').innerHTML += `
-            <label for="${val.id}Picker">${val.name}</label>
-            <input type="color" id="${val.id}Picker" >
-            <input class="styled-input" type="text" maxlength="7" id="${val.id}Field" placeholder="Example: #add8e6"><br/>`;
-        document.getElementById(`${val.id}Picker`).value = val.color;
-        document.getElementById(`${val.id}Field`).value = val.color;
+            <label for="${id}Picker">${name}</label>
+            <input type="color" id="${id}Picker" >
+            <input class="styled-input" type="text" maxlength="7" id="${id}Field" placeholder="Example: #add8e6"><br/>`;
+        document.getElementById(`${id}Picker`).value = color;
+        document.getElementById(`${id}Field`).value = color;
         val.updateField();
         colorFields.push(val);
     });
 }
 
-function getColorInput() {
+function saveSubColorEvent() {
     colorFields.forEach(val => {
-        if (!val.validateColor()) {
-            val.setColorInput("");
-        }
+        val.getColorInput();
     })
     setValues("updateColorFields", colorFields, null);
 }

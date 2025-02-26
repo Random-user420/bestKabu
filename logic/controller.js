@@ -222,6 +222,10 @@ function getLessonNames(objectColorFields) {
 
 function createFieldObject(name) {
     let field = new objectColorField(name, "");
-    field.color = retrieve("SubjectColor " + field.id);
+    let color = retrieve("SubjectColor " + field.id);
+    if (color == "" || color == null) {
+        color = lessonColor[field.name];
+    }
+    field.color = color;
     return field;
 }
