@@ -67,8 +67,8 @@ function createSubjectColorFields(values) {
             <label for="${val.id}Picker">${val.name}</label>
             <input type="color" id="${val.id}Picker" >
             <input class="styled-input" type="text" maxlength="7" id="${val.id}Field" placeholder="Example: #add8e6"><br/>`;
-        document.getElementById(val.id + "Picker").value = val.color;
-        document.getElementById(val.id + "Field").value = val.color;
+        document.getElementById(`${val.id}Picker`).value = val.color;
+        document.getElementById(`${val.id}Field`).value = val.color;
         val.updateField();
         colorFields.push(val);
     });

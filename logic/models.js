@@ -15,15 +15,15 @@ class objectColorField {
     updateColor() {
         lessonColor[this.name] = this.color;
     }
+    setColorInput(value) {
+        document.getElementById(`${this.id}Field`).value = value;
+    }
     updateField() {
-        document.getElementById(this.id + "Picker").addEventListener("input", () => {
-            this.setColorInput(document.getElementById(this.id + "Picker").value.toLowerCase());
+        document.getElementById(`${this.id}Picker`).addEventListener("input", function () {
+            this.setColorInput(document.getElementById(`${this.id}Picker`).value.toLowerCase());
         });
     }
-    setColorInput(value) {
-        document.getElementById(this.id + "Field").value = value;
-    }
     getColor() {
-        return document.getElementById(this.id + "Field").value;
+        return document.getElementById(`${this.id}Field`).value;
     }
 }
