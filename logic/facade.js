@@ -93,3 +93,25 @@ function callHidePassedDays() {
         hidePassedDays();
     }
 }
+
+function updateColorFields(values) {
+    values.forEach(element => {
+        if(validateColor(element.color)) {
+            lessonColor[element.name] = element.color;
+        }
+    });
+    paintLessons();
+
+    store("SubCOlors", JSON.stringify(lessonColor));
+}
+
+function getColorFields() {
+    retrieveLessonColors()
+    let objectColorFields = [];
+
+    const lessonNames = getLessonNames(objectColorFields);
+    lessonNames.forEach(name => {
+        objectColorFields.push(new objectColorField(name, lessonColor[name], null))
+    });
+    return objectColorFields;
+}

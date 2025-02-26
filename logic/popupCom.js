@@ -27,6 +27,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         case "darkmodeToggleEvent":
             setDarkModeState(request.values);
             break;
+        case "updateColorFields":
+            updateColorFields(request.values);
+            break;
         default:
             console.warn("Popup received unknown key: " + request.key);
     }
@@ -36,6 +39,7 @@ function getPopupInitState() {
     return {
         darkmodeState: isDarkModeState(),
         loginState: isLoginState(),
-        encState: isEncLoginState()
+        encState: isEncLoginState(),
+        colorFields: getColorFields()
     };
 }

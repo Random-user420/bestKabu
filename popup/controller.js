@@ -7,7 +7,8 @@ function getPopupInitState() {
                     popupState: true,
                     darkmodeState: response.darkmodeState,
                     loginState: response.loginState,
-                    encState: response.encState
+                    encState: response.encState,
+                    colorFields: response.colorFields
                 });
             }
             else {
@@ -45,6 +46,7 @@ function initalizePopup(values) {
         setDarkMode(values.darkmodeState);
         setLoginState(values.loginState);
         setEncLoginState(values.encState);
+        createSubjectColorFields(values.colorFields);
     }
     else {
         setPopupState(false);
@@ -53,7 +55,40 @@ function initalizePopup(values) {
 
 getPopupInitState();
 
+let colorFields = [];
+
 // Events
+
+
+function createSubjectColorFields(input) {
+    values = input.map(val => new objectColorField(val.name, val.color, val.id));
+    values.forEach(val => {
+        const id = val.id;
+        const name = val.name;
+        document.getElementById('sColors').innerHTML += `
+            <label for="${id}Picker">${name}</label><br/>
+            <input type="color" id="${id}Picker" >
+            <input class="styled-input" type="text" maxlength="7" id="${id}Field" placeholder="Example: #add8e6"><br/>`;
+    });
+    values.forEach(val => {
+        const id = val.id;
+        const color = val.color;
+        document.getElementById(`${id}Picker`).value = color;
+        document.getElementById(`${id}Field`).value = color;
+        document.getElementById(`${id}Picker`).addEventListener("input", function () {
+            document.getElementById(`${id}Field`).value = document.getElementById(`${id}Picker`).value.toLowerCase();
+        });
+        colorFields.push(val);
+    });
+}
+
+function saveSubColorEvent() {
+    colorFields.forEach(field => {
+        field.color = document.getElementById(`${field.id}Field`).value;
+    });
+    setValues("updateColorFields", colorFields, null);
+}
+
 
 function colorButtonEvent() {
     setValues('colorButtonEvent', {

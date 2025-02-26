@@ -36,6 +36,10 @@ window.addEventListener('pageshow', () => {
     document.getElementById("colorPicker").addEventListener("input", () => {
         setColorInput(document.getElementById("colorPicker").value.toLowerCase());
     });
+
+    document.getElementById("setColors").addEventListener("click", () => {
+        saveSubColorEvent();
+    });
 });
 
 
