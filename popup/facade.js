@@ -55,6 +55,10 @@ function setColorInput(value) {
     document.getElementById('colorInput').value = value;
 }
 
+function setColorInputPicker(value) {
+    document.getElementById("colorPicker").value = value;
+}
+
 function setPopupState(state) {
     document.getElementById("mainPopup").hidden = !state;
     document.getElementById("gotoPopup").hidden = state;

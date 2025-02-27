@@ -8,6 +8,7 @@ function getPopupInitState() {
                     darkmodeState: response.darkmodeState,
                     loginState: response.loginState,
                     encState: response.encState,
+                    highlightColor: response.highlightColor,
                     colorFields: response.colorFields
                 });
             }
@@ -46,6 +47,7 @@ function initalizePopup(values) {
         setDarkMode(values.darkmodeState);
         setLoginState(values.loginState);
         setEncLoginState(values.encState);
+        setHighlightColor(values.highlightColor);
         createSubjectColorFields(values.colorFields);
     }
     else {
@@ -193,4 +195,9 @@ function darkmodeToggleEvent() {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function setHighlightColor(color) {
+    setColorInput(color);
+    setColorInputPicker(color);
 }

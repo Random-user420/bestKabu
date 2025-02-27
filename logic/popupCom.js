@@ -43,6 +43,7 @@ function getPopupInitState() {
         darkmodeState: isDarkModeState(),
         loginState: isLoginState(),
         encState: isEncLoginState(),
+        highlightColor: getColor(),
         colorFields: getColorFields()
     };
 }
