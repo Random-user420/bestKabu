@@ -84,7 +84,14 @@ function createSubjectColorFields(input) {
 
 function saveSubColorEvent() {
     colorFields.forEach(field => {
-        field.color = document.getElementById(`${field.id}Field`).value;
+        let color = document.getElementById(`${field.id}Field`).value;
+        if (!/^#([0-9A-Fa-f]{6})$/.test(color))
+        {
+            document.getElementById(`${field.id}Field`).value = "";
+            color = "";
+            showError("sCMessage", "Some colors in the input Fields have the wrong Fomrat. Color must be written as #rrggbb")
+        }
+        field.color = color;
     });
     setValues("updateColorFields", colorFields, null);
 }

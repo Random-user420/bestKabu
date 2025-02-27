@@ -9,9 +9,6 @@ class objectColorField {
         this.id = id;
     }
 
-    validateColor(color) {
-        return /^#([0-9A-Fa-f]{6})$/.test(color);
-    }
     getColor() {
         const color = document.getElementById(`${this.id}Field`).value;
         if (this.validateColor(color)) {
