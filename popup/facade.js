@@ -123,6 +123,12 @@ function setLoginEncKey(key) {
     document.getElementById('loginEncKey').value = key;
 }
 
+function colorButtonEvent() {
+    setValues('colorButtonEvent', {
+        color: getColorInput()
+    }, colorButtonCallback);
+}
+
 
 
 function showError(id, message) {

@@ -91,7 +91,7 @@ function saveSubColorEvent() {
         {
             document.getElementById(`${field.id}Field`).value = "";
             color = "";
-            showError("sCMessage", "Some colors in the input Fields have the wrong Fomrat. Color must be written as #rrggbb")
+            showError("sCMessage", "Some colors in the input Fields have the wrong Format. Color must be written as #rrggbb")
         }
         field.color = color;
     });
@@ -106,12 +106,6 @@ function resetSubColosCallback(values) {
     colorFields = [];
     document.getElementById('sColors').innerHTML = ""
     createSubjectColorFields(values.colors);
-}
-
-function colorButtonEvent() {
-    setValues('colorButtonEvent', {
-        color: getColorInput()
-    }, colorButtonCallback);
 }
 
 function colorButtonCallback(response) {
