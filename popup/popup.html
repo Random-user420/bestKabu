@@ -14,18 +14,9 @@
 
 <body>
     <h3 data-value="BetterKabu">BestKabu</h3>
-    <p id="pBestKabu">Verwandelt Digikabu in BestKabu</p>
+    <p id="pBestKabu">Changes Digikabu in BestKabu</p>
     <hr class="sectionLine">
     <div hidden id="mainPopup">
-        <div>
-            <h4>ColorPicker</h4>
-            <div id="colorInputField">
-                <input type="color" id="colorPicker" >
-                <input class="styled-input" type="text" maxlength="7" id="colorInput" placeholder="Example: #add8e6">
-                <button type="button" class="styled-button" id="changeColorBtn">Farbe ändern</button>
-            </div>
-        </div>
-        <hr class="sectionLine">
         <div class="autologin">
             <div class="loginHeader">
                 <input type="checkbox" id="loginCheckbox">
@@ -60,6 +51,15 @@
                     <span class="slider round"></span>
                 </label>
                 <img src="icons/moon-solid.svg" width="20px" height="20px" alt="sun icon" class="Icon">
+            </div>
+        </div>
+        <hr class="sectionLine">
+        <div id="HLcolorPicker">
+            <h4>Highlight Color</h4>
+            <div id="colorInputField">
+                <input type="color" id="colorPicker" >
+                <input class="styled-input" type="text" maxlength="7" id="colorInput" placeholder="Example: #add8e6">
+                <button type="button" class="styled-button" id="changeColorBtn">Set color</button>
             </div>
         </div>
         <div id="subjectColors">
