@@ -40,6 +40,10 @@ window.addEventListener('pageshow', () => {
     document.getElementById("setColors").addEventListener("click", () => {
         saveSubColorEvent();
     });
+
+    document.getElementById("resetColors").addEventListener("click", () => {
+        resetSubColorEvent();
+    })
 });
 
 

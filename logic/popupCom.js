@@ -30,6 +30,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         case "updateColorFields":
             updateColorFields(request.values);
             break;
+        case "resetSubColors":
+            sendResponse({ colors: getPresetColorsAsObjects() });
+            break;
         default:
             console.warn("Popup received unknown key: " + request.key);
     }

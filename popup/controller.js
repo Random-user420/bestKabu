@@ -96,6 +96,15 @@ function saveSubColorEvent() {
     setValues("updateColorFields", colorFields, null);
 }
 
+function resetSubColorEvent() {
+    setValues("resetSubColors", null, resetSubColosCallback);
+}
+
+function resetSubColosCallback(values) {
+    colorFields = [];
+    document.getElementById('sColors').innerHTML = ""
+    createSubjectColorFields(values.colors);
+}
 
 function colorButtonEvent() {
     setValues('colorButtonEvent', {

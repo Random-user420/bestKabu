@@ -226,3 +226,10 @@ function retrieveLessonColors() {
         lessonColor = JSON.parse(storedColors);
     }
 }
+
+function getPresetColorsAsObjects() {
+    store("SubCOlors", "");
+    lessonColor = preSetlessonColor;
+    paintLessons();
+    return getColorFields();
+}

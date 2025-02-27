@@ -71,6 +71,28 @@ const timeTable = [
     },
 ];
 
+const preSetlessonColor = {
+    "PuG": "#612f00",
+    "IT-Tec": "#582a8f", 
+    "BGWP": "#b9b372",
+    "E": "#ad9000",
+    "D": "#630000",
+    "AEuP": "#37ae1c",
+    "FU-IT": "#4576cd",
+    "smw": "#0b4700",
+    "K": "#101050",
+    "DGWP": "#242b7e",
+    "TRF": "#401080",
+    "MSWE": "#b9b3f2",
+    "AEmP": "#37ae1c",
+    "IuKS": "#4546cd",
+    "WU-PE": "#79bb84",
+    "Ev": "#103050",
+    "DBS": "#24bb7e",
+    "Mathe": "#4576cd",
+    "BWP-C": "#b9b372"
+}
+
 let lessonColor = {
     "PuG": "#612f00",
     "IT-Tec": "#582a8f", 
