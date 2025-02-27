@@ -10,7 +10,7 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 **Hint:** On some browsers the Extension shows the link to digikabu.de even if you're on the website. Please check your Privacy settings and Extension permissions.
 
 ## Lesson highlighting
-**Note:** Please submit (create an github issue) your school lesson abbreviations to mark them in color 
+**Note:** Please submit (create an github issue) your school lesson abbreviations to set presets for the color.
 
 ## Login by Extension
 
@@ -43,7 +43,7 @@ To change the color of the highlighting: Open the Extension on the digikabu.de w
 ## Current features:
 - Dark mode toggle
 - Login by Extension to make login faster
-- Custom highlighting
+- Custom highlighting of the Subject colors and highliting for the day and hour
 - Time remaining until the next lesson
 
 # Contribution Guide
