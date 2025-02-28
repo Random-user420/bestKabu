@@ -198,6 +198,8 @@ function paintLessons() {
     }
 }
 
+
+//gets the short lesson names from the table
 function getLessonNames(objectColorFields) {
     let lessonNames = [];
 
@@ -209,7 +211,7 @@ function getLessonNames(objectColorFields) {
         }
 
         box = document.getElementById("umgebung");
-        if (box === null || box === undefined) return;
+        if (box === null || box === undefined) return lessonNames;
 
         for (let i = 1; i < 6; i++) {
             let j = 1;
@@ -227,6 +229,7 @@ function getLessonNames(objectColorFields) {
     return lessonNames;
 }
 
+// gets stored colors for subjects
 function retrieveLessonColors() {
     storedColors = retrieve('SubCOlors');
     if (storedColors != null && storedColors != undefined && storedColors != "") {
@@ -234,6 +237,7 @@ function retrieveLessonColors() {
     }
 }
 
+//resets the color and return the standard colors
 function getPresetColorsAsObjects() {
     store("SubCOlors", "");
     lessonColor = preSetlessonColor;

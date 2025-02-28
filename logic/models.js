@@ -8,6 +8,5 @@ class objectColorField {
         this.name = name;
 
         this.id = name.replace("#", "").replace(" ", "").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss");
-        
     }
 }
