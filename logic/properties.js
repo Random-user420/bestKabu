@@ -12,6 +12,7 @@ const darkModeColor = {
     activeTab: "#ffffff",
     glyphicon: "#ffffff",
     timerBackgound: "#434549",
+    highlight: "#002e08"
 }
 const whiteModeColor = {
     navColor: "#767174",
@@ -24,7 +25,8 @@ const whiteModeColor = {
     white: "#000000",
     activeTab: "#000000",
     glyphicon: "#ffffff",
-    timerBackgound: "#A3A5A9"
+    timerBackgound: "#A3A5A9",
+    highlight: "#75ff6b"
 }
 
 

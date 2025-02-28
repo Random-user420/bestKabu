@@ -46,6 +46,7 @@ function toggleVisualMode(darkMode) {
     document.documentElement.style.setProperty('--white', colors.white);
     document.documentElement.style.setProperty('--activeTab', colors.activeTab);
     document.documentElement.style.setProperty('--timerBackgound', colors.timerBackgound);
+    document.documentElement.style.setProperty('--highlight', colors.highlight);
 }
 
 // Marks the current day in the table
