@@ -199,22 +199,28 @@ function paintLessons() {
 
 function getLessonNames(objectColorFields) {
     let lessonNames = [];
-    if (objectColorFields ==! null || objectColorFields ==! undefined) {
-        objectColorFields.forEach(field => {
-            lessonNames.push(field.name);
-        });
-    }
 
-    if (box === null || box === undefined) return;
+    if (urlpath.includes("Stundenplan")) {
+        if (objectColorFields ==! null || objectColorFields ==! undefined) {
+            objectColorFields.forEach(field => {
+                lessonNames.push(field.name);
+            });
+        }
 
-    for (let i = 1; i < 6; i++) {
-        let j = 1;
-        while (box.children[i].children[j] !== null && box.children[i].children[j] !== undefined) {
-            const name = box.children[i].children[j].children[4].textContent;
-            if (name !== "" && !lessonNames.includes(name)) {
-                lessonNames.push(name);
+        box = document.getElementById("umgebung");
+        if (box === null || box === undefined) return;
+
+        for (let i = 1; i < 6; i++) {
+            let j = 1;
+            while (box.children[i].children[j] !== null && box.children[i].children[j] !== undefined) {
+                if ( box.children[i].children[j].children[4] != undefined){
+                    const name = box.children[i].children[j].children[4].textContent;
+                    if (name !== "" && !lessonNames.includes(name)) {
+                        lessonNames.push(name);
+                    }
+                }
+                j++;
             }
-            j++;
         }
     }
     return lessonNames;
