@@ -63,6 +63,10 @@ let colorFields = [];
 
 
 function createSubjectColorFields(input) {
+    if (input == null || input == undefined || input < 1) {
+        document.getElementById("subjectColors").hidden = true;
+    }
+
     values = input.map(val => new objectColorField(val.name, val.color, val.id));
     values.forEach(val => {
         const id = val.id;
