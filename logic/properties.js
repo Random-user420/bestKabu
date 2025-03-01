@@ -95,4 +95,4 @@ const preSetlessonColor = {
     "BWP-C": "#b9b372"
 }
 
-let lessonColor = preSetlessonColor;
+let lessonColor = structuredClone(preSetlessonColor);

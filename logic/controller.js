@@ -240,7 +240,7 @@ function retrieveLessonColors() {
 //resets the color and return the standard colors
 function getPresetColorsAsObjects() {
     store("SubCOlors", "");
-    lessonColor = preSetlessonColor;
+    lessonColor = structuredClone(preSetlessonColor);
     paintLessons();
     return getColorFields();
 }
