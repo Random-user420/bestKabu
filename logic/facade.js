@@ -102,7 +102,7 @@ function updateColorFields(values) {
     });
     paintLessons();
 
-    store("SubCOlors", JSON.stringify(lessonColor));
+    store("SubColors", JSON.stringify(lessonColor));
 }
 
 function getColorFields() {

@@ -231,7 +231,7 @@ function getLessonNames(objectColorFields) {
 
 // gets stored colors for subjects
 function retrieveLessonColors() {
-    storedColors = retrieve('SubCOlors');
+    storedColors = retrieve('SubColors');
     if (storedColors != null && storedColors != undefined && storedColors != "") {
         lessonColor = JSON.parse(storedColors);
     }
@@ -239,7 +239,7 @@ function retrieveLessonColors() {
 
 //resets the color and return the standard colors
 function getPresetColorsAsObjects() {
-    store("SubCOlors", "");
+    store("SubColors", "");
     lessonColor = structuredClone(preSetlessonColor);
     paintLessons();
     return getColorFields();
