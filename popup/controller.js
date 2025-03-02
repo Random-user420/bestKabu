@@ -93,8 +93,8 @@ function saveSubColorEvent() {
         let color = document.getElementById(`${field.id}Field`).value;
         if (!/^#([0-9A-Fa-f]{6})$/.test(color))
         {
-            document.getElementById(`${field.id}Field`).value = "";
-            color = "";
+            document.getElementById(`${field.id}Field`).value = document.getElementById(`${field.id}Picker`).value.toLowerCase();
+            color = document.getElementById(`${field.id}Picker`).value.toLowerCase();
             showError("sCMessage", "Some colors in the input Fields have the wrong Format. Color must be written as #rrggbb")
         }
         field.color = color;
