@@ -189,9 +189,10 @@ function paintLessons() {
         while (box.children[i].children[j] !== null && box.children[i].children[j] !== undefined) {
             if (box.children[i].children[j].children[1].classList.contains("regStd")) {
                 color = lessonColor[box.children[i].children[j].children[4].textContent];
-                if (color !== undefined) {
-                    box.children[i].children[j].children[1].setAttribute("style", `fill: ${color} !important;`);
+                if (color == undefined) {
+                    color = getColorFromHash(getHash(box.children[i].children[j].children[4].textContent))
                 }
+                box.children[i].children[j].children[1].setAttribute("style", `fill: ${color} !important;`);
             }
             j++;
         }
@@ -241,6 +242,23 @@ function retrieveLessonColors() {
 function getPresetColorsAsObjects() {
     store("SubColors", "");
     lessonColor = structuredClone(preSetlessonColor);
-    paintLessons();
     return getColorFields();
+}
+
+// creates a 32bit hash from a String
+// @original author Sebastian Weidner
+function getHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = (hash << 5) - hash + char;
+        hash |= 0;
+    }
+    return hash;
+}
+
+//creates a color from a hash value
+// @original author Sebastian Weidner
+function getColorFromHash(hash) {
+    return  `#${(hash & 0xFFFFFF).toString(16).padStart(6, '0')}`;
 }

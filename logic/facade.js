@@ -106,12 +106,20 @@ function updateColorFields(values) {
 }
 
 function getColorFields() {
+    //sets stored colors to lessonColor Object
     retrieveLessonColors()
-    let objectColorFields = [];
 
+    let objectColorFields = [];
     const lessonNames = getLessonNames(objectColorFields);
     lessonNames.forEach(name => {
-        objectColorFields.push(new objectColorField(name, lessonColor[name], null))
+        let color = lessonColor[name];
+        if (color == undefined || color == null)
+        {
+            color = getColorFromHash(getHash(name));
+            lessonColor[name] = color;
+        }
+        objectColorFields.push(new objectColorField(name, color, null))
     });
+    paintLessons();
     return objectColorFields;
 }
