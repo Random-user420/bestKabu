@@ -1,11 +1,13 @@
 # BestKabu Browser Extension
-A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ouihq](https://github.com/ouihq/betterKabu)
+A Simple Browser extension that makes Digikabu.de better. This is synced from the fork of [@Random-user420](https://github.com/Random-user420/bestKabu)
+### If there are bugs/feature requests, please create an issue in the fork Project [@Random-user420](https://github.com/Random-user420/bestKabu)
 
 # Usage
 
-### Chromium: [here](https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg)
-### Firefox*: Use the .xpi file in the latest -fire release
-**Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It already should work fine in debugger mode.
+### Chromium*: [here](https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg)
+***IMPORTNANT:** The Extension in the Chrome store is managed by the developer of the fork [@Random-user420](https://github.com/Random-user420/bestKabu)
+
+****Note:** Normal Firefox support is disabled due to updating isses in this version. Please use the fork.
 
 **Hint:** On some browsers the Extension shows the link to digikabu.de even if you're on the website. Please check your Privacy settings and Extension permissions.
 
@@ -71,14 +73,9 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 # Warranty
 ** We don't provide any sort of warranty on this programm **
 
-**contact: bestkabu@vleov.de**
-
-
-\* the update server script is in this repo: https://github.com/Random-user420/bestKabuGoFirefoxUpdateApi
-
 ## Contributors ✨
 
 <p>Thanks to all the contributors who helped improve this project:</p>
-<a href="https://github.com/Random-user420/bestKabu/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Random-user420/bestKabu" />
+<a href="https://github.com/ouihq/betterKabu/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ouihq/betterKabu" />
 </a>
