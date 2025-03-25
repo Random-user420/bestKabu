@@ -95,31 +95,37 @@ function callHidePassedDays() {
 }
 
 function updateColorFields(values) {
-    values.forEach(element => {
-        if(validateColor(element.color)) {
-            lessonColor[element.name] = element.color;
-        }
-    });
-    paintLessons();
 
-    store("SubColors", JSON.stringify(lessonColor));
+    if (urlpath.includes("Stundenplan")) {
+        values.forEach(element => {
+            if(validateColor(element.color)) {
+                lessonColor[element.name] = element.color;
+            }
+        });
+        paintLessons();
+
+        store("SubColors", JSON.stringify(lessonColor));
+    }
 }
 
 function getColorFields() {
-    //sets stored colors to lessonColor Object
-    retrieveLessonColors()
 
-    let objectColorFields = [];
-    const lessonNames = getLessonNames(objectColorFields);
-    lessonNames.forEach(name => {
-        let color = lessonColor[name];
-        if (color == undefined || color == null)
-        {
-            color = getColorFromHash(getHash(name));
-            lessonColor[name] = color;
-        }
-        objectColorFields.push(new objectColorField(name, color, null))
-    });
-    paintLessons();
-    return objectColorFields;
+    if (urlpath.includes("Stundenplan")) {
+        //sets stored colors to lessonColor Object
+        retrieveLessonColors()
+
+        let objectColorFields = [];
+        const lessonNames = getLessonNames(objectColorFields);
+        lessonNames.forEach(name => {
+            let color = lessonColor[name];
+            if (color == undefined || color == null)
+            {
+                color = getColorFromHash(getHash(name));
+                lessonColor[name] = color;
+            }
+            objectColorFields.push(new objectColorField(name, color, null))
+        });
+        paintLessons();
+        return objectColorFields;
+    }
 }
