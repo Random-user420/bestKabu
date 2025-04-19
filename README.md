@@ -74,7 +74,7 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 **contact: lilithtechs@protonmail.com**
 
 
-\* the update server script is in this repo: https://github.com/Random-user420/bestKabuGoFirefoxUpdateApi
+\* the update server is currently offline
 
 ## Contributors ✨
 
