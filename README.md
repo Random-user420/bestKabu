@@ -84,7 +84,8 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 </a>
 
 # Copyright
-For Everything that is comitted under "Random-user420" or as "les"
+For Everything that is comitted under "Random-user420"
+
 (C) 2025 Lilith
 
 This program is free software; you can redistribute it and/or modify
