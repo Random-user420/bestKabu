@@ -1,7 +1,7 @@
 {
     "name": "BestKabu",
     "description": "BestKabu: Improve your experience of digikabu.de",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "manifest_version": 3,
     "icons": {
         "16": "/icons/icon16.png",
@@ -21,8 +21,7 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "bestKabu@lilith.de",
-            "strict_min_version": "111.0",
-            "update_url": "https://lilith.v6.rocks/update/"
+            "strict_min_version": "111.0"
         }
     },
     "permissions": [
