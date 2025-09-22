@@ -230,6 +230,22 @@ function getLessonNames(objectColorFields) {
     return lessonNames;
 }
 
+function rewriteFirstBreak() {
+    let box = document.getElementsByClassName("text2");
+    let isFirst = true;
+    for (let i in box) {
+        if (box[i] !== undefined && box[i].innerHTML == "10:00")
+        {
+            if (isFirst)
+            {
+                isFirst = false;
+                continue;
+            }
+            box[i].innerHTML = "10:15"
+        }
+    }
+}
+
 // gets stored colors for subjects
 function retrieveLessonColors() {
     storedColors = retrieve('SubColors');

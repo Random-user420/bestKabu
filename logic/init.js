@@ -23,6 +23,7 @@ function init() {
         callHidePassedDays();
         retrieveLessonColors();
         highlightLessons();
+        rewriteFirstBreak();
     }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
         createTimer();
