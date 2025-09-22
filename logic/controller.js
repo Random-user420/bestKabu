@@ -230,6 +230,7 @@ function getLessonNames(objectColorFields) {
     return lessonNames;
 }
 
+// change the beginn of the 3rd lesson from 10:00 to 10:15
 function rewriteFirstBreak() {
     let box = document.getElementsByClassName("text2");
     let isFirst = true;
