@@ -40,7 +40,7 @@ const timeTable = [
         end: [10, 0],
     },
     {
-        start: [10, 0],
+        start: [10, 15],
         end: [11, 0],
     },
     {
