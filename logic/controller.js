@@ -230,21 +230,28 @@ function getLessonNames(objectColorFields) {
     return lessonNames;
 }
 
-// change the beginn of the 3rd lesson from 10:00 to 10:15
-function rewriteFirstBreak() {
-    let box = document.getElementsByClassName("text2");
-    let isFirst = true;
-    for (let i in box) {
-        if (box[i] !== undefined && box[i].innerHTML == "10:00")
-        {
-            if (isFirst)
-            {
-                isFirst = false;
-                continue;
-            }
-            box[i].innerHTML = "10:15"
-        }
+
+// Adjusts the displayed times for any lesson that is 60 minutes long.
+
+function adjustLessonTimes() {
+  const lessonGroups = document.querySelectorAll('g');
+
+  lessonGroups.forEach(group => {
+    const timeTextElements = group.querySelectorAll('text.text2');
+
+    if (timeTextElements.length >= 3) {
+      const startTimeString = timeTextElements[0].textContent;
+      const endTimeString = timeTextElements[2].textContent;
+
+      const startMinutes = parseInt(startTimeString.split(':')[0]) * 60 + parseInt(startTimeString.split(':')[1]);
+      const endMinutes = parseInt(endTimeString.split(':')[0]) * 60 + parseInt(endTimeString.split(':')[1]);
+      const duration = endMinutes - startMinutes;
+
+      if (duration === 60) {
+        timeTextElements[0].textContent = add15Minutes(startTimeString);
+      }
     }
+  });
 }
 
 // gets stored colors for subjects
@@ -278,4 +285,20 @@ function getHash(str) {
 // @original author Sebastian Weidner
 function getColorFromHash(hash) {
     return  `#${(hash & 0xFFFFFF).toString(16).padStart(6, '0')}`;
+}
+
+/**
+ * Adds 15 minutes to a time string in "HH:mm" format.
+ * @param {string} timeString - The time string (e.g., "10:00").
+ * @returns {string} The new time string.
+ */
+function add15Minutes(timeString) {
+  const [hours, minutes] = timeString.split(':').map(Number);
+  const date = new Date();
+  date.setHours(hours, minutes, 0, 0);
+  date.setMinutes(date.getMinutes() + 15);
+
+  const newHours = String(date.getHours()).padStart(2, '0');
+  const newMinutes = String(date.getMinutes()).padStart(2, '0');
+  return `${newHours}:${newMinutes}`;
 }
